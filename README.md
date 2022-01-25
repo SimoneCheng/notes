@@ -9,6 +9,7 @@
 ## 🐳 文章列表
 ### 2022年
 - `2022-01-19` [什麼是 Pure Function？在 React 當中的重要性是什麼？](https://github.com/SimoneCheng/notes/issues/1)
+- - `2022-01-25` [Vue & React 初開發比較與心得](https://github.com/SimoneCheng/notes/issues/2)
 
 ## 🐳 共同作者
 - [@emilycodeee](https://github.com/emilycodeee)
