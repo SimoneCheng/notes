@@ -1,3 +1,4 @@
+
 # 📝 notes 
 
 #### 👻 Learning something every week! 👻
@@ -8,9 +9,10 @@
 
 ## 🐳 文章列表
 ### 2022年
-- `2022-01-19` [什麼是 Pure Function？在 React 當中的重要性是什麼？](https://github.com/SimoneCheng/notes/issues/1)
+- `2022-01-19` [【React】什麼是 Pure Function？在 React 當中的重要性是什麼？](https://github.com/SimoneCheng/notes/issues/1)
 - `2022-01-25` [Vue & React 初開發比較與心得](https://github.com/SimoneCheng/notes/issues/2)
-- `2022-01-29` [metadata 、`<meta>` 知多少](https://github.com/SimoneCheng/notes/issues/3)
+- `2022-01-29` [【HTML】metadata 、`<meta>` 知多少](https://github.com/SimoneCheng/notes/issues/3)
+- `2022-03-07` [【JavaScript: Understanding the Weird Parts】Execution Contexts & Lexical Environments](https://github.com/SimoneCheng/notes/issues/4)
 
 ## 🐳 共同作者
 - [@emilycodeee](https://github.com/emilycodeee)
