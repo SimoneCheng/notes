@@ -1,3 +1,7 @@
+---
+date: 2022-03-11
+---
+
 # Execution Contexts & Lexical Environments
 
 - [Execution Contexts & Lexical Environments](#execution-contexts--lexical-environments)
