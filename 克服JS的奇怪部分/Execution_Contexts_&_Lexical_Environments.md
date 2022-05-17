@@ -1,9 +1,6 @@
 # Execution Contexts & Lexical Environments
 
-## :whale: 目錄
-
 - [Execution Contexts & Lexical Environments](#execution-contexts--lexical-environments)
-  - [:whale: 目錄](#whale-目錄)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
     - [:crab: Syntax Parser 語意分析](#crab-syntax-parser-語意分析)
     - [:crab: Lexical Environment 詞彙環境](#crab-lexical-environment-詞彙環境)
@@ -44,7 +41,7 @@ style B fill:#FFFF93,stroke:#C6A300
 
 當我們在寫 JavaScript 的時候，Lexical Environment 關注的是這個 function 被寫在這個程式中的哪個部分，以及它周遭的環境是什麼，有了 Lexical Environment，可以讓 Syntax Parser 更容易解析整個程式碼，比如說以下的程式碼：
 
-```javascript=
+```javascript
 function Greeting() {
     const a  = "Hello World!";
     console.log(a);
@@ -76,7 +73,7 @@ function Greeting() {
 ### :crab: JavaScript and 'undefined'
 直接來看看兩個不同的例子：
 
-```javascript=
+```javascript
 // 範例一
 var a;
 console.log(a);
@@ -84,7 +81,7 @@ console.log(a);
 // 印出 undefined
 ```
 
-```javascript=
+```javascript
 // 範例二
 console.log(a);
 
@@ -127,7 +124,7 @@ JavaScript 是同步執行的，也就是說做完一件事情，才會做下一
 
 假設目前在瀏覽器中使用 `var` 宣告一個變數 a ，而且這個變數 a 等於 1 時，其實就是在瀏覽器當中的 Global Object 中建立一個 Name/Value Pair，所以可以透過 `window.a` 這個指令來找到剛才宣告的變數 a。如以下程式碼所示：
 
-```javascript=
+```javascript
 var a = 1;
 
 a // 1
@@ -144,7 +141,7 @@ window.a // 1
 ### :crab: Creation and Hoisting
 在開始說明 JavaScript Engine 如何創建執行環境時，我們先來看看 JavaScript 的特殊現象「Hoisting」。首先來看看以下範例一的程式碼：
 
-```javascript=
+```javascript
 // 範例一
 var a = 'Hello World!';
 
@@ -159,7 +156,7 @@ console.log(a);
 將上述的程式碼執行之後，我們可以很輕鬆也如常的預期會先印出 `Called b!`，再印出　`Hello World!`，但如果我們把程式碼改成下面這樣呢？
 
  
- ```javascript=
+ ```javascript
 // 範例二
 b();
 console.log(a);
@@ -173,14 +170,14 @@ function b() {
 
 如果程式碼是從上到下，一行一行依序執行的話，照理來說在跑第一行的時候就會報錯，因為我們在尚未宣告變數和函數時，就對該變數或函數進行呼叫。但在 JavaScript 裡面卻不是這樣，將以上程式碼執行之後，JavaScript會幫我們印出：
 
-```javascript=
+```javascript
 Called b!
 undefined
 ```
 
 JavaScript 並沒有幫我們報錯，反而印出東西來，這是因為在這當中存在著「Hoisting」的現象。很多網路上對「Hoisting」的解釋大部分都是：想像 JavaScript Engine 將所寫的宣告的程式碼（但如果是宣告變數的話，只會提升宣告的變數，不會連同賦值的部分一起提升）提升到最上面的地方，比如想像範例二的程式碼變成如下：
 
-```javascript=
+```javascript
 funciton b() {
     console.log('Called b!');
 }
@@ -255,7 +252,7 @@ JavaScript 在執行程式碼的時候就比較好理解了，不會有什麼 Ho
 
 當使用 JavaScript 呼叫函式的時候，底層做了什麼樣的事情？換句話說，函式被我們呼叫以後，JavaScript 是怎麼執行這些函式的？我們可以試著用以下的程式碼來舉例：
 
-```javascript=
+```javascript
 function b() {
     
 }
@@ -306,7 +303,7 @@ a();
 
 在每個 Execution Context 被創建之後，同時該 Execution Context 也會有一個自己的 Variable Environment。我們可以透過以下的程式碼為例，來說明 Variable Environment 在 JavaScript 中是如何被建立的。
 
-```javascript=
+```javascript
 function b() {
     var myVar;
 }
@@ -375,7 +372,7 @@ a()
 ---
 
 首先來觀察狀況一，`b()` 裡面的 `console.log(myVar)` 會印出什麼？
-```javascript=
+```javascript
 // 狀況一
 function b() {
     console.log(myVar);
@@ -396,7 +393,7 @@ a()
 
 接下來來看看狀況二，在狀況二的程式碼中，`b()` 裡面的 `console.log(myVar)` 會印出什麼？
 
-```javascript=
+```javascript
 // 狀況二
 function a() {
     function b() {
@@ -417,7 +414,7 @@ a();
 
 接下來來看看狀況三，在狀況三的程式碼中，`b()` 裡面的 `console.log(myVar)` 會印出什麼？
 
-```javascript=
+```javascript
 // 狀況三
 function a() {
     function b() {
