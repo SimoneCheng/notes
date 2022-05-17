@@ -12,4 +12,9 @@
 ### 克服 JS 的奇怪部分
 > 記錄上 `JavaScript: Understanding the Weird Parts` 這堂課的筆記。
 
-- [Execution Contexts & Lexical Environments](克服JS的奇怪部分/Execution_Contexts_&_Lexical_Environments.md)
+- [Execution Contexts & Lexical Environments](克服JS的奇怪部分/Execution_Contexts_and_Lexical_Environments.md)
+- [Types and Operators](克服JS的奇怪部分/Types_and_Operators.md)
+- [Objects and Functions](克服JS的奇怪部分/Objects_and_Functions.md)
+
+### HTML
+- [metadata、meta 知多少](HTML/metadata.md)

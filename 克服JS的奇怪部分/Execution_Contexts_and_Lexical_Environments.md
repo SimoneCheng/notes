@@ -1,3 +1,7 @@
+---
+date: 2022-03-11
+---
+
 # Execution Contexts & Lexical Environments
 
 - [Execution Contexts & Lexical Environments](#execution-contexts--lexical-environments)
@@ -460,3 +464,7 @@ a();
 在前面的影片有提到 JavaScript 是一個單執行緒、同步的語言（一次只做一件事情），但是在瀏覽器當中卻可以做到非同步（一次做很多件事情），這到底是如何辦到的？是因為有瀏覽器這個執行的環境，它可以先做一些非同步的處理，然後再將處理好的函數一一丟到 JavaScript Engine 當中去執行。
 
 瀏覽器處理非同步的過程有個專有名詞稱為 Event Loop，也許之後可以再寫一篇筆記來記錄瀏覽器當中的 Event Loop 是如何運作的。
+
+
+|[ ➡️ 回到 README](../README.md)|
+|---|
