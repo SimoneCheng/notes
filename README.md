@@ -14,3 +14,7 @@
 
 - [Execution Contexts & Lexical Environments](克服JS的奇怪部分/Execution_Contexts_and_Lexical_Environments.md)
 - [Types and Operators](克服JS的奇怪部分/Types_and_Operators.md)
+- [Objects and Functions](克服JS的奇怪部分/Objects_and_Functions.md)
+
+### HTML
+- [metadata、meta 知多少](HTML/metadata.md)

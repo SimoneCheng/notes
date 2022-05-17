@@ -466,5 +466,5 @@ a();
 瀏覽器處理非同步的過程有個專有名詞稱為 Event Loop，也許之後可以再寫一篇筆記來記錄瀏覽器當中的 Event Loop 是如何運作的。
 
 
-|[▶️ 回到 README](../README.md)|
+|[ ➡️ 回到 README](../README.md)|
 |---|
