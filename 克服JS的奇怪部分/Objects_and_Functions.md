@@ -8,6 +8,7 @@ date: 2022-05-17
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
     - [:crab: Namespace](#crab-namespace)
     - [:crab: First Class Function](#crab-first-class-function)
+    - [:crab: Mutate](#crab-mutate)
   - [:whale: Objects and Dot](#whale-objects-and-dot)
   - [:whale: Funtcions are Objects](#whale-funtcions-are-objects)
   - [:whale: Function Statements and Function Expressions](#whale-function-statements-and-function-expressions)
@@ -15,6 +16,9 @@ date: 2022-05-17
     - [:crab: Function Expression 表達式](#crab-function-expression-表達式)
     - [:crab: 兩者之間的差別](#crab-兩者之間的差別)
   - [:whale: By Value and By Reference](#whale-by-value-and-by-reference)
+    - [🦀 By Value](#-by-value)
+    - [:crab: By Reference](#crab-by-reference)
+    - [:crab: 小小結論](#crab-小小結論)
 
 ## :whale: Concept Asides 名詞解釋
 
@@ -36,6 +40,10 @@ console.log(spanish.greet);
 ### :crab: First Class Function
 > Everything you can do with other types you can do with functions.
 > Assign them to variables, pass them around, create them on the fly.
+
+### :crab: Mutate
+> To change something.  
+> **Immutable** means it can't be changed. 
 
 ## :whale: Objects and Dot
 
@@ -118,6 +126,44 @@ const greet = function() {
 
 ## :whale: By Value and By Reference
 
+### 🦀 By Value
+
+目前有下列的程式碼：
+```javascript
+const a = 1; // primitive value
+b = a;
+```
+
+如果 a 這個變數的值是一個 primitive type（例如數字、字串、布林值等等）的話，當我們將 a 賦值給 b 的時候，其實是會將 a 的值複製出一個新的，然後將它儲存在另外一個新的記憶體區塊，再把新的記憶體區塊 reference 到 b，如下圖所示：
+![](images/byvalue.png)
+
+### :crab: By Reference
+
+接下來以下面的程式碼範例為例，來舉例什麼是 **by reference**：
+```javascript
+const a = { firstName: 'John', LastName: 'Walker' };
+const b = a;
+
+b.firstName = 'Ben';
+console.log(b.firstName);
+console.log(a.firstName); // a.firstName 會印出什麼？
+```
+
+從上述程式碼中可以知道，我們將 a 這個變數指向一個 object，然後再將 b 指向 a，最後去修改 b 這個 object 裡面的 property，但結果卻發現 a 裡面的 property 也被我們修改到了，也就是說我們不管是修改 b 或是修改 a 都會修改到同一個 object。
+
+為什麼會發生上述這件事呢？是因為當資料型態是 reference type (object, array...) 的時候，JavaScript 是透過 **by reference** 去傳遞參數的，也就是如下圖所示：
+
+![](images/byreference.png)
+
+其實 a 和 b 這兩個變數都指向同一個記憶體區塊（也就是 object 的所在位置），所以不管是透過 a 或 b 來修改 object，都是修改到同樣的東西。
+
+### :crab: 小小結論
+
+> 知道 **by value** 和 **by reference** 的差別，有助於程式開發和除錯。
+
+在這邊會討論到 **by value** 和 **by reference** 的差別主要是因為，當我們在進行程式開發或是除錯的時候，會需要處理非常多各式各樣的資料型態。
+
+當如果不小心改動的原本的資料時，可能會導致某些 function 出錯，此時知道 **by value** 和 **by referenct** 的差異可以更好的去避免改動到原始資料，降低產生 bug 的機率！
 
 |[ ➡️ 回到 README](../README.md)|
 |---|
