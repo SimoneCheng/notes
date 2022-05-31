@@ -19,6 +19,7 @@ date: 2022-05-17
     - [🦀 By Value](#-by-value)
     - [:crab: By Reference](#crab-by-reference)
     - [:crab: 小小結論](#crab-小小結論)
+  - [:whale: Objects, Funcitons, and `this`](#whale-objects-funcitons-and-this)
 
 ## :whale: Concept Asides 名詞解釋
 
@@ -164,6 +165,45 @@ console.log(a.firstName); // a.firstName 會印出什麼？
 在這邊會討論到 **by value** 和 **by reference** 的差別主要是因為，當我們在進行程式開發或是除錯的時候，會需要處理非常多各式各樣的資料型態。
 
 當如果不小心改動的原本的資料時，可能會導致某些 function 出錯，此時知道 **by value** 和 **by referenct** 的差異可以更好的去避免改動到原始資料，降低產生 bug 的機率！
+
+## :whale: Objects, Funcitons, and `this`
+
+前面的幾部影片有提到 function 在執行的時候，會有一個 funciton 自己的 execute content 和 variable environment，並透過 scope chain 去拿到 outer environment 的變數，除此之外還會有一個東西——叫做 **`this`**，接下來這個部分會特別針對 **`this`** 來做說明。
+
+首先，先來看看幾個簡單的例子：
+```javascript
+console.log(this);
+```
+
+```javascript
+function a() {
+  console.log(this);
+}
+
+a();
+```
+
+```javascript
+const b = funciton() {
+  console.log(this);
+}
+
+b();
+```
+
+如果我們將上述三個程式碼放到瀏覽器當中去執行的話，可以知道這三個印出來的東西都是 window，也就是說，按照上面的方式（寫在 function 當中然後直接執行，或是直接執行）去呼叫 `this`，它所指向的東西都是 window 這個 global object。
+
+接下來我們試試用在 object 裡面建立 method 的方式來呼叫 `this`：
+```javascript
+const c = {
+  name: 'The c object',
+  log: function() {
+    console.log(this);
+  }
+};
+
+c.log();
+```
 
 |[ ➡️ 回到 README](../README.md)|
 |---|
