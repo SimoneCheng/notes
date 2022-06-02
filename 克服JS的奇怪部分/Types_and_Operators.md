@@ -1,6 +1,6 @@
 # Types and Operators
 
-{docsify-updated} 
+2022/03/15
 
 - [Types and Operators](#types-and-operators)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)

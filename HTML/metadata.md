@@ -1,6 +1,6 @@
 # metadata、`<meta>` 知多少
 
-{docsify-updated} 
+2022/01/29
 
 - [metadata、`<meta>` 知多少](#metadatameta-知多少)
   - [:whale: 前言](#whale-前言)

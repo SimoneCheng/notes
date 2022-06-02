@@ -1,6 +1,6 @@
 # Execution Contexts & Lexical Environments
 
-{docsify-updated} 
+2022/03/11
 
 - [Execution Contexts & Lexical Environments](#execution-contexts--lexical-environments)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)

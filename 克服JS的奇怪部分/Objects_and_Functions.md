@@ -1,6 +1,6 @@
 # Objects and Functions
 
-{docsify-updated} 
+2022/06/02
 
 - [Objects and Functions](#objects-and-functions)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
