@@ -129,8 +129,8 @@ JavaScript 是同步執行的，也就是說做完一件事情，才會做下一
 ```javascript
 var a = 1;
 
-a // 1
-window.a // 1
+a; // 1
+window.a; // 1
 ```
 
 !> es6 新增了兩個新的宣告方式 `const` 以及 `let`，這兩個的用法與 `var` 不同，如果在全域環境使用 `const` 或 `let`，並不會在 Global Object 中建立一個 Name/Value Pair，避免了一些使用 `var` 會產生的問題。這三者的比較可能會之後再寫一篇筆記做更深入探討。
@@ -306,11 +306,11 @@ function b() {
 
 function a() {
     var myVar = 2;
-    b()
+    b();
 }
 
 var myVar = 1;
-a()
+a();
 ```
 
 當上述程式碼被執行之後，myVar 會是什麼值？程式碼執行後，JavaScript Engine 會分別在 Global、a()、b() 各自的 Execution Context 中各建立一個 Variable Environment，所以 myVar 在不同的 Execution Context 當中就會有不同的值，需要先觀察目前程式碼執行到哪邊，再去判斷 myVar 目前的值。如下圖：
@@ -372,15 +372,15 @@ a()
 // 狀況一
 function b() {
     console.log(myVar);
-};
+}
 
 function a() {
     var myVar = 2;
     b();
-};
+}
 
 var myVar = 1;
-a()
+a();
 ```
 
 因為 `b()` 裡面並沒有宣告 `myVar` 這個變數，所以 JavaScript Engine 會藉由 Lexical Context 去檢查 `function b` 在哪個環境被宣告的，檢查之後發現是在全域，於是 JavaScript Engine 又在全域環境中檢查是不是有 `myVar` 這個變數，然後發現有，於是便印出 `1`。
@@ -394,11 +394,11 @@ a()
 function a() {
     function b() {
         console.log(myVar);
-    };
+    }
     
     var myVar = 2;
     b();
-};
+}
 
 var myVar = 1;
 a();
@@ -415,7 +415,7 @@ a();
 function a() {
     function b() {
         console.log(myVar);
-    };
+    }
     b();
 }
 
