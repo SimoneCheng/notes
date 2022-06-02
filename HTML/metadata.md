@@ -1,8 +1,6 @@
----
-date: 2022-01-29
----
-
 # metadata、`<meta>` 知多少
+
+{docsify-updated} 
 
 - [metadata、`<meta>` 知多少](#metadatameta-知多少)
   - [:whale: 前言](#whale-前言)
@@ -26,7 +24,7 @@ date: 2022-01-29
 
 ## :whale: 前言
 
-今天想要研究的主題是，網頁前端世界裡的三本柱 ── `HTML`、`CSS`、`JavaScript` 之中的 **`HTML`**。雖然 `HTML` 並非如同 `JavaScript` 有很多程式語言相關的主題與議題能夠探討，但是也是有一些有趣的主題值得研究和探索。
+今天想要研究的主題是，網頁前端世界裡的三本柱 ── `HTML`、`CSS`、`JavaScript` 之中的 `HTML`。雖然 `HTML` 並非如同 `JavaScript` 有很多程式語言相關的主題與議題能夠探討，但是也是有一些有趣的主題值得研究和探索。
 
 之前在寫 side project 或是技術面試被問到該如何優化 SEO 時，當時只有辦法大概回答出可以透過 `HTML` 當中的 metadata 去優化 SEO，但是並不清楚 metadata 實際上有哪些用法，或是可以做到哪些事情，所以這次想要試著以一種更詳細和全面的角度來理解 `HTML` 當中會使用到的 metadata 和 `<meta>` 這兩個東西。（當然有機會的話，之後也想要寫一個 SEO 的系列文來理解 SEO 和知道如何優化它）
 
@@ -235,7 +233,7 @@ http-equiv 會告訴瀏覽器該如何處理這份文件。
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 ```
 
-```//
+```
 // 伺服器回傳的 headers
 Content-Type: text/html; charset=utf-8
 ```
@@ -274,8 +272,7 @@ http-equiv 還有另外一個用法是 refresh，可以設定幾秒過後重新�
 <meta property="og:description" content="The Open Graph protocol enables any web page to become a rich object in a social graph.">
 ```
 
-| Open Graph 的官方文件由此去：https://ogp.me/ |
-|---|
+?> Open Graph 的官方文件由此去：https://ogp.me/
 
 ## :whale: 結語
 
@@ -287,7 +284,3 @@ http-equiv 還有另外一個用法是 refresh，可以設定幾秒過後重新�
 - [What is metadata? - iT邦幫忙](https://ithelp.ithome.com.tw/articles/10237545)
 - [What’s in the head? Metadata in HTML - mozilla](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
 - [meta: The metadata element - mozilla](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
-
-
-|[ ➡️ 回到 README](../README.md)|
-|---|

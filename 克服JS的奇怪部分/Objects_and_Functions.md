@@ -1,8 +1,6 @@
----
-date: 2022-05-17
----
-
 # Objects and Functions
+
+{docsify-updated} 
 
 - [Objects and Functions](#objects-and-functions)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
@@ -204,6 +202,3 @@ const c = {
 
 c.log();
 ```
-
-|[ ➡️ 回到 README](../README.md)|
-|---|
