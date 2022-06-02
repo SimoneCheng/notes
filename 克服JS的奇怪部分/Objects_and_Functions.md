@@ -166,7 +166,7 @@ console.log(a.firstName); // a.firstName 會印出什麼？
 
 ## :whale: Objects, Funcitons, and `this`
 
-前面的幾部影片有提到 function 在執行的時候，會有一個 funciton 自己的 execute content 和 variable environment，並透過 scope chain 去拿到 outer environment 的變數，除此之外還會有一個東西——叫做 **`this`**，接下來這個部分會特別針對 **`this`** 來做說明。
+前面的幾部影片有提到 function 在執行的時候，會有一個 funciton 自己的 execute content 和 variable environment，並透過 scope chain 去拿到 outer environment 的變數，除此之外還會有一個東西——叫做 `this`，接下來這個部分會特別針對 `this` 來做說明。
 
 首先，先來看看幾個簡單的例子：
 ```javascript
