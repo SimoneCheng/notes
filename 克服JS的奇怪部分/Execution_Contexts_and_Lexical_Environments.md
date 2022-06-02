@@ -1,8 +1,6 @@
----
-date: 2022-03-11
----
-
 # Execution Contexts & Lexical Environments
+
+{docsify-updated} 
 
 - [Execution Contexts & Lexical Environments](#execution-contexts--lexical-environments)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
@@ -58,8 +56,8 @@ function Greeting() {
 
 ### :crab: Execution Context 執行環境
 
-> A wrapper to help manage the code that is running.
-> There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain things beyond what you've written in your code.
+>  A wrapper to help manage the code that is running.
+>  There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain things beyond what you've written in your code.
 
 當我們寫好程式碼之後，我們該如何知道它是按照什麼樣的順序被電腦執行的？整個程式碼的執行流程是如何安排的？這就是 Execution Context 需要做的工作。
 
@@ -135,10 +133,7 @@ a // 1
 window.a // 1
 ```
 
-
-|:bulb: **特別注意** :bulb:|
-|---|
-|es6 新增了兩個新的宣告方式 `const` 以及 `let`，這兩個的用法與 `var` 不同，如果在全域環境使用 `const` 或 `let`，並不會在 Global Object 中建立一個 Name/Value Pair，避免了一些使用 `var` 會產生的問題。這三者的比較可能會之後再寫一篇筆記做更深入探討。|
+!> es6 新增了兩個新的宣告方式 `const` 以及 `let`，這兩個的用法與 `var` 不同，如果在全域環境使用 `const` 或 `let`，並不會在 Global Object 中建立一個 Name/Value Pair，避免了一些使用 `var` 會產生的問題。這三者的比較可能會之後再寫一篇筆記做更深入探討。
 
 ## :whale: The Execution Context
 
@@ -220,10 +215,7 @@ a = 'Hello World!';
 └────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-
-|:bulb: 特別注意 :bulb:|
-|---|
-|盡量在執行函數或使用變數之前先宣告他們，不要過度依賴於 Hoisting 的現象。因為你不知道你宣告的變數有沒有可能會變成 undefined。|
+!> 盡量在執行函數或使用變數之前先宣告他們，不要過度依賴於 Hoisting 的現象。因為你不知道你宣告的變數有沒有可能會變成 undefined。
 
 
 ### :crab: Code Execution
@@ -464,7 +456,3 @@ a();
 在前面的影片有提到 JavaScript 是一個單執行緒、同步的語言（一次只做一件事情），但是在瀏覽器當中卻可以做到非同步（一次做很多件事情），這到底是如何辦到的？是因為有瀏覽器這個執行的環境，它可以先做一些非同步的處理，然後再將處理好的函數一一丟到 JavaScript Engine 當中去執行。
 
 瀏覽器處理非同步的過程有個專有名詞稱為 Event Loop，也許之後可以再寫一篇筆記來記錄瀏覽器當中的 Event Loop 是如何運作的。
-
-
-|[ ➡️ 回到 README](../README.md)|
-|---|

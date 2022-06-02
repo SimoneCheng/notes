@@ -1,8 +1,6 @@
----
-date: 2022-03-15
----
-
 # Types and Operators
+
+{docsify-updated} 
 
 - [Types and Operators](#types-and-operators)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
@@ -83,9 +81,7 @@ console.log(c);
 
 在這個範例中，和其他程式語言不同，JavaScript 不會因為這兩個值的型別不同而報錯，反而會嘗試將這兩個值轉成相同的型別，所以此時數字 1 會被轉型成字串 1，然後再與字串 2 相加，最後會印出字串 12。這個現象就是 Coercison。理解在 JavaScript 中有這個現象後，更容易在撰寫程式的時候避免許多因為轉型造成的錯誤。
 
-| ℹ️ INFO ℹ️ |
-|---|
-|目前學到的轉型規則：當有兩個東西「相加」的時候，如果其中一個東西是字串，JavaScript 會嘗試將另一個東西也轉成字串。|
+?> 目前學到的轉型規則：當有兩個東西「相加」的時候，如果其中一個東西是字串，JavaScript 會嘗試將另一個東西也轉成字串。
 
 
 ## :whale: Operator Precedence and Associativity
@@ -211,7 +207,3 @@ funciton Component() {
 ## :whale: 參考資源
 - [MDN 文件 - Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 - [MDN 文件 - Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
-
-
-|[ ➡️ 回到 README](../README.md)|
-|---|
