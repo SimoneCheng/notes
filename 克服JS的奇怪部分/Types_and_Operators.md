@@ -1,6 +1,6 @@
 # Types and Operators
 
-{docsify-updated} 
+2022/03/15
 
 - [Types and Operators](#types-and-operators)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
@@ -17,7 +17,7 @@
 
 ### :crab: Dynamic Typing 動態型別
 
-> You don't tell the engine what type of data a variable holds, it figures it out while your code is running.
+> You don't tell the engine what type of data a variable holds, it figures it out while your code is running.  
 > Variables can hold different types of values because it's all figured out during execution.
 
 什麼是動態型別？
@@ -32,14 +32,14 @@ JavaScript 總共有六種原始型別，分別是：string、boolean、number�
 
 ### :crab: Operator 運算子
 
-> A special function that is syntactically (written) differently.
+> A special function that is syntactically (written) differently.  
 > Generally, operators take two parameters and return one result.
 
 當打出以下的程式碼時，我們會很直覺地認為會印出 7，但那是從人類的角度出發去做加減法，至於在 JavaScript Engine 當中是如何執行這段程式碼的？
 
 ```javascript
 var a = 3 + 4;
-console.log(a)
+console.log(a);
 ```
 
 其實對 JavaScript Engine 來說，他在背後做的事情比較像是這樣：
@@ -59,14 +59,14 @@ function +(a, b) {
 總之，在 JavaScript 中，運算子其實是一種 function，傳入兩個值，然後會回傳一個值。
 
 ### :crab: Coercion 強制轉型
-> Converting a value from one type to another.
+> Converting a value from one type to another.  
 > This happens quite often in JavaScript because it's dynamically typed.
 
 因為 JavaScript 是動態型別的語言，所以在程式執行的時候，它時不時會將寫好的變數或是值自動轉換型別，來看看以下簡易的範例：
 
 ```javascript
 const a = 1 + 2;
-const b = 'Hello ' + 'World'
+const b = 'Hello ' + 'World';
 
 console.log(a);
 console.log(b);
@@ -75,7 +75,7 @@ console.log(b);
 在上述例子當中， a 和 b 都是同型別相加，所以我們可以知道 a 會印出 3，b 會印出 Hello World。但如果是不同型別之間的相加呢？比如以下的範例：
 
 ```javascript
-const c = 1 + '2'
+const c = 1 + '2';
 console.log(c);
 ```
 
@@ -87,7 +87,7 @@ console.log(c);
 ## :whale: Operator Precedence and Associativity
 
 首先要來定義什麼是 Operator Precedence 和 Associativity：
-> Operator Precedence: which operator get called first.
+> Operator Precedence: which operator get called first.  
 > Functions are called in order of precedence. (Higher precedence wins.)
 
 > Associativity: what order operator functions get called in: left-to-right or right-to-left, when functions have the same precedence.
@@ -172,13 +172,13 @@ Number(null); // 0
 
 第三個讓人困惑的地方是，如果使用運算子，特別是 `==` 的時候（因為使用兩個等於會先轉型才比較），又會發生讓人困惑的狀況，比如以下幾個例子：
 ```javascript
-false == 0 // true
+false == 0; // true
 
-null == 0 // false
-null < 1 // true
+null == 0; // false
+null < 1; // true
 
-"" == 0 // true
-"" == false // true
+"" == 0; // true
+"" == false; // true
 ```
 
 由於使用 `==` 會導致互相比較的值先轉型才進行比較，但我們很多時候並沒有辦法準確預測 JavaScript Engine 會將值轉型成什麼型別，可能會造成小錯誤。

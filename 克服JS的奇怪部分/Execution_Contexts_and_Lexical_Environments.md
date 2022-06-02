@@ -1,6 +1,6 @@
 # Execution Contexts & Lexical Environments
 
-{docsify-updated} 
+2022/03/11
 
 - [Execution Contexts & Lexical Environments](#execution-contexts--lexical-environments)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
@@ -56,20 +56,20 @@ function Greeting() {
 
 ### :crab: Execution Context 執行環境
 
->  A wrapper to help manage the code that is running.
+>  A wrapper to help manage the code that is running.  
 >  There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain things beyond what you've written in your code.
 
 當我們寫好程式碼之後，我們該如何知道它是按照什麼樣的順序被電腦執行的？整個程式碼的執行流程是如何安排的？這就是 Execution Context 需要做的工作。
 
 ### :crab: Name/Value Pair
 
-> A name which maps to a unique value.
-> The name may be defined more than once, but only can have one value in any given **context**.
+> A name which maps to a unique value.  
+> The name may be defined more than once, but only can have one value in any given **context**.  
 > That value may be more name/value pairs.
 
 ### :crab: Object
 
-> A collection of name/value pairs.
+> A collection of name/value pairs.  
 > The simplest definition when talking about **JavaScript**.
 
 ### :crab: JavaScript and 'undefined'
@@ -97,7 +97,7 @@ console.log(a);
 **is not defined** 的意思則是：JaveScript 在記憶體位置當中並沒有尋找到該變數，所以它就會報錯，告訴我們 `Uncaught ReferenceError: a is not defined`。
 
 ### :crab: Single Threaded 單執行緒
-> One command at a time.
+> One command at a time.  
 > Under the hood of the browser, maybe not.
 
 JavaScript 是一個單執行緒的語言，也就是說 JavaScript 在執行的時候，一次只能做一件事情。但是如果我們是在 browser 這個環境之下執行 JavaScript，browser 本身可以幫我做到多執行緒的事情，但是就像開頭提到的 JavaScript 本身是一個單執行緒的語言。
@@ -129,8 +129,8 @@ JavaScript 是同步執行的，也就是說做完一件事情，才會做下一
 ```javascript
 var a = 1;
 
-a // 1
-window.a // 1
+a; // 1
+window.a; // 1
 ```
 
 !> es6 新增了兩個新的宣告方式 `const` 以及 `let`，這兩個的用法與 `var` 不同，如果在全域環境使用 `const` 或 `let`，並不會在 Global Object 中建立一個 Name/Value Pair，避免了一些使用 `var` 會產生的問題。這三者的比較可能會之後再寫一篇筆記做更深入探討。
@@ -243,7 +243,7 @@ JavaScript 在執行程式碼的時候就比較好理解了，不會有什麼 Ho
 
 
 ## :whale: Function Invocation and the Execution Stack(Call Stack)
-> **nvocation**: running a function
+> **nvocation**: running a function  
 > In JavaScript, we can use parenthesis() to invocate function.
 
 當使用 JavaScript 呼叫函式的時候，底層做了什麼樣的事情？換句話說，函式被我們呼叫以後，JavaScript 是怎麼執行這些函式的？我們可以試著用以下的程式碼來舉例：
@@ -306,11 +306,11 @@ function b() {
 
 function a() {
     var myVar = 2;
-    b()
+    b();
 }
 
 var myVar = 1;
-a()
+a();
 ```
 
 當上述程式碼被執行之後，myVar 會是什麼值？程式碼執行後，JavaScript Engine 會分別在 Global、a()、b() 各自的 Execution Context 中各建立一個 Variable Environment，所以 myVar 在不同的 Execution Context 當中就會有不同的值，需要先觀察目前程式碼執行到哪邊，再去判斷 myVar 目前的值。如下圖：
@@ -372,15 +372,15 @@ a()
 // 狀況一
 function b() {
     console.log(myVar);
-};
+}
 
 function a() {
     var myVar = 2;
     b();
-};
+}
 
 var myVar = 1;
-a()
+a();
 ```
 
 因為 `b()` 裡面並沒有宣告 `myVar` 這個變數，所以 JavaScript Engine 會藉由 Lexical Context 去檢查 `function b` 在哪個環境被宣告的，檢查之後發現是在全域，於是 JavaScript Engine 又在全域環境中檢查是不是有 `myVar` 這個變數，然後發現有，於是便印出 `1`。
@@ -394,11 +394,11 @@ a()
 function a() {
     function b() {
         console.log(myVar);
-    };
+    }
     
     var myVar = 2;
     b();
-};
+}
 
 var myVar = 1;
 a();
@@ -415,7 +415,7 @@ a();
 function a() {
     function b() {
         console.log(myVar);
-    };
+    }
     b();
 }
 

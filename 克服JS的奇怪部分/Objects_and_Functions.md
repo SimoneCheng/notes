@@ -1,12 +1,13 @@
 # Objects and Functions
 
-{docsify-updated} 
+2022/06/02
 
 - [Objects and Functions](#objects-and-functions)
   - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
     - [:crab: Namespace](#crab-namespace)
     - [:crab: First Class Function](#crab-first-class-function)
     - [:crab: Mutate](#crab-mutate)
+    - [:crab: Arguments](#crab-arguments)
   - [:whale: Objects and Dot](#whale-objects-and-dot)
   - [:whale: Funtcions are Objects](#whale-funtcions-are-objects)
   - [:whale: Function Statements and Function Expressions](#whale-function-statements-and-function-expressions)
@@ -16,14 +17,16 @@
   - [:whale: By Value and By Reference](#whale-by-value-and-by-reference)
     - [🦀 By Value](#-by-value)
     - [:crab: By Reference](#crab-by-reference)
-    - [:crab: 小小結論](#crab-小小結論)
   - [:whale: Objects, Funcitons, and `this`](#whale-objects-funcitons-and-this)
+  - [:whale: 'arguments' and Spread](#whale-arguments-and-spread)
+    - [:crab: arguments](#crab-arguments-1)
+    - [:crab: spread](#crab-spread)
 
 ## :whale: Concept Asides 名詞解釋
 
 ### :crab: Namespace
 
-> A container for variables and functions.
+> A container for variables and functions.  
 > Typically to keep variables and function with the same name seperate.
 
 JavaScript 本身並沒有 namespace，但可以透過善用 object 來儲存相同的命名方式，比如用不同的 object 來儲存都叫做 greet 的變數名稱。
@@ -37,12 +40,16 @@ console.log(spanish.greet);
 ```
 
 ### :crab: First Class Function
-> Everything you can do with other types you can do with functions.
+> Everything you can do with other types you can do with functions.  
 > Assign them to variables, pass them around, create them on the fly.
 
 ### :crab: Mutate
 > To change something.  
 > **Immutable** means it can't be changed. 
+
+### :crab: Arguments
+> The parameters you pass to a function.  
+> Jacascript gives you a keyword of the same name which contains them all.
 
 ## :whale: Objects and Dot
 
@@ -114,7 +121,7 @@ greet();
 
 const greet = function() {
     console.log("hi!");
-}
+};
 ```
 
 把這兩段程式碼丟去執行的話，可以看到第一個部分的程式碼能夠成功執行並印出 "hi"，因為在使用敘述式時，function 會被 hoisting，所以可以將執行的語法寫在宣告 function 之前。
@@ -156,13 +163,7 @@ console.log(a.firstName); // a.firstName 會印出什麼？
 
 其實 a 和 b 這兩個變數都指向同一個記憶體區塊（也就是 object 的所在位置），所以不管是透過 a 或 b 來修改 object，都是修改到同樣的東西。
 
-### :crab: 小小結論
-
-> 知道 **by value** 和 **by reference** 的差別，有助於程式開發和除錯。
-
-在這邊會討論到 **by value** 和 **by reference** 的差別主要是因為，當我們在進行程式開發或是除錯的時候，會需要處理非常多各式各樣的資料型態。
-
-當如果不小心改動的原本的資料時，可能會導致某些 function 出錯，此時知道 **by value** 和 **by referenct** 的差異可以更好的去避免改動到原始資料，降低產生 bug 的機率！
+?> **小小結論**：知道 **by value** 和 **by reference** 的差別，有助於程式開發和除錯。在這邊會討論到 **by value** 和 **by reference** 的差別主要是因為，當我們在進行程式開發或是除錯的時候，會需要處理非常多各式各樣的資料型態。當如果不小心改動的原本的資料時，可能會導致某些 function 出錯，此時知道 **by value** 和 **by referenct** 的差異可以更好的去避免改動到原始資料，降低產生 bug 的機率！
 
 ## :whale: Objects, Funcitons, and `this`
 
@@ -175,7 +176,7 @@ console.log(this);
 
 ```javascript
 function a() {
-  console.log(this);
+    console.log(this);
 }
 
 a();
@@ -183,7 +184,7 @@ a();
 
 ```javascript
 const b = funciton() {
-  console.log(this);
+    console.log(this);
 }
 
 b();
@@ -194,11 +195,167 @@ b();
 接下來我們試試用在 object 裡面建立 method 的方式來呼叫 `this`：
 ```javascript
 const c = {
-  name: 'The c object',
-  log: function() {
-    console.log(this);
-  }
+    name: 'The c object',
+    log: function() {
+      console.log(this);
+    },
 };
 
 c.log();
 ```
+
+當我們將上述的程式碼丟到瀏覽器的環境中執行時， `this` 會印出 c 這個 object，也就是說透過一個 object 來呼叫其中的 method 的話，此時的 `this` 會指向該 object。接下來我們繼續看看下一個範例：
+```javascript
+const c = {
+    name: 'The c object',
+    log: function() {
+        console.log(this);
+
+        const setName = function(newName) {
+            this.name = newName;
+        }
+
+        setName('Update c object!');
+        console.log(this);
+    },
+};
+
+c.log();
+```
+
+按照上上一個程式碼範例的認知，如果在一個 object method 裡面呼叫 `this`，那麼 `this` 就會指向該 object，但當我們執行 `c.log()` 之後，裡面的 `setName` function 似乎並沒有成功地幫我們將 `c.name` 修改成新的名字。反而在 window 這個 global object 下面，找到了 `window.name === 'Update c object'`。也就是說 `setName` function 裡面的 `this` 是指向 window，並不是指向 object c。
+
+為了要讓 `this` 能夠一直指向 object c，我們可以把程式碼修改成下面這樣：
+```javascript
+const c = {
+    name: 'The c object',
+    log: function() {
+        const self = this; // 多加這一行，然後所有的 this 都改用 self
+        console.log(self);
+
+        const setName = function(newName) {
+            self.name = newName;
+        }
+
+        setName('Update c object!');
+        console.log(self);
+    },
+};
+
+c.log();
+```
+
+只要將 `this` 賦值給一個變數後，然後在其他所有有用到 `this` 的地方都改用該變數， 這樣寫在 `c.log()` 裡面的任何 function 都能夠透過 scope chain 去找到該變數指向的 `this` 了（也就是 object c）。
+
+?> **小小結論**：如果在 function 裡面呼叫 `this`，然後在 global 當中執行，通常 `this` 會指向 window，如果是呼叫放在 object 當中的 function 的話，呼叫的 `this` 則會指向該 object，但如果是在 object 的 function 中還有另一個內部的 function，這個內部的 function 呼叫的 `this` 會指向 window，為了避免這樣的 bug，可以先在 object function 裡面的最上方將 `this` 賦值給某個變數（通常會寫成 `const self = this`）。
+
+## :whale: 'arguments' and Spread
+
+### :crab: arguments
+
+在開始說明什麼是 `arguments` 之前，我們先來看一個普通的 function：
+```javascript
+function greet(firstName, lastName, language) {
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log('----------');
+}
+
+greet();
+greet('John');
+greet('John', 'Doe');
+greet('John', 'Doe', 'en');
+```
+
+在上述的 function 當中，雖然 `greet()` 這個 function 需要傳三個變數進去，但如果少傳了任何一個，Javascript 並不會報錯，而是會將沒有傳入任何值的變數預設成 `undefined`。而這樣的特性也就表示，可以很簡單的對一個變數設置一個預設值，比如，如果沒有傳 `language` 這個變數進去的話，先將其預設值設成 `'en'`，可以這樣寫：
+```javascript
+function greet(firstName, lastName, language = 'en') {
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log('----------');
+}
+```
+
+或是比較舊的寫法：
+```javascript
+function greet(firstName, lastName, language) {
+    language = language || 'en';
+
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log('----------');
+}
+```
+
+在一個 function 當中，除了傳進去的變數之外，Javascript 也提供了一個稱作 `arguments` 的變數來接收傳進來的所有變數。此時我們可以來把上述的 function 改造一下，將 `arguments` 加進去，然後看看會發生什麼事情：
+```javascript
+function greet(firstName, lastName, language) {
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log(arguments); // 將 Javascript 內建的 arguments 加入
+    console.log('----------');
+}
+
+greet();
+greet('John');
+greet('John', 'Doe');
+greet('John', 'Doe', 'en');
+```
+
+可以看到執行四遍的 `greet()` 分別印出了以下四個不同的 `arguments`：
+```
+[]
+['John']
+['John', 'Doe']
+['John', 'Doe', 'en']
+```
+
+從印出的結果當中可以知道 `arguments` 是一個可以收集所有傳進 function 的變數的類 array，為什麼會說它是類 array 是因為它長得很像 array，可以做到一些跟 array 很像的事情，但 array 的某些特性它沒有。
+
+這時候我們就可以用 `arguments` 來做一些事情，比如可以檢查有沒有變數傳進來，如果沒有就報錯：
+```javascript
+function greet(firstName, lastName, language) {
+    if (arguments.length === 0) {
+        console.log('Missing parameters');
+        return;
+    }
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log(arguments); // 將 Javascript 內建的 arguments 加入
+    console.log('----------');
+}
+```
+
+### :crab: spread
+
+spread 簡單來說就是很常看到的 `...`。而這個 `...` 實際上有什麼用途呢？目前我所知道的用法主要有三個：
+1. 如果傳入某個 function 的變數可能是OO個和OO個以上，這個「以上」的部分可以用 `...` 包起來。
+2. 可以用來解構 array。
+3. 可以用來解構 object。
+
+廢話不多說，直接用實際的例子來看看：
+```javascript
+function greet(firstName, lastName, language, ...others) {
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log(others);
+}
+
+greet('John', 'Doe', 'en', 1, 2, 3, 4);
+```
+
+在上述的例子，可以看到 `others` 這個變數印出了 [1, 2, 3, 4]，這也就是說它將 `firstName, lastName, language` 之外的值都包在 `others` 這個 array 裡面，這也就是表示這個 function 可以傳入三個或三個以上的值。
+
+接著來看看解構的例子：
+```javascript
+const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const arr2 = [...arr1];
+```
+
+在上述程式碼中，可以透過 `...` 拿到 arr1 裡面的每個元素，然後再把它放到 arr2 來達到淺拷貝。用在 object 當中也是同樣的道理。如此一來便可以輕鬆達到淺拷貝。

@@ -1,6 +1,6 @@
 # metadata、`<meta>` 知多少
 
-{docsify-updated} 
+2022/01/29
 
 - [metadata、`<meta>` 知多少](#metadatameta-知多少)
   - [:whale: 前言](#whale-前言)
@@ -252,7 +252,7 @@ http-equiv 還有另外一個用法是 refresh，可以設定幾秒過後重新�
 <meta http-equiv="refresh" content="5; url=http://www.example.com">
 ```
 
-> 目前 HTML5 請直接使用 `<meta charset="utf-8">`， `<meta http-equiv="content-type" content="text/html; charset=UTF-8">` 是 HTML4 在用的。
+!> 目前 HTML5 請直接使用 `<meta charset="utf-8">`， `<meta http-equiv="content-type" content="text/html; charset=UTF-8">` 是 HTML4 在用的。
 
 ### :crab: Open Graph
 
