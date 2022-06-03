@@ -56,20 +56,20 @@ function Greeting() {
 
 ### :crab: Execution Context 執行環境
 
->  A wrapper to help manage the code that is running.
+>  A wrapper to help manage the code that is running.  
 >  There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain things beyond what you've written in your code.
 
 當我們寫好程式碼之後，我們該如何知道它是按照什麼樣的順序被電腦執行的？整個程式碼的執行流程是如何安排的？這就是 Execution Context 需要做的工作。
 
 ### :crab: Name/Value Pair
 
-> A name which maps to a unique value.
-> The name may be defined more than once, but only can have one value in any given **context**.
+> A name which maps to a unique value.  
+> The name may be defined more than once, but only can have one value in any given **context**.  
 > That value may be more name/value pairs.
 
 ### :crab: Object
 
-> A collection of name/value pairs.
+> A collection of name/value pairs.  
 > The simplest definition when talking about **JavaScript**.
 
 ### :crab: JavaScript and 'undefined'
@@ -97,7 +97,7 @@ console.log(a);
 **is not defined** 的意思則是：JaveScript 在記憶體位置當中並沒有尋找到該變數，所以它就會報錯，告訴我們 `Uncaught ReferenceError: a is not defined`。
 
 ### :crab: Single Threaded 單執行緒
-> One command at a time.
+> One command at a time.  
 > Under the hood of the browser, maybe not.
 
 JavaScript 是一個單執行緒的語言，也就是說 JavaScript 在執行的時候，一次只能做一件事情。但是如果我們是在 browser 這個環境之下執行 JavaScript，browser 本身可以幫我做到多執行緒的事情，但是就像開頭提到的 JavaScript 本身是一個單執行緒的語言。
@@ -243,7 +243,7 @@ JavaScript 在執行程式碼的時候就比較好理解了，不會有什麼 Ho
 
 
 ## :whale: Function Invocation and the Execution Stack(Call Stack)
-> **nvocation**: running a function
+> **nvocation**: running a function  
 > In JavaScript, we can use parenthesis() to invocate function.
 
 當使用 JavaScript 呼叫函式的時候，底層做了什麼樣的事情？換句話說，函式被我們呼叫以後，JavaScript 是怎麼執行這些函式的？我們可以試著用以下的程式碼來舉例：

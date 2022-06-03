@@ -7,6 +7,7 @@
     - [:crab: Namespace](#crab-namespace)
     - [:crab: First Class Function](#crab-first-class-function)
     - [:crab: Mutate](#crab-mutate)
+    - [:crab: Arguments](#crab-arguments)
   - [:whale: Objects and Dot](#whale-objects-and-dot)
   - [:whale: Funtcions are Objects](#whale-funtcions-are-objects)
   - [:whale: Function Statements and Function Expressions](#whale-function-statements-and-function-expressions)
@@ -17,12 +18,15 @@
     - [🦀 By Value](#-by-value)
     - [:crab: By Reference](#crab-by-reference)
   - [:whale: Objects, Funcitons, and `this`](#whale-objects-funcitons-and-this)
+  - [:whale: 'arguments' and Spread](#whale-arguments-and-spread)
+    - [:crab: arguments](#crab-arguments-1)
+    - [:crab: spread](#crab-spread)
 
 ## :whale: Concept Asides 名詞解釋
 
 ### :crab: Namespace
 
-> A container for variables and functions.
+> A container for variables and functions.  
 > Typically to keep variables and function with the same name seperate.
 
 JavaScript 本身並沒有 namespace，但可以透過善用 object 來儲存相同的命名方式，比如用不同的 object 來儲存都叫做 greet 的變數名稱。
@@ -36,12 +40,16 @@ console.log(spanish.greet);
 ```
 
 ### :crab: First Class Function
-> Everything you can do with other types you can do with functions.
+> Everything you can do with other types you can do with functions.  
 > Assign them to variables, pass them around, create them on the fly.
 
 ### :crab: Mutate
 > To change something.  
 > **Immutable** means it can't be changed. 
+
+### :crab: Arguments
+> The parameters you pass to a function.  
+> Jacascript gives you a keyword of the same name which contains them all.
 
 ## :whale: Objects and Dot
 
@@ -240,3 +248,104 @@ c.log();
 只要將 `this` 賦值給一個變數後，然後在其他所有有用到 `this` 的地方都改用該變數， 這樣寫在 `c.log()` 裡面的任何 function 都能夠透過 scope chain 去找到該變數指向的 `this` 了（也就是 object c）。
 
 ?> **小小結論**：如果在 function 裡面呼叫 `this`，然後在 global 當中執行，通常 `this` 會指向 window，如果是呼叫放在 object 當中的 function 的話，呼叫的 `this` 則會指向該 object，但如果是在 object 的 function 中還有另一個內部的 function，這個內部的 function 呼叫的 `this` 會指向 window，為了避免這樣的 bug，可以先在 object function 裡面的最上方將 `this` 賦值給某個變數（通常會寫成 `const self = this`）。
+
+## :whale: 'arguments' and Spread
+
+### :crab: arguments
+
+在開始說明什麼是 `arguments` 之前，我們先來看一個普通的 function：
+```javascript
+function greet(firstName, lastName, language) {
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log('----------');
+}
+
+greet();
+greet('John');
+greet('John', 'Doe');
+greet('John', 'Doe', 'en');
+```
+
+在上述的 function 當中，雖然 `greet()` 這個 function 需要傳三個變數進去，但如果少傳了任何一個，Javascript 並不會報錯，而是會將沒有傳入任何值的變數預設成 `undefined`。而這樣的特性也就表示，可以很簡單的對一個變數設置一個預設值，比如，如果沒有傳 `language` 這個變數進去的話，先將其預設值設成 `'en'`，可以這樣寫：
+```javascript
+function greet(firstName, lastName, language = 'en') {
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log('----------');
+}
+```
+
+或是比較舊的寫法：
+```javascript
+function greet(firstName, lastName, language) {
+    language = language || 'en';
+
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log('----------');
+}
+```
+
+在一個 function 當中，除了傳進去的變數之外，Javascript 也提供了一個稱作 `arguments` 的變數來接收傳進來的所有變數。此時我們可以來把上述的 function 改造一下，將 `arguments` 加進去，然後看看會發生什麼事情：
+```javascript
+function greet(firstName, lastName, language) {
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log(arguments); // 將 Javascript 內建的 arguments 加入
+    console.log('----------');
+}
+
+greet();
+greet('John');
+greet('John', 'Doe');
+greet('John', 'Doe', 'en');
+```
+
+可以看到執行四遍的 `greet()` 分別印出了以下四個不同的 `arguments`：
+```
+[]
+['John']
+['John', 'Doe']
+['John', 'Doe', 'en']
+```
+
+從印出的結果當中可以知道 `arguments` 是一個可以收集所有傳進 function 的變數的類 array，為什麼會說它是類 array 是因為它長得很像 array，可以做到一些跟 array 很像的事情，但 array 的某些特性它沒有。
+
+這時候我們就可以用 `arguments` 來做一些事情，比如可以檢查有沒有變數傳進來，如果沒有就報錯：
+```javascript
+function greet(firstName, lastName, language) {
+    if (arguments.length === 0) {
+        console.log('Missing parameters');
+        return;
+    }
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log(arguments); // 將 Javascript 內建的 arguments 加入
+    console.log('----------');
+}
+```
+
+### :crab: spread
+
+spread 簡單來說就是很常看到的 `...`。而這個 `...` 實際上有什麼用途呢？目前我所知道的用法主要有三個：
+1. 如果傳入某個 function 的變數可能是三個和三個以上，這個「以上」的部分可以用 `...` 包起來。
+2. 可以用來解構 array。
+3. 可以用來解構 object。
+
+廢話不多說，直接用實際的例子來看看：
+```javascript
+function greet(firstName, lastName, language, ...others) {
+    console.log(firstName);
+    console.log(lastName);
+    console.log(language);
+    console.log(others);
+}
+
+greet('John', 'Doe', 'en', 1, 2, 3, 4);
+```

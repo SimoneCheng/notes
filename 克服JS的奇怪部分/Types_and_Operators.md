@@ -17,7 +17,7 @@
 
 ### :crab: Dynamic Typing 動態型別
 
-> You don't tell the engine what type of data a variable holds, it figures it out while your code is running.
+> You don't tell the engine what type of data a variable holds, it figures it out while your code is running.  
 > Variables can hold different types of values because it's all figured out during execution.
 
 什麼是動態型別？
@@ -32,7 +32,7 @@ JavaScript 總共有六種原始型別，分別是：string、boolean、number�
 
 ### :crab: Operator 運算子
 
-> A special function that is syntactically (written) differently.
+> A special function that is syntactically (written) differently.  
 > Generally, operators take two parameters and return one result.
 
 當打出以下的程式碼時，我們會很直覺地認為會印出 7，但那是從人類的角度出發去做加減法，至於在 JavaScript Engine 當中是如何執行這段程式碼的？
@@ -59,7 +59,7 @@ function +(a, b) {
 總之，在 JavaScript 中，運算子其實是一種 function，傳入兩個值，然後會回傳一個值。
 
 ### :crab: Coercion 強制轉型
-> Converting a value from one type to another.
+> Converting a value from one type to another.  
 > This happens quite often in JavaScript because it's dynamically typed.
 
 因為 JavaScript 是動態型別的語言，所以在程式執行的時候，它時不時會將寫好的變數或是值自動轉換型別，來看看以下簡易的範例：
@@ -87,7 +87,7 @@ console.log(c);
 ## :whale: Operator Precedence and Associativity
 
 首先要來定義什麼是 Operator Precedence 和 Associativity：
-> Operator Precedence: which operator get called first.
+> Operator Precedence: which operator get called first.  
 > Functions are called in order of precedence. (Higher precedence wins.)
 
 > Associativity: what order operator functions get called in: left-to-right or right-to-left, when functions have the same precedence.
