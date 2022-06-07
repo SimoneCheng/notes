@@ -334,7 +334,7 @@ function greet(firstName, lastName, language) {
 ### :crab: spread
 
 spread 簡單來說就是很常看到的 `...`。而這個 `...` 實際上有什麼用途呢？目前我所知道的用法主要有三個：
-1. 如果傳入某個 function 的變數可能是三個和三個以上，這個「以上」的部分可以用 `...` 包起來。
+1. 如果傳入某個 function 的變數可能是OO個和OO個以上，這個「以上」的部分可以用 `...` 包起來。
 2. 可以用來解構 array。
 3. 可以用來解構 object。
 
@@ -349,3 +349,13 @@ function greet(firstName, lastName, language, ...others) {
 
 greet('John', 'Doe', 'en', 1, 2, 3, 4);
 ```
+
+在上述的例子，可以看到 `others` 這個變數印出了 [1, 2, 3, 4]，這也就是說它將 `firstName, lastName, language` 之外的值都包在 `others` 這個 array 裡面，這也就是表示這個 function 可以傳入三個或三個以上的值。
+
+接著來看看解構的例子：
+```javascript
+const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const arr2 = [...arr1];
+```
+
+在上述程式碼中，可以透過 `...` 拿到 arr1 裡面的每個元素，然後再把它放到 arr2 來達到淺拷貝。用在 object 當中也是同樣的道理。如此一來便可以輕鬆達到淺拷貝。
