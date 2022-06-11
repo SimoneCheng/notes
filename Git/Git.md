@@ -11,6 +11,7 @@
     - [:crab: blob 對象與 SHA1 哈希](#crab-blob-對象與-sha1-哈希)
     - [:crab: Working Directory 和 Staging Area](#crab-working-directory-和-staging-area)
     - [:crab: git commit 背後發生了什麼](#crab-git-commit-背後發生了什麼)
+    - [:crab: Commit History Tree](#crab-commit-history-tree)
   - [:whale: Branch（分支） 和 HEAD](#whale-branch分支-和-head)
   - [:whale: 分支合併（Branch Merge）](#whale-分支合併branch-merge)
 
@@ -105,9 +106,10 @@ git cat-file -p 547fe9
 
 ### :crab: Working Directory 和 Staging Area
 git 的工作區大致上可以分成三種不同的類型來理解，分別是 Working Directory、Staging Area、git repository。如下圖所示：
+
 ![](images/gitWorkspace.png)
 
-在檔案尚未被 git 追蹤的時候，會停留在 Working Directory，任何需要被 git 控管的檔案都需要使用 `git add [file]` 這個指令，來將檔案加入到 Staging Area，最後透過撰寫 commit 與 push 指令推送到遠端的 git repository。
+在檔案尚未被 git 追蹤的時候，會停留在 Working Directory，任何需要被 git 控管的檔案都需要使用 `git add [file]` 這個指令，來將檔案加入到 Staging Area，最後透過撰寫 commit 存到 git repository 裡面。
 
 在圖中可以看到，Staging Area 下面有一個 index 的字樣，沒錯，有關 Staging Area 的任何訊息都會被儲存在 .git/index 這個資料夾當中。我們可以透過以下指令去檢視目前在 index 的檔案有哪些：
 ```git
@@ -118,7 +120,27 @@ git ls-files -s // 顯示檔名、該檔案的權限、文件內容
 ?> 所以可以知道，前面提到的 blob object 只儲存文件內容，而文件的檔名會儲存在 index（索引區）。可以透過 `git status` 指令來觀察 Staging Area 和 Working Directory 的變化。
 
 ### :crab: git commit 背後發生了什麼
+將文件加入到 Staging Area 之後，接著要使用 `git commit -m "message"` 來生成 commit，生成 commit 的目的是為了將有修改的地方存到代碼倉庫（git repository）當中，那麼 commit 在生成的時候，究竟是生成了什麼呢？
 
+生成一個 commit 之後，git 也會透過 SHA1 算法為每個 commit 算出一組編碼，這時候我們也可以運用上面提到的 `git cat-file` 指令去觀察 commit 的類型和內容。透過該指令我們可以知道 commit 的類型是 commit，而內容則是 tree 和作者資訊，如下圖範例：
+
+![](images/commitStructure.png)
+
+tree 當中會儲存前面提到的 blob object，也就是說，tree 裡面存的是目前這個 commit 有修改到的所有檔案。再者，如果這個 commit 是接在另一個 commit 後面的話，除了 tree 之外，則會額外再多看到一個 parent，這個 parent 標示著這個 commit 是接在某個特定的 commit 之後。
+
+除了觀察 commit 本身之外，我們也可以觀察有 commit 的分支，假設輸入以下指令：
+```git
+cat .git/refs/heads/master
+```
+
+就可以看到這個 master 的分支最新的 commit 是哪一個。
+
+另外 .git 當中還有一個資料夾稱作 HEAD，可以將 HEAD 想像成一個指針，這個 HEAD 的用途是用來指向目前所在的分支。可以透過以下指令去查看 .git/HEAD 的內容：
+```git
+cat .git/HEAD
+```
+
+### :crab: Commit History Tree
 
 ## :whale: Branch（分支） 和 HEAD
 
