@@ -9,7 +9,8 @@
     - [:crab: 初始化代碼倉庫](#crab-初始化代碼倉庫)
     - [:crab: git add [file] 背後發生了什麼](#crab-git-add-file-背後發生了什麼)
     - [:crab: blob 對象與 SHA1 哈希](#crab-blob-對象與-sha1-哈希)
-    - [:crab: Working Directiry 和 Staging Area](#crab-working-directiry-和-staging-area)
+    - [:crab: Working Directory 和 Staging Area](#crab-working-directory-和-staging-area)
+    - [:crab: git commit 背後發生了什麼](#crab-git-commit-背後發生了什麼)
   - [:whale: Branch（分支） 和 HEAD](#whale-branch分支-和-head)
   - [:whale: 分支合併（Branch Merge）](#whale-分支合併branch-merge)
 
@@ -40,7 +41,7 @@ git config --global user.name "[your name]"
 透過這兩種方式都可以發現 git repository 裡面出現了一個 **.git** 的資料夾，可以在終端機裡面透過 `ls -a` 這個指令看到這個資料夾，透過觀察這個資料夾的變化，可以很好地理解 git 是如何運作的。
 
 首先先在這邊放上一個最基本的 .git 資料夾的架構，接下來會透過這個資料夾的變動來一一理解 git 如何運作。
-```
+```git
 .git
 ├── branches
 ├── config
@@ -59,7 +60,7 @@ git config --global user.name "[your name]"
 
 ### :crab: git add [file] 背後發生了什麼
 當建立一個檔案，並將其透過 `git add [檔名]` 加入 tracked file 的時候，可以發現 .git 資料夾發生了變化，我們假設目前的變化如下：
-```
+```git
 .git
 ├── branches
 ├── config
@@ -80,7 +81,7 @@ git config --global user.name "[your name]"
 ```
 
 可以發現 .git 裡面的 objects 資料夾中多了另外一串奇怪的數字，這一串數字是透過稱為 SHA1 的加密算法算出來的，如果要查看任何有關 objects 資料夾當中的東西的話，可以在終端機當中輸入以下指令：
-```
+```git
 git cat-file -t 547fe9 // 只取前六位即可
 git cat-file -p 547fe9
 
@@ -102,7 +103,21 @@ git cat-file -p 547fe9
 
 `git add [file]` 之後， git 會根據檔案的類型、大小、修改的內容來產生 HASH 值，然後存到 .git/objects 當中，同時也會壓縮內容。目前 git 算出 HASH 值的方式都是用 SHA1 算法。
 
-### :crab: Working Directiry 和 Staging Area
+### :crab: Working Directory 和 Staging Area
+git 的工作區大致上可以分成三種不同的類型來理解，分別是 Working Directory、Staging Area、git repository。如下圖所示：
+![](images/gitWorkspace.png)
+
+在檔案尚未被 git 追蹤的時候，會停留在 Working Directory，任何需要被 git 控管的檔案都需要使用 `git add [file]` 這個指令，來將檔案加入到 Staging Area，最後透過撰寫 commit 與 push 指令推送到遠端的 git repository。
+
+在圖中可以看到，Staging Area 下面有一個 index 的字樣，沒錯，有關 Staging Area 的任何訊息都會被儲存在 .git/index 這個資料夾當中。我們可以透過以下指令去檢視目前在 index 的檔案有哪些：
+```git
+git ls-files // 只顯示檔名
+git ls-files -s // 顯示檔名、該檔案的權限、文件內容
+```
+
+?> 所以可以知道，前面提到的 blob object 只儲存文件內容，而文件的檔名會儲存在 index（索引區）。可以透過 `git status` 指令來觀察 Staging Area 和 Working Directory 的變化。
+
+### :crab: git commit 背後發生了什麼
 
 
 ## :whale: Branch（分支） 和 HEAD
