@@ -13,6 +13,8 @@
     - [:crab: git commit 背後發生了什麼](#crab-git-commit-背後發生了什麼)
     - [:crab: Commit History Tree](#crab-commit-history-tree)
   - [:whale: Branch（分支） 和 HEAD](#whale-branch分支-和-head)
+    - [:crab: 什麼是分支？什麼是 HEAD ？](#crab-什麼是分支什麼是-head-)
+    - [:crab: 分支的基本操作](#crab-分支的基本操作)
   - [:whale: 分支合併（Branch Merge）](#whale-分支合併branch-merge)
 
 ## :whale: 前言
@@ -141,8 +143,17 @@ cat .git/HEAD
 ```
 
 ### :crab: Commit History Tree
+在前面的幾個部份當中，我們可以發現不管是使用 `git add` 或 `git commit -m`  git 都會透過 SHA1 算法來生成一個 git object，而這些 object 都會指向各自關聯到的另外一個 git object，比如說新的 commit 會指向上一個 commit，以此類推，如果有很多個 commit 的話，我們就可以透過這樣的方式去知道整個 commit history。而每一個 commit 會指向該 commit 有修改到的檔案（blob object），透過這個指向，我們也可以知道每一個 commit 修改了什麼。
+
+這樣子不斷指向的過程便會形成一個 commit history tree（如下圖），而我們也可以知道，這樣的結構就是 git 的版本概念。
+
+![](images/commitHistoryTree.png)
 
 ## :whale: Branch（分支） 和 HEAD
+
+### :crab: 什麼是分支？什麼是 HEAD ？
+
+### :crab: 分支的基本操作
 
 ## :whale: 分支合併（Branch Merge）
 
