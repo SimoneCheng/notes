@@ -5,16 +5,18 @@
 - [Git](#git)
   - [:whale: 前言](#whale-前言)
   - [:whale: Git Local 基本原理解析](#whale-git-local-基本原理解析)
-    - [:crab: Git 的設定（git config）](#crab-git-的設定git-config)
+    - [:crab: Git 的設定](#crab-git-的設定)
     - [:crab: 初始化代碼倉庫](#crab-初始化代碼倉庫)
     - [:crab: git add [file] 背後發生了什麼](#crab-git-add-file-背後發生了什麼)
     - [:crab: blob 對象與 SHA1 哈希](#crab-blob-對象與-sha1-哈希)
     - [:crab: Working Directory 和 Staging Area](#crab-working-directory-和-staging-area)
     - [:crab: git commit 背後發生了什麼](#crab-git-commit-背後發生了什麼)
     - [:crab: Commit History Tree](#crab-commit-history-tree)
-  - [:whale: Branch（分支） 和 HEAD](#whale-branch分支-和-head)
-    - [:crab: 什麼是分支？什麼是 HEAD ？](#crab-什麼是分支什麼是-head-)
+  - [:whale: Branch 和 HEAD](#whale-branch-和-head)
+    - [:crab: 什麼是分支？什麼是HEAD？](#crab-什麼是分支什麼是head)
     - [:crab: 分支的基本操作](#crab-分支的基本操作)
+    - [:crab: 使用 git checkout 出特定的 commit](#crab-使用-git-checkout-出特定的-commit)
+    - [:crab: 關於 git diff 這個命令](#crab-關於-git-diff-這個命令)
   - [:whale: 分支合併（Branch Merge）](#whale-分支合併branch-merge)
 
 ## :whale: 前言
@@ -23,7 +25,7 @@
 
 ## :whale: Git Local 基本原理解析
 
-### :crab: Git 的設定（git config）
+### :crab: Git 的設定
 通常在看各式各樣的 git 教學的時候，會看到當使用者下載好 git 之後，教學的下一個步驟是在終端機打入以下指令：
 ```git
 git config --global user.email "[your email]"
@@ -149,11 +151,48 @@ cat .git/HEAD
 
 ![](images/commitHistoryTree.png)
 
-## :whale: Branch（分支） 和 HEAD
+## :whale: Branch 和 HEAD
 
-### :crab: 什麼是分支？什麼是 HEAD ？
+### :crab: 什麼是分支？什麼是HEAD？
+在整個 git 版本控制的工作流程當中有一個非常重要的概念，就是分支，在程式開發的流程當中會不斷遇到建立分支、合併分支的過程，在開始講解基本操作之前，先來解釋一下到底什麼是分支？
+
+翻翻 git 的官方文件後，我們可以看到 git 對分支的解釋：
+> Branches are named pointers to commits.
+
+從以上敘述可以知道，分支只是一個指向某個 commit 的指針。此時我們就會知道如果要讓分支這個功能可以運作需要達成兩個條件：
+1. 要有一個地方可以儲存每個分支指向的哪個 commit 這件事情。 ➡️ 存在 .git/refs/heads/[branch 名稱] 裡面。
+2. 要有一個東西可以讓我們知道我們現在在哪一個分支上面。 ➡️ 透過 HEAD 來實現，也就是說只要看 HEAD 指向哪個分支，我們現在就在哪個分支。（HEAD 存在 .git/HEAD）
 
 ### :crab: 分支的基本操作
+1. ```git branch```：查看目前有哪些分支。如果該分支前面出現 * 字號，表示那是現在所在的分支。
+2. ```git branch [branch 名稱]```：創建分支。
+3. ```git checkout [branch 名稱]```：切換現在的分支到另外一個分支。
+4. ```git branch -d [branch 名稱]```：刪除分支。如果分支沒有 merge 的話，會出現無法刪除分支的提示訊息。
+5. ```git branch -D [branch 名稱]```：強制刪除分支。就算分支沒有 merge 也可以刪除。
+6. ```git reflog```：會記錄所有在 git 當中的操作，包括被刪除分支的 commit。
+7. ```git branch -m [舊 branch 名稱] [新 branch 名稱]```：重新命名分支名稱。
+8. ```git checkout -b [branch 名稱]```：創建分支並且切換到該分支。
+
+!> 注意：如果現在所在的分支是想要刪除的分支的話，就不能刪除分支。要先移動到別的分支，才能刪除。
+
+### :crab: 使用 git checkout 出特定的 commit
+
+`git checkout` 除了可以用來切換分支之外，也可以用來找出某個特定的 commit。如果不小心刪除了某個分支，可以先用 `git reflog` 找到被刪除分支的 commit，然後再建立分支，就可以恢復被刪除的分支。如下步驟：
+```
+1. git reflog
+2. git checkout [commit sha1值(六個字)]
+3. git checkout -b [被刪除的 branch 名稱]
+```
+
+這個用法平常不太常用到，但在特殊情況下特別有用！
+
+!> **刪除分支到底刪除了什麼？** 刪除分支時，只會刪除分支這個指針，並不會刪除任何的 commit！
+
+### :crab: 關於 git diff 這個命令
+
+現在應該也比較少在用 `git diff` 這個指令了，因為 IDE 可以直接顯示檔案變動的情況，非常方便，但其實也可以透過在終端機打下指令 `git diff` 來查看 working directory 和 staging area 中文件之間的差別。
+
+如果要查看 staging area 和 git repository 的差別的話，可以用 `git diff --cache` 來查看。
 
 ## :whale: 分支合併（Branch Merge）
 
