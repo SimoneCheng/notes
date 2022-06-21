@@ -18,6 +18,10 @@
     - [:crab: 使用 git checkout 出特定的 commit](#crab-使用-git-checkout-出特定的-commit)
     - [:crab: 關於 git diff 這個命令](#crab-關於-git-diff-這個命令)
   - [:whale: 分支合併（Branch Merge）](#whale-分支合併branch-merge)
+    - [:crab: Fast Forward Merge](#crab-fast-forward-merge)
+    - [:crab: 3 Way Merge](#crab-3-way-merge)
+    - [:crab: 3 Way Merge with Conflict](#crab-3-way-merge-with-conflict)
+    - [:crab: git rebase 是什麼？](#crab-git-rebase-是什麼)
 
 ## :whale: 前言
 因為在工作上大量的用到 git 這個版控工具，所以想好好了解自己每個用到的指令背後實際上發生了什麼事，上了一堂 udemy 的課，寫了一些小筆記。  
@@ -196,3 +200,21 @@ cat .git/HEAD
 
 ## :whale: 分支合併（Branch Merge）
 
+當團隊裡的人在不同的分支開發完之後，會需要將所有的分支都合併在一起，才是一個完整的應用。此時合併分支時會有幾個不同的狀況。這個單元會一一介紹。
+
+### :crab: Fast Forward Merge
+
+算是在合併分支的時候遇到的最簡單的一種。
+
+假設目前有兩個分支，分別是 mater 和 bugfix。bugfix 是基於 master 最新的 commit 所創建的另外一個分支，我們在 bugfix 上新增了一個 commit。此時整個 branch 和 commit 的結構大致上如下圖所示：
+
+<img src="../Git/images/fastForwardMerge.png" width="80%" />
+
+在這樣的結構之下進行 git merge 的話，master branch 的指針會向右移動，會與 bugfix 位於同一個 commit，稱之為 fast forward merge。在這裡簡單總結符合 fast forward merge 的條件：
+- 分支 B 合併進 分支 A 的時候，分支 B 的 第一個 commit 指向分支 A 最新的 commit。
+
+### :crab: 3 Way Merge
+
+### :crab: 3 Way Merge with Conflict
+
+### :crab: git rebase 是什麼？
