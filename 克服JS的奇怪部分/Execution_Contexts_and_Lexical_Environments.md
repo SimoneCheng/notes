@@ -2,29 +2,9 @@
 
 2022/03/11
 
-- [Execution Contexts & Lexical Environments](#execution-contexts--lexical-environments)
-  - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
-    - [:crab: Syntax Parser 語意分析](#crab-syntax-parser-語意分析)
-    - [:crab: Lexical Environment 詞彙環境](#crab-lexical-environment-詞彙環境)
-    - [:crab: Execution Context 執行環境](#crab-execution-context-執行環境)
-    - [:crab: Name/Value Pair](#crab-namevalue-pair)
-    - [:crab: Object](#crab-object)
-    - [:crab: JavaScript and 'undefined'](#crab-javascript-and-undefined)
-    - [:crab: Single Threaded 單執行緒](#crab-single-threaded-單執行緒)
-    - [:crab: Synchrnous Execution 同步執行](#crab-synchrnous-execution-同步執行)
-  - [:whale: The Global Environment and The Global Object](#whale-the-global-environment-and-the-global-object)
-  - [:whale: The Execution Context](#whale-the-execution-context)
-    - [:crab: Creation and Hoisting](#crab-creation-and-hoisting)
-    - [:crab: Code Execution](#crab-code-execution)
-  - [:whale: Function Invocation and the Execution Stack(Call Stack)](#whale-function-invocation-and-the-execution-stackcall-stack)
-  - [:whale: Functions, Context, and Variables Environments](#whale-functions-context-and-variables-environments)
-  - [:whale: The Scope Chain](#whale-the-scope-chain)
-  - [:whale: Scope, ES6, and let](#whale-scope-es6-and-let)
-  - [:whale: What about Asynchronous Callbacks?](#whale-what-about-asynchronous-callbacks)
+## 🐳 Concept Asides 名詞解釋
 
-## :whale: Concept Asides 名詞解釋
-
-### :crab: Syntax Parser 語意分析
+### 🦀 Syntax Parser 語意分析
 
 >  A program that reads your code and determines what it does and if its grammar is valid.
 
@@ -37,7 +17,7 @@ B --> C[assembly language]
 style B fill:#FFFF93,stroke:#C6A300
 ```
 
-### :crab: Lexical Environment 詞彙環境
+### 🦀 Lexical Environment 詞彙環境
 
 >  Where something sits physically in the code you write.
 
@@ -54,25 +34,25 @@ function Greeting() {
 
 並不是所有的程式語言都有 Lexical Environment，但 JavaScript 有。
 
-### :crab: Execution Context 執行環境
+### 🦀 Execution Context 執行環境
 
 >  A wrapper to help manage the code that is running.  
 >  There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain things beyond what you've written in your code.
 
 當我們寫好程式碼之後，我們該如何知道它是按照什麼樣的順序被電腦執行的？整個程式碼的執行流程是如何安排的？這就是 Execution Context 需要做的工作。
 
-### :crab: Name/Value Pair
+### 🦀 Name/Value Pair
 
 > A name which maps to a unique value.  
 > The name may be defined more than once, but only can have one value in any given **context**.  
 > That value may be more name/value pairs.
 
-### :crab: Object
+### 🦀 Object
 
 > A collection of name/value pairs.  
 > The simplest definition when talking about **JavaScript**.
 
-### :crab: JavaScript and 'undefined'
+### 🦀 JavaScript and 'undefined'
 直接來看看兩個不同的例子：
 
 ```javascript
@@ -96,18 +76,18 @@ console.log(a);
 
 **is not defined** 的意思則是：JaveScript 在記憶體位置當中並沒有尋找到該變數，所以它就會報錯，告訴我們 `Uncaught ReferenceError: a is not defined`。
 
-### :crab: Single Threaded 單執行緒
+### 🦀 Single Threaded 單執行緒
 > One command at a time.  
 > Under the hood of the browser, maybe not.
 
 JavaScript 是一個單執行緒的語言，也就是說 JavaScript 在執行的時候，一次只能做一件事情。但是如果我們是在 browser 這個環境之下執行 JavaScript，browser 本身可以幫我做到多執行緒的事情，但是就像開頭提到的 JavaScript 本身是一個單執行緒的語言。
 
-### :crab: Synchrnous Execution 同步執行
+### 🦀 Synchrnous Execution 同步執行
 > One at a time and in order.
 
 JavaScript 是同步執行的，也就是說做完一件事情，才會做下一件事情，而且會按照事情排好的順序依序做下去。
 
-## :whale: The Global Environment and The Global Object
+## 🐳 The Global Environment and The Global Object
 
 當 JavaScript 在執行的時候，它一定會在一個全域執行環境 (Global Environment) 當中執行，在這個環境當中會有一個全域物件 (Global Object)，以及一個很特殊的 variable 「this」。
 
@@ -135,9 +115,9 @@ window.a; // 1
 
 !> es6 新增了兩個新的宣告方式 `const` 以及 `let`，這兩個的用法與 `var` 不同，如果在全域環境使用 `const` 或 `let`，並不會在 Global Object 中建立一個 Name/Value Pair，避免了一些使用 `var` 會產生的問題。這三者的比較可能會之後再寫一篇筆記做更深入探討。
 
-## :whale: The Execution Context
+## 🐳 The Execution Context
 
-### :crab: Creation and Hoisting
+### 🦀 Creation and Hoisting
 在開始說明 JavaScript Engine 如何創建執行環境時，我們先來看看 JavaScript 的特殊現象「Hoisting」。首先來看看以下範例一的程式碼：
 
 ```javascript
@@ -217,8 +197,7 @@ a = 'Hello World!';
 
 !> 盡量在執行函數或使用變數之前先宣告他們，不要過度依賴於 Hoisting 的現象。因為你不知道你宣告的變數有沒有可能會變成 undefined。
 
-
-### :crab: Code Execution
+### 🦀 Code Execution
 JavaScript 在執行程式碼的時候就比較好理解了，不會有什麼 Hoisting 啦之類的奇怪的事情發生，就是我們寫好的程式碼會被 JavaScript Engine 在它該在的環境當中被一行一行的執行。但要特別注意的是，JavaScript 是單執行緒的語言喔。
 
 ```
@@ -242,7 +221,7 @@ JavaScript 在執行程式碼的時候就比較好理解了，不會有什麼 Ho
 ```
 
 
-## :whale: Function Invocation and the Execution Stack(Call Stack)
+## 🐳 Function Invocation and the Execution Stack(Call Stack)
 > **nvocation**: running a function  
 > In JavaScript, we can use parenthesis() to invocate function.
 
@@ -294,7 +273,7 @@ a();
 └─────────────────────────────────────┘
 ```
 
-## :whale: Functions, Context, and Variables Environments
+## 🐳 Functions, Context, and Variables Environments
 > **Variable Environment**: where the variables live and how they realte to each other in memory
 
 在每個 Execution Context 被創建之後，同時該 Execution Context 也會有一個自己的 Variable Environment。我們可以透過以下的程式碼為例，來說明 Variable Environment 在 JavaScript 中是如何被建立的。
@@ -347,7 +326,7 @@ a();
 └────────────────────────────────────────────────────────┘
 ```
 
-## :whale: The Scope Chain
+## 🐳 The Scope Chain
 還記得我們在前面提到，程式碼執行之後，會為每個執行的函數建立自己的 Execution Context、自己的 Variable Environment。現在我們要談到，當程式碼執行後除了會建立上述提到的部分，還會建立一個 Outer Environment，意思就是指會建立一個對外的 Scope 參照。
 
 總結來說，當一個 Execution Context 被建立的時候，裡面會有以下幾種東西：
@@ -435,7 +414,7 @@ a();
 
 這種不斷地往 Outer Environment 尋找 Variable 的現象就稱為「Scope Chain」。
 
-## :whale: Scope, ES6, and let
+## 🐳 Scope, ES6, and let
 > Scope: where a variable is available in your code.
 
 在 ES6 以前，若想要宣告一個變數，只有 `var` 可以用，但在 ES6 公布之後，目前有 `var`、`const`、`let` 可以用來宣告變數。
@@ -451,7 +430,7 @@ a();
 |Hoisting| undefined | 進入暫時死區，會報錯 | 進入暫時死區，會報錯|
 
 
-## :whale: What about Asynchronous Callbacks?
+## 🐳 What about Asynchronous Callbacks?
 
 在前面的影片有提到 JavaScript 是一個單執行緒、同步的語言（一次只做一件事情），但是在瀏覽器當中卻可以做到非同步（一次做很多件事情），這到底是如何辦到的？是因為有瀏覽器這個執行的環境，它可以先做一些非同步的處理，然後再將處理好的函數一一丟到 JavaScript Engine 當中去執行。
 

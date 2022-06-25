@@ -2,29 +2,9 @@
 
 2022/06/02
 
-- [Objects and Functions](#objects-and-functions)
-  - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
-    - [:crab: Namespace](#crab-namespace)
-    - [:crab: First Class Function](#crab-first-class-function)
-    - [:crab: Mutate](#crab-mutate)
-    - [:crab: Arguments](#crab-arguments)
-  - [:whale: Objects and Dot](#whale-objects-and-dot)
-  - [:whale: Funtcions are Objects](#whale-funtcions-are-objects)
-  - [:whale: Function Statements and Function Expressions](#whale-function-statements-and-function-expressions)
-    - [:crab: Function Statement 敘述式](#crab-function-statement-敘述式)
-    - [:crab: Function Expression 表達式](#crab-function-expression-表達式)
-    - [:crab: 兩者之間的差別](#crab-兩者之間的差別)
-  - [:whale: By Value and By Reference](#whale-by-value-and-by-reference)
-    - [🦀 By Value](#-by-value)
-    - [:crab: By Reference](#crab-by-reference)
-  - [:whale: Objects, Funcitons, and `this`](#whale-objects-funcitons-and-this)
-  - [:whale: 'arguments' and Spread](#whale-arguments-and-spread)
-    - [:crab: arguments](#crab-arguments-1)
-    - [:crab: spread](#crab-spread)
+## 🐳 Concept Asides 名詞解釋
 
-## :whale: Concept Asides 名詞解釋
-
-### :crab: Namespace
+### 🦀 Namespace
 
 > A container for variables and functions.  
 > Typically to keep variables and function with the same name seperate.
@@ -39,19 +19,19 @@ console.log(english.greet);
 console.log(spanish.greet);
 ```
 
-### :crab: First Class Function
+### 🦀 First Class Function
 > Everything you can do with other types you can do with functions.  
 > Assign them to variables, pass them around, create them on the fly.
 
-### :crab: Mutate
+### 🦀 Mutate
 > To change something.  
 > **Immutable** means it can't be changed. 
 
-### :crab: Arguments
+### 🦀 Arguments
 > The parameters you pass to a function.  
 > Jacascript gives you a keyword of the same name which contains them all.
 
-## :whale: Objects and Dot
+## 🐳 Objects and Dot
 
 在前面的影片當中有提到 object 是一對 key、value 的集合，那麼在記憶體當中，object 是如何儲存的呢？
 
@@ -59,7 +39,7 @@ console.log(spanish.greet);
 
 ![](./images/object.png)
 
-## :whale: Funtcions are Objects
+## 🐳 Funtcions are Objects
 
 在 JavaScript 當中 function 就是 object 的一種，所以 function 擁有所有 object 的特性，但同時 function 也有一些自己的特點，例如： function 可以是匿名的，而且 function 有一段自己的 code（可以理解為 function 的其中一個 property 是 code），並且可以透過呼叫 `()` 來執行。如下圖所示：
 
@@ -76,11 +56,11 @@ greet.lang = "english";
 console.log(greet.lang);
 ```
 
-## :whale: Function Statements and Function Expressions
+## 🐳 Function Statements and Function Expressions
 
 在 JavaScript 當中有兩種方式可以用來宣告 function，分別是：敘述式（function statement）和表達式（function expression）。
 
-### :crab: Function Statement 敘述式
+### 🦀 Function Statement 敘述式
 
 敘述式的寫法如下：
 ```javascript
@@ -89,7 +69,7 @@ function greeting() {
 }
 ```
 
-### :crab: Function Expression 表達式
+### 🦀 Function Expression 表達式
 
 表達式的寫法如下：
 ```javascript
@@ -105,7 +85,7 @@ const greeting = () => {
 };
 ```
 
-### :crab: 兩者之間的差別
+### 🦀 兩者之間的差別
 
 來看看這兩段程式碼就可以很清楚的知道敘述式和表達式的差別：
 ```javascript
@@ -130,7 +110,7 @@ const greet = function() {
 
 從這個例子可以知道，敘述式和表達式的最大差別就是在 hoisting 的時候結果會不太一樣，而為了避免可能會產生報錯，盡量都在執行 function 之前先宣吿 function 才是比較好的選擇。
 
-## :whale: By Value and By Reference
+## 🐳 By Value and By Reference
 
 ### 🦀 By Value
 
@@ -143,7 +123,7 @@ b = a;
 如果 a 這個變數的值是一個 primitive type（例如數字、字串、布林值等等）的話，當我們將 a 賦值給 b 的時候，其實是會將 a 的值複製出一個新的，然後將它儲存在另外一個新的記憶體區塊，再把新的記憶體區塊 reference 到 b，如下圖所示：
 ![](images/byvalue.png)
 
-### :crab: By Reference
+### 🦀 By Reference
 
 接下來以下面的程式碼範例為例，來舉例什麼是 **by reference**：
 ```javascript
@@ -165,7 +145,7 @@ console.log(a.firstName); // a.firstName 會印出什麼？
 
 ?> **小小結論**：知道 **by value** 和 **by reference** 的差別，有助於程式開發和除錯。在這邊會討論到 **by value** 和 **by reference** 的差別主要是因為，當我們在進行程式開發或是除錯的時候，會需要處理非常多各式各樣的資料型態。當如果不小心改動的原本的資料時，可能會導致某些 function 出錯，此時知道 **by value** 和 **by referenct** 的差異可以更好的去避免改動到原始資料，降低產生 bug 的機率！
 
-## :whale: Objects, Funcitons, and `this`
+## 🐳 Objects, Funcitons, and `this`
 
 前面的幾部影片有提到 function 在執行的時候，會有一個 funciton 自己的 execute content 和 variable environment，並透過 scope chain 去拿到 outer environment 的變數，除此之外還會有一個東西——叫做 `this`，接下來這個部分會特別針對 `this` 來做說明。
 
@@ -249,9 +229,9 @@ c.log();
 
 ?> **小小結論**：如果在 function 裡面呼叫 `this`，然後在 global 當中執行，通常 `this` 會指向 window，如果是呼叫放在 object 當中的 function 的話，呼叫的 `this` 則會指向該 object，但如果是在 object 的 function 中還有另一個內部的 function，這個內部的 function 呼叫的 `this` 會指向 window，為了避免這樣的 bug，可以先在 object function 裡面的最上方將 `this` 賦值給某個變數（通常會寫成 `const self = this`）。
 
-## :whale: 'arguments' and Spread
+## 🐳 'arguments' and Spread
 
-### :crab: arguments
+### 🦀 arguments
 
 在開始說明什麼是 `arguments` 之前，我們先來看一個普通的 function：
 ```javascript
@@ -331,7 +311,7 @@ function greet(firstName, lastName, language) {
 }
 ```
 
-### :crab: spread
+### 🦀 spread
 
 spread 簡單來說就是很常看到的 `...`。而這個 `...` 實際上有什麼用途呢？目前我所知道的用法主要有三個：
 1. 如果傳入某個 function 的變數可能是OO個和OO個以上，這個「以上」的部分可以用 `...` 包起來。

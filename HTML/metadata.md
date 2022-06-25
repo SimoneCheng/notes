@@ -2,27 +2,7 @@
 
 2022/01/29
 
-- [metadata、`<meta>` 知多少](#metadatameta-知多少)
-  - [:whale: 前言](#whale-前言)
-  - [:whale: metadata 是什麼？](#whale-metadata-是什麼)
-  - [:whale: metadata 有哪些？](#whale-metadata-有哪些)
-    - [:crab: `<title>`](#crab-title)
-    - [:crab: `<link>`](#crab-link)
-      - [將 `CSS` 檔引入（Load Stylesheets）](#將-css-檔引入load-stylesheets)
-      - [加入網頁 Logo（Add a Favicon）](#加入網頁-logoadd-a-favicon)
-      - [標準網址 （Canonical URL）](#標準網址-canonical-url)
-    - [:crab: `<base>`](#crab-base)
-    - [:crab: `<script>`](#crab-script)
-    - [:crab: `<meta>`](#crab-meta)
-  - [:whale: 淺談 `<meta>`](#whale-淺談-meta)
-    - [:crab: name、content](#crab-namecontent)
-    - [:crab: charset](#crab-charset)
-    - [:crab: http-equiv](#crab-http-equiv)
-    - [:crab: Open Graph](#crab-open-graph)
-  - [:whale: 結語](#whale-結語)
-  - [:whale: 參考資源](#whale-參考資源)
-
-## :whale: 前言
+## 🐳 前言
 
 今天想要研究的主題是，網頁前端世界裡的三本柱 ── `HTML`、`CSS`、`JavaScript` 之中的 `HTML`。雖然 `HTML` 並非如同 `JavaScript` 有很多程式語言相關的主題與議題能夠探討，但是也是有一些有趣的主題值得研究和探索。
 
@@ -37,7 +17,7 @@
 - 知道 `HTML` 是什麼
 - 了解 `<head>` 和 `<body>` 的差別
 
-## :whale: metadata 是什麼？
+## 🐳 metadata 是什麼？
 
 首先可以先從現有的網路資源當中，去尋找 metadata 的定義。在 MDN 文件當中，解釋了什麼是 metadata：
 
@@ -70,11 +50,11 @@
 
 這些放在 `<head>` 當中的資訊，並且用來描述這個 `HTML` 網頁檔是要用來做什麼、或是要運行什麼東西，都可以稱之為 metadata。通常這些 metadata 的資訊會被搜尋引擎的爬蟲爬取並解析，於是我們可以在這裡很簡單地暴力推測：如果 metadata 寫得越完整，對 SEO 的幫助越大，也可以說是優化 SEO 的方法之一。
 
-## :whale: metadata 有哪些？
+## 🐳 metadata 有哪些？
 
 在上一個小節理解 metadata 的定義之後，那接下來的問題就是：實際上要如何在 `HTML` 當中寫出 metadata 呢？這也是本小節試圖回答和整理的問題。
 
-### :crab: `<title>`
+### 🦀 `<title>`
 
 在每個 `HTML` 檔的 `<head>` 當中，基本上一定都會有 `<title>` 這個標籤（tag），它的語法如下：
 ```html
@@ -83,7 +63,7 @@
 
 藉由 `title` 這個標籤，可以讓搜尋引擎知道這個網頁的名稱，並將它顯示在搜尋結果頁上面。或是也可以在瀏覽器的頁籤上看到 `<title>` 的內容，讓使用者知道自己目前在哪個網頁，比如說進到臉書首頁時，在瀏覽器頁籤上看到 Facebook 字樣，是因為 `<title>Facebook</title>` 的緣故。 
 
-### :crab: `<link>`
+### 🦀 `<link>`
 
 `<link>` 這個標籤的用途蠻多元的，目前我自己最常用到的是將 `CSS` 檔引入到 `HTML` 當中，讓網頁上的元素可以套用樣式，除此之外還有一些其他的用途，例如：加入網頁的 Logo、用標準網址（Canonical URL）整合重複性的網址等等。
 
@@ -126,7 +106,7 @@ http://example.com/index.html
 
 這也是 `<link>` 的用途之一。有關標準網址相關資訊，可以參考 Google 搜尋中心的說明：[整合重複的網址](https://developers.google.com/search/docs/advanced/crawling/consolidate-duplicate-urls)。更多有關 `<link>`詳細的屬性解說可以參考 MDN 文件：[link: The External Resource Link element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)、[Link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types)。
 
-### :crab: `<base>`
+### 🦀 `<base>`
 
 `<base>` 標籤主要是控制網頁的連結屬性，可以指定網頁的連結根目錄，也可以指定網頁超連結的開啟方式，屬性有 href、target。我們可以直接來看以下兩個範例：
 
@@ -162,7 +142,7 @@ http://example.com/index.html
 
 另外需要注意的是：只要有設定 `<base>` 的 `href`，任何網頁中的連結都會被它給覆蓋過去。更多有關 `<base>` 的用法可以參考這些資源：[base html 標籤是什麼? html tag 設定網頁連結 - SEAN 工作版](https://seanacnet.com/html/base-html/)、[base: The Document Base URL element - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)。
 
-### :crab: `<script>`
+### 🦀 `<script>`
 
 可以使用 `<script>` 這個標籤來引入 JavaScript，執行一些這個 `HTML` 網頁所需要的程式碼，比如 CDN 、Gooogle Analytics、網頁互動邏輯等等，可以使用以下兩種不同的方式引入：
 
@@ -178,15 +158,15 @@ http://example.com/index.html
 
 另外在使用 `<script>` 這個標籤時，可以特別注意某些屬性是怎麼使用的，比如說：**`defer` 和 `async` 的差別**、**`type="module"` 怎麼用**等等。更多詳細的屬性解說可以參考 MDN 文件：[script: The Script element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)。
 
-### :crab: `<meta>`
+### 🦀 `<meta>`
 
 除了上述使用到的標籤之外，可能也還有很多 metadata 需要寫進 `HTML` 檔裡，比如這個網頁的編碼方式、這個網頁的作者、這個網頁的描述等等，這些都可以使用 `<meta>` 這個標籤來實現。簡單來說，除了前面提到的標籤以及它們的用途之外，其他的 metadata 都可以寫在 `<meta>` 這個標籤中，在下一個部分會針對 `<meta>` 的屬性做更詳細的理解與介紹。
 
-## :whale: 淺談 `<meta>`
+## 🐳 淺談 `<meta>`
 
 在這個部分會一一介紹幾個 `<meta>` 當中常用到的 attribute，了解這些 attribute 的用途。
 
-### :crab: name、content
+### 🦀 name、content
 
 首先第一個登場的 attribute 就是 name 和 content。name 和 content 可以用來描述一個網站的資訊，像是這個網站的作者、這個網站的描述、圖片等等，通常這兩者可以寫在一起，比如下面的範例：
 
@@ -214,7 +194,7 @@ http://example.com/index.html
 
 以往 name 有一個 keywords 的寫法，表示這個網站會用到的關鍵字，提供搜尋引擎尋找，但目前 Google 有說搜尋引擎目前不會查詢 keywords 了。所以如果有需要的話，可以改成寫在 meta description 當中。
 
-### :crab: charset
+### 🦀 charset
 
 charset 這個 attribute 是用來設定該網頁會用何種方式來進行編碼，比如以下的範例使用 utf-8 方式還進行編碼，也是目前網頁常用到的編碼方式。HTML5 預設的編碼方式也是 utf-8。（編碼的方式有非常多種，也許之後也可以寫筆記來研究研究）
 
@@ -222,7 +202,7 @@ charset 這個 attribute 是用來設定該網頁會用何種方式來進行編�
 <meta charset="utf-8">
 ```
 
-### :crab: http-equiv
+### 🦀 http-equiv
 
 http-equiv 會告訴瀏覽器該如何處理這份文件。
 
@@ -254,7 +234,7 @@ http-equiv 還有另外一個用法是 refresh，可以設定幾秒過後重新�
 
 !> 目前 HTML5 請直接使用 `<meta charset="utf-8">`， `<meta http-equiv="content-type" content="text/html; charset=UTF-8">` 是 HTML4 在用的。
 
-### :crab: Open Graph
+### 🦀 Open Graph
 
 平常在各個社群網站分享網址的時候，除了將一串網址貼到貼文上面之外，是不是還會看有一個區塊，上面會有你分享的網站的標題、敘述、圖片等等。
 
@@ -274,11 +254,11 @@ http-equiv 還有另外一個用法是 refresh，可以設定幾秒過後重新�
 
 ?> Open Graph 的官方文件由此去：https://ogp.me/
 
-## :whale: 結語
+## 🐳 結語
 
 以上就是這次對 metadata、`<meta>` 的小小研究，透過這次的撰寫，得到的收穫大概是：對 metadata 和 `<meta>` 有更詳細的了解。同時也可以理解 metadata 當中對 SEO 有幫助的部分，例如：整合標準網址、將 `<meta>` 的 description 寫的詳細一點等等。
 
-## :whale: 參考資源
+## 🐳 參考資源
 
 - [What Is Metadata In HTML Documents?: Head Elements Explained](https://html.com/document/metadata/)
 - [What is metadata? - iT邦幫忙](https://ithelp.ithome.com.tw/articles/10237545)
