@@ -2,20 +2,9 @@
 
 2022/03/15
 
-- [Types and Operators](#types-and-operators)
-  - [:whale: Concept Asides 名詞解釋](#whale-concept-asides-名詞解釋)
-    - [:crab: Dynamic Typing 動態型別](#crab-dynamic-typing-動態型別)
-    - [:crab: Primitive Type 原始型別](#crab-primitive-type-原始型別)
-    - [:crab: Operator 運算子](#crab-operator-運算子)
-    - [:crab: Coercion 強制轉型](#crab-coercion-強制轉型)
-  - [:whale: Operator Precedence and Associativity](#whale-operator-precedence-and-associativity)
-  - [:whale: Comparison Operators](#whale-comparison-operators)
-  - [:whale: 什麼時候用到了 Coercion？](#whale-什麼時候用到了-coercion)
-  - [:whale: 參考資源](#whale-參考資源)
+## 🐳 Concept Asides 名詞解釋
 
-## :whale: Concept Asides 名詞解釋
-
-### :crab: Dynamic Typing 動態型別
+### 🦀 Dynamic Typing 動態型別
 
 > You don't tell the engine what type of data a variable holds, it figures it out while your code is running.  
 > Variables can hold different types of values because it's all figured out during execution.
@@ -24,13 +13,13 @@
 
 有很多程式語言是屬於強型別的語言，當使用強行別的語言時，在宣告變數的時候，同時也需要宣告這個變數的型別。但 JavaScript 不需要在宣告一個變數時，同時宣告該變數的型別， JavaScript Engine 會自己去判斷變數的型別。所以，JavaScript 是一種動態型別的語言。
 
-### :crab: Primitive Type 原始型別
+### 🦀 Primitive Type 原始型別
 
 > A type of data that represents a single value.
 
 JavaScript 總共有六種原始型別，分別是：string、boolean、number、undefined、null、symbol。
 
-### :crab: Operator 運算子
+### 🦀 Operator 運算子
 
 > A special function that is syntactically (written) differently.  
 > Generally, operators take two parameters and return one result.
@@ -58,7 +47,7 @@ function +(a, b) {
 
 總之，在 JavaScript 中，運算子其實是一種 function，傳入兩個值，然後會回傳一個值。
 
-### :crab: Coercion 強制轉型
+### 🦀 Coercion 強制轉型
 > Converting a value from one type to another.  
 > This happens quite often in JavaScript because it's dynamically typed.
 
@@ -84,7 +73,7 @@ console.log(c);
 ?> 目前學到的轉型規則：當有兩個東西「相加」的時候，如果其中一個東西是字串，JavaScript 會嘗試將另一個東西也轉成字串。
 
 
-## :whale: Operator Precedence and Associativity
+## 🐳 Operator Precedence and Associativity
 
 首先要來定義什麼是 Operator Precedence 和 Associativity：
 > Operator Precedence: which operator get called first.  
@@ -132,7 +121,7 @@ console.log(c);
 
 從以上兩個例子中，可以很清楚的知道 Operator Precedence 和 Associativity 的作用。
 
-## :whale: Comparison Operators
+## 🐳 Comparison Operators
 
 在這個小節當中，講師提到當所有以上概念（Coercion、Operator Precedence and Associativity）合在一起的時候，JavaScript 會出現一些讓人困惑的現象。
 
@@ -185,7 +174,7 @@ null < 1; // true
 
 在 JavaScript 當中，還有另外一個運算子 `===` 也可以用來比較兩個值是否相等。使用 `===` 時並不會使想要比較的值被轉型，會先比較型別是否相同然後才比較兩者的值，如果型別不同便會直接回傳 false，所以可以盡量使用 `===` 會比較好。
 
-## :whale: 什麼時候用到了 Coercion？
+## 🐳 什麼時候用到了 Coercion？
 
 其實平常在寫 code 的時候，我們也默默用到了很多轉型的概念，比如說以下的 react 的使用情境就是利用當 state 是空字串時會轉型成 false，非空字串會轉型成 true ，來判斷要顯示什麼樣的畫面。
 
@@ -204,6 +193,6 @@ funciton Component() {
 }
 ```
 
-## :whale: 參考資源
+## 🐳 參考資源
 - [MDN 文件 - Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 - [MDN 文件 - Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)

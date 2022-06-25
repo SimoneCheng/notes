@@ -2,34 +2,13 @@
 
 2022/06/10
 
-- [Git](#git)
-  - [:whale: 前言](#whale-前言)
-  - [:whale: Git Local 基本原理解析](#whale-git-local-基本原理解析)
-    - [:crab: Git 的設定](#crab-git-的設定)
-    - [:crab: 初始化代碼倉庫](#crab-初始化代碼倉庫)
-    - [:crab: git add [file] 背後發生了什麼](#crab-git-add-file-背後發生了什麼)
-    - [:crab: blob 對象與 SHA1 哈希](#crab-blob-對象與-sha1-哈希)
-    - [:crab: Working Directory 和 Staging Area](#crab-working-directory-和-staging-area)
-    - [:crab: git commit 背後發生了什麼](#crab-git-commit-背後發生了什麼)
-    - [:crab: Commit History Tree](#crab-commit-history-tree)
-  - [:whale: Branch 和 HEAD](#whale-branch-和-head)
-    - [:crab: 什麼是分支？什麼是HEAD？](#crab-什麼是分支什麼是head)
-    - [:crab: 分支的基本操作](#crab-分支的基本操作)
-    - [:crab: 使用 git checkout 出特定的 commit](#crab-使用-git-checkout-出特定的-commit)
-    - [:crab: 關於 git diff 這個命令](#crab-關於-git-diff-這個命令)
-  - [:whale: 分支合併（Branch Merge）](#whale-分支合併branch-merge)
-    - [:crab: Fast Forward Merge](#crab-fast-forward-merge)
-    - [:crab: 3 Way Merge](#crab-3-way-merge)
-    - [:crab: 3 Way Merge with Conflict](#crab-3-way-merge-with-conflict)
-    - [:crab: git rebase 是什麼？](#crab-git-rebase-是什麼)
-
-## :whale: 前言
+## 🐳 前言
 因為在工作上大量的用到 git 這個版控工具，所以想好好了解自己每個用到的指令背後實際上發生了什麼事，上了一堂 udemy 的課，寫了一些小筆記。  
 筆記來源大部分參考自：https://www.udemy.com/course/git-basic/
 
-## :whale: Git Local 基本原理解析
+## 🐳 Git Local 基本原理解析
 
-### :crab: Git 的設定
+### 🦀 Git 的設定
 通常在看各式各樣的 git 教學的時候，會看到當使用者下載好 git 之後，教學的下一個步驟是在終端機打入以下指令：
 ```git
 git config --global user.email "[your email]"
@@ -42,7 +21,7 @@ git config --global user.name "[your name]"
 
 !> git repository 會優先採用 local config 的設定，再使用 global config 的設定。
 
-### :crab: 初始化代碼倉庫
+### 🦀 初始化代碼倉庫
 建立一個 git repository 主要有兩種方法：
 - git clone 遠端的倉庫
 - 建立本地倉庫，再使用 git init
@@ -67,7 +46,7 @@ git config --global user.name "[your name]"
     └── tags
 ```
 
-### :crab: git add [file] 背後發生了什麼
+### 🦀 git add [file] 背後發生了什麼
 當建立一個檔案，並將其透過 `git add [檔名]` 加入 tracked file 的時候，可以發現 .git 資料夾發生了變化，我們假設目前的變化如下：
 ```git
 .git
@@ -101,7 +80,7 @@ git cat-file -p 547fe9
 
 在終端機下了上述這兩個指令之後，可以發現透過 `git add [file]` 之後，產生的 object 類型是　blob 而裡面的內容則是檔案裡面的文字內容，另外一個很重要的是，我們發現到這個 object 並沒有儲存檔名。（檔名會存在另外一個地方）
 
-### :crab: blob 對象與 SHA1 哈希
+### 🦀 blob 對象與 SHA1 哈希
 
 - HASH 算法：將任意長度的輸入透過 HASH 算法變換成固定長度的輸出，常常被用來做加密。
 - 常見的 HASH 算法，括號當中的 bit 表示會輸出多少 bit 的字串：
@@ -112,7 +91,7 @@ git cat-file -p 547fe9
 
 `git add [file]` 之後， git 會根據檔案的類型、大小、修改的內容來產生 HASH 值，然後存到 .git/objects 當中，同時也會壓縮內容。目前 git 算出 HASH 值的方式都是用 SHA1 算法。
 
-### :crab: Working Directory 和 Staging Area
+### 🦀 Working Directory 和 Staging Area
 git 的工作區大致上可以分成三種不同的類型來理解，分別是 Working Directory、Staging Area、git repository。如下圖所示：
 
 ![](images/gitWorkspace.png)
@@ -127,7 +106,7 @@ git ls-files -s // 顯示檔名、該檔案的權限、文件內容
 
 ?> 所以可以知道，前面提到的 blob object 只儲存文件內容，而文件的檔名會儲存在 index（索引區）。可以透過 `git status` 指令來觀察 Staging Area 和 Working Directory 的變化。
 
-### :crab: git commit 背後發生了什麼
+### 🦀 git commit 背後發生了什麼
 將文件加入到 Staging Area 之後，接著要使用 `git commit -m "message"` 來生成 commit，生成 commit 的目的是為了將有修改的地方存到代碼倉庫（git repository）當中，那麼 commit 在生成的時候，究竟是生成了什麼呢？
 
 生成一個 commit 之後，git 也會透過 SHA1 算法為每個 commit 算出一組編碼，這時候我們也可以運用上面提到的 `git cat-file` 指令去觀察 commit 的類型和內容。透過該指令我們可以知道 commit 的類型是 commit，而內容則是 tree 和作者資訊，如下圖範例：
@@ -148,16 +127,16 @@ cat .git/refs/heads/master
 cat .git/HEAD
 ```
 
-### :crab: Commit History Tree
+### 🦀 Commit History Tree
 在前面的幾個部份當中，我們可以發現不管是使用 `git add` 或 `git commit -m`  git 都會透過 SHA1 算法來生成一個 git object，而這些 object 都會指向各自關聯到的另外一個 git object，比如說新的 commit 會指向上一個 commit，以此類推，如果有很多個 commit 的話，我們就可以透過這樣的方式去知道整個 commit history。而每一個 commit 會指向該 commit 有修改到的檔案（blob object），透過這個指向，我們也可以知道每一個 commit 修改了什麼。
 
 這樣子不斷指向的過程便會形成一個 commit history tree（如下圖），而我們也可以知道，這樣的結構就是 git 的版本概念。
 
 ![](images/commitHistoryTree.png)
 
-## :whale: Branch 和 HEAD
+## 🐳 Branch 和 HEAD
 
-### :crab: 什麼是分支？什麼是HEAD？
+### 🦀 什麼是分支？什麼是HEAD？
 在整個 git 版本控制的工作流程當中有一個非常重要的概念，就是分支，在程式開發的流程當中會不斷遇到建立分支、合併分支的過程，在開始講解基本操作之前，先來解釋一下到底什麼是分支？
 
 翻翻 git 的官方文件後，我們可以看到 git 對分支的解釋：
@@ -167,7 +146,7 @@ cat .git/HEAD
 1. 要有一個地方可以儲存每個分支指向的哪個 commit 這件事情。 ➡️ 存在 .git/refs/heads/[branch 名稱] 裡面。
 2. 要有一個東西可以讓我們知道我們現在在哪一個分支上面。 ➡️ 透過 HEAD 來實現，也就是說只要看 HEAD 指向哪個分支，我們現在就在哪個分支。（HEAD 存在 .git/HEAD）
 
-### :crab: 分支的基本操作
+### 🦀 分支的基本操作
 1. ```git branch```：查看目前有哪些分支。如果該分支前面出現 * 字號，表示那是現在所在的分支。
 2. ```git branch [branch 名稱]```：創建分支。
 3. ```git checkout [branch 名稱]```：切換現在的分支到另外一個分支。
@@ -179,7 +158,7 @@ cat .git/HEAD
 
 !> 注意：如果現在所在的分支是想要刪除的分支的話，就不能刪除分支。要先移動到別的分支，才能刪除。
 
-### :crab: 使用 git checkout 出特定的 commit
+### 🦀 使用 git checkout 出特定的 commit
 
 `git checkout` 除了可以用來切換分支之外，也可以用來找出某個特定的 commit。如果不小心刪除了某個分支，可以先用 `git reflog` 找到被刪除分支的 commit，然後再建立分支，就可以恢復被刪除的分支。如下步驟：
 ```
@@ -192,17 +171,17 @@ cat .git/HEAD
 
 !> **刪除分支到底刪除了什麼？** 刪除分支時，只會刪除分支這個指針，並不會刪除任何的 commit！
 
-### :crab: 關於 git diff 這個命令
+### 🦀 關於 git diff 這個命令
 
 現在應該也比較少在用 `git diff` 這個指令了，因為 IDE 可以直接顯示檔案變動的情況，非常方便，但其實也可以透過在終端機打下指令 `git diff` 來查看 working directory 和 staging area 中文件之間的差別。
 
 如果要查看 staging area 和 git repository 的差別的話，可以用 `git diff --cache` 來查看。
 
-## :whale: 分支合併（Branch Merge）
+## 🐳 分支合併（Branch Merge）
 
 當團隊裡的人在不同的分支開發完之後，會需要將所有的分支都合併在一起，才是一個完整的應用。此時合併分支時會有幾個不同的狀況。這個單元會一一介紹。
 
-### :crab: Fast Forward Merge
+### 🦀 Fast Forward Merge
 
 算是在合併分支的時候遇到的最簡單的一種。
 
@@ -213,8 +192,8 @@ cat .git/HEAD
 在這樣的結構之下進行 git merge 的話，master branch 的指針會向右移動，會與 bugfix 位於同一個 commit，稱之為 fast forward merge。在這裡簡單總結符合 fast forward merge 的條件：
 - 分支 B 合併進 分支 A 的時候，分支 B 的 第一個 commit 指向分支 A 最新的 commit。
 
-### :crab: 3 Way Merge
+### 🦀 3 Way Merge
 
-### :crab: 3 Way Merge with Conflict
+### 🦀 3 Way Merge with Conflict
 
-### :crab: git rebase 是什麼？
+### 🦀 git rebase 是什麼？
