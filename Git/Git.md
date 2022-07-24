@@ -187,7 +187,7 @@ cat .git/HEAD
 
 假設目前有兩個分支，分別是 mater 和 bugfix。bugfix 是基於 master 最新的 commit 所創建的另外一個分支，我們在 bugfix 上新增了一個 commit。此時整個 branch 和 commit 的結構大致上如下圖所示：
 
-<img src="../Git/images/fastForwardMerge.png" width="80%" />
+<img src="/notes/Git/images/fastForwardMerge.png" width="80%" />
 
 在這樣的結構之下進行 git merge 的話，master branch 的指針會向右移動，會與 bugfix 位於同一個 commit，稱之為 fast forward merge。在這裡簡單總結符合 fast forward merge 的條件：
 - 分支 B 合併進 分支 A 的時候，分支 B 的 第一個 commit 指向分支 A 最新的 commit。
