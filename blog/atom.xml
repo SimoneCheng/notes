@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://simonecheng.github.io/notes/blog</id>
+    <title>Simone 的技術筆記 Blog</title>
+    <updated>2022-09-22T11:19:20.663Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://simonecheng.github.io/notes/blog"/>
+    <subtitle>Simone 的技術筆記 Blog</subtitle>
+    <icon>https://simonecheng.github.io/notes/img/dovefavicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[新網站開張]]></title>
+        <id>/new_start</id>
+        <link href="https://simonecheng.github.io/notes/blog/new_start"/>
+        <updated>2022-09-22T11:19:20.663Z</updated>
+    </entry>
+</feed>

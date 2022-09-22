@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Simone 的技術筆記 Blog</title>
+        <link>https://simonecheng.github.io/notes/blog</link>
+        <description>Simone 的技術筆記 Blog</description>
+        <lastBuildDate>Thu, 22 Sep 2022 11:19:20 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[新網站開張]]></title>
+            <link>https://simonecheng.github.io/notes/blog/new_start</link>
+            <guid>/new_start</guid>
+            <pubDate>Thu, 22 Sep 2022 11:19:20 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
