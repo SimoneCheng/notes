@@ -1,18 +1,41 @@
-## 👻 Learning something every week! 👻
-身為一個初入程式世界的小小 Coder， 這是一個期許自己每個禮拜都學一點新東西的小小 repo。
-如果你也想知道我們平常在學什麼，可以在這個 repo 裡面翻翻所有的 markdown 檔案喔。
+# Website
 
-## 🐳 所有筆記
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
+### Installation
 
-### 克服 JS 的奇怪部分
-?> 記錄上 `JavaScript: Understanding the Weird Parts` 這堂課的筆記。
-- [Execution Contexts & Lexical Environments](克服JS的奇怪部分/Execution_Contexts_and_Lexical_Environments.md)
-- [Types and Operators](克服JS的奇怪部分/Types_and_Operators.md)
-- [Objects and Functions](克服JS的奇怪部分/Objects_and_Functions.md)
+```
+$ yarn
+```
 
-### HTML
-- [metadata、meta 知多少](HTML/metadata.md)
+### Local Development
 
-### Git
-- [Git 原理概說](Git/Git.md)
+```
+$ yarn start
+```
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+Using SSH:
+
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
