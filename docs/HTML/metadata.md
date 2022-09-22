@@ -1,3 +1,7 @@
+---
+title: metadata、<meta> 知多少
+---
+
 # metadata、`<meta>` 知多少
 
 2022/01/29
@@ -232,7 +236,9 @@ http-equiv 還有另外一個用法是 refresh，可以設定幾秒過後重新�
 <meta http-equiv="refresh" content="5; url=http://www.example.com">
 ```
 
-!> 目前 HTML5 請直接使用 `<meta charset="utf-8">`， `<meta http-equiv="content-type" content="text/html; charset=UTF-8">` 是 HTML4 在用的。
+:::caution
+目前 HTML5 請直接使用 `<meta charset="utf-8">`， `<meta http-equiv="content-type" content="text/html; charset=UTF-8">` 是 HTML4 在用的。
+:::
 
 ### 🦀 Open Graph
 
@@ -252,7 +258,9 @@ http-equiv 還有另外一個用法是 refresh，可以設定幾秒過後重新�
 <meta property="og:description" content="The Open Graph protocol enables any web page to become a rich object in a social graph.">
 ```
 
-?> Open Graph 的官方文件由此去：https://ogp.me/
+:::info
+ Open Graph 的官方文件由此去：https://ogp.me/
+:::
 
 ## 🐳 結語
 

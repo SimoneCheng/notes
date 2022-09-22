@@ -1,9 +1,10 @@
-# Git
+# Git Basic
 
 2022/06/10
 
 ## 🐳 前言
-因為在工作上大量的用到 git 這個版控工具，所以想好好了解自己每個用到的指令背後實際上發生了什麼事，上了一堂 udemy 的課，寫了一些小筆記。  
+因為在工作上大量的用到 git 這個版控工具，所以想好好了解自己每個用到的指令背後實際上發生了什麼事，上了一堂 udemy 的課，寫了一些小筆記。
+
 筆記來源大部分參考自：https://www.udemy.com/course/git-basic/
 
 ## 🐳 Git Local 基本原理解析
@@ -19,7 +20,9 @@ git config --global user.name "[your name]"
 
 除了設定使用者之外，git config 其實還可以做非常多其他的設定，來達到 git 的客製化。
 
-!> git repository 會優先採用 local config 的設定，再使用 global config 的設定。
+:::tip
+git repository 會優先採用 local config 的設定，再使用 global config 的設定。
+:::
 
 ### 🦀 初始化代碼倉庫
 建立一個 git repository 主要有兩種方法：
@@ -99,12 +102,14 @@ git 的工作區大致上可以分成三種不同的類型來理解，分別是 
 在檔案尚未被 git 追蹤的時候，會停留在 Working Directory，任何需要被 git 控管的檔案都需要使用 `git add [file]` 這個指令，來將檔案加入到 Staging Area，最後透過撰寫 commit 存到 git repository 裡面。
 
 在圖中可以看到，Staging Area 下面有一個 index 的字樣，沒錯，有關 Staging Area 的任何訊息都會被儲存在 .git/index 這個資料夾當中。我們可以透過以下指令去檢視目前在 index 的檔案有哪些：
-```git
+```
 git ls-files // 只顯示檔名
 git ls-files -s // 顯示檔名、該檔案的權限、文件內容
 ```
 
-?> 所以可以知道，前面提到的 blob object 只儲存文件內容，而文件的檔名會儲存在 index（索引區）。可以透過 `git status` 指令來觀察 Staging Area 和 Working Directory 的變化。
+:::tip
+所以可以知道，前面提到的 blob object 只儲存文件內容，而文件的檔名會儲存在 index（索引區）。可以透過 `git status` 指令來觀察 Staging Area 和 Working Directory 的變化。
+:::
 
 ### 🦀 git commit 背後發生了什麼
 將文件加入到 Staging Area 之後，接著要使用 `git commit -m "message"` 來生成 commit，生成 commit 的目的是為了將有修改的地方存到代碼倉庫（git repository）當中，那麼 commit 在生成的時候，究竟是生成了什麼呢？
@@ -156,7 +161,9 @@ cat .git/HEAD
 7. ```git branch -m [舊 branch 名稱] [新 branch 名稱]```：重新命名分支名稱。
 8. ```git checkout -b [branch 名稱]```：創建分支並且切換到該分支。
 
-!> 注意：如果現在所在的分支是想要刪除的分支的話，就不能刪除分支。要先移動到別的分支，才能刪除。
+:::caution
+注意：如果現在所在的分支是想要刪除的分支的話，就不能刪除分支。要先移動到別的分支，才能刪除。
+:::
 
 ### 🦀 使用 git checkout 出特定的 commit
 
@@ -169,7 +176,9 @@ cat .git/HEAD
 
 這個用法平常不太常用到，但在特殊情況下特別有用！
 
-!> **刪除分支到底刪除了什麼？** 刪除分支時，只會刪除分支這個指針，並不會刪除任何的 commit！
+:::caution
+**刪除分支到底刪除了什麼？** 刪除分支時，只會刪除分支這個指針，並不會刪除任何的 commit！
+:::
 
 ### 🦀 關於 git diff 這個命令
 
@@ -187,7 +196,7 @@ cat .git/HEAD
 
 假設目前有兩個分支，分別是 mater 和 bugfix。bugfix 是基於 master 最新的 commit 所創建的另外一個分支，我們在 bugfix 上新增了一個 commit。此時整個 branch 和 commit 的結構大致上如下圖所示：
 
-<img src="/notes/Git/images/fastForwardMerge.png" width="80%" />
+![](images/fastForwardMerge.png)
 
 在這樣的結構之下進行 git merge 的話，master branch 的指針會向右移動，會與 bugfix 位於同一個 commit，稱之為 fast forward merge。在這裡簡單總結符合 fast forward merge 的條件：
 - 分支 B 合併進 分支 A 的時候，分支 B 的 第一個 commit 指向分支 A 最新的 commit。
