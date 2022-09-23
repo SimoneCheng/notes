@@ -1,6 +1,7 @@
-# Objects and Functions
-
-2022/06/02
+---
+title: Objects and Functions
+date: 2022-06-02
+---
 
 ## 🐳 Concept Asides 名詞解釋
 
