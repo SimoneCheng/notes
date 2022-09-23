@@ -144,8 +144,8 @@ console.log(a.firstName); // a.firstName 會印出什麼？
 
 其實 a 和 b 這兩個變數都指向同一個記憶體區塊（也就是 object 的所在位置），所以不管是透過 a 或 b 來修改 object，都是修改到同樣的東西。
 
-:::info
-**小小結論**：知道 **by value** 和 **by reference** 的差別，有助於程式開發和除錯。在這邊會討論到 **by value** 和 **by reference** 的差別主要是因為，當我們在進行程式開發或是除錯的時候，會需要處理非常多各式各樣的資料型態。當如果不小心改動的原本的資料時，可能會導致某些 function 出錯，此時知道 **by value** 和 **by referenct** 的差異可以更好的去避免改動到原始資料，降低產生 bug 的機率！
+:::info 小小結論
+知道 **by value** 和 **by reference** 的差別，有助於程式開發和除錯。在這邊會討論到 **by value** 和 **by reference** 的差別主要是因為，當我們在進行程式開發或是除錯的時候，會需要處理非常多各式各樣的資料型態。當如果不小心改動的原本的資料時，可能會導致某些 function 出錯，此時知道 **by value** 和 **by referenct** 的差異可以更好的去避免改動到原始資料，降低產生 bug 的機率！
 :::
 
 ## 🐳 Objects, Funcitons, and `this`
@@ -230,8 +230,8 @@ c.log();
 
 只要將 `this` 賦值給一個變數後，然後在其他所有有用到 `this` 的地方都改用該變數， 這樣寫在 `c.log()` 裡面的任何 function 都能夠透過 scope chain 去找到該變數指向的 `this` 了（也就是 object c）。
 
-:::info
-**小小結論**：如果在 function 裡面呼叫 `this`，然後在 global 當中執行，通常 `this` 會指向 window，如果是呼叫放在 object 當中的 function 的話，呼叫的 `this` 則會指向該 object，但如果是在 object 的 function 中還有另一個內部的 function，這個內部的 function 呼叫的 `this` 會指向 window，為了避免這樣的 bug，可以先在 object function 裡面的最上方將 `this` 賦值給某個變數（通常會寫成 `const self = this`）。
+:::info 小小結論
+如果在 function 裡面呼叫 `this`，然後在 global 當中執行，通常 `this` 會指向 window，如果是呼叫放在 object 當中的 function 的話，呼叫的 `this` 則會指向該 object，但如果是在 object 的 function 中還有另一個內部的 function，這個內部的 function 呼叫的 `this` 會指向 window，為了避免這樣的 bug，可以先在 object function 裡面的最上方將 `this` 賦值給某個變數（通常會寫成 `const self = this`）。
 :::
 
 ## 🐳 'arguments' and Spread

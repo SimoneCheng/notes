@@ -1,5 +1,5 @@
 ---
-title: Git Basic
+title: Git Basic - 分支與分支合併
 date: 2022-06-10
 ---
 
@@ -199,11 +199,45 @@ cat .git/HEAD
 
 ![](images/fastForwardMerge.png)
 
-在這樣的結構之下進行 git merge 的話，master branch 的指針會向右移動，會與 bugfix 位於同一個 commit，稱之為 fast forward merge。在這裡簡單總結符合 fast forward merge 的條件：
-- 分支 B 合併進 分支 A 的時候，分支 B 的 第一個 commit 指向分支 A 最新的 commit。
+在這樣的結構之下進行 git merge 的話，master branch 的指針會向右移動，會與 bugfix 位於同一個 commit，稱之為 fast forward merge。
+
+:::note 小結
+在這裡簡單總結符合 fast forward merge 的條件：分支 B 合併進 分支 A 的時候，分支 B 的第一個 commit 指向分支 A 最新的 commit。
+:::
 
 ### 🦀 3 Way Merge
 
+3 Way Merge 是另外一種在合併分支的時候會遇到的狀況，這個狀況應該非常的常見。會發生這樣的狀況是因為：分支 B 合併進 分支 A 的時候，分支 B 的第一個 commit 沒有指向分支 A 最新的 commit。
+
+實際上最常遇到的狀況是，自己從 master 另開新的 feature 分支來開發新的功能的時候，其他同事也會同時開發其他的功能，有可能他們先開發完成 merge 進 master，我自己的 feature 分支就會落後目前的 master 分支。這時候如果我開發完成要準備 merge 進 master，就會發生 3 Way Merge。
+
+如下圖所示（bugfix 分支落後 master 分支一次 commit）：
+
+![](images/3WayMerge-1.png)
+
+這個情況下，如果進行 merge 而且沒有衝突的話，會自動生成一個新的 commit，這個新的 commit 會同時指向兩個分支的上一個 commit，如下圖：
+
+![](images/3WayMerge-2.png)
+
+如果用一些 git GUI 工具的話，應該可以看到 branch 的分支圖。當如果一個 repo 很大的時候，有很多 3 way merge 的話，分支圖就會盤根錯節（很醜 👾），這種時候就是 `git rebase` 出場的時機了（稍後會寫到）！
+
 ### 🦀 3 Way Merge with Conflict
 
+前面提到的 3 Way Merge 如果順順的，沒什麼意外發生的話，就會自動 merge，但如果兩個準備要合併的分支，兩個分支都有修改到同樣的地方的話，就會發生衝突，也就是 conflict。
+
+如果發生衝突的話，可以按照終端機上的說明，一步一步解掉衝突。等到衝突全部解掉後，就可以 merge 了！
+
+有衝突發生的當下可以在終端機打 `git status` 檢查是哪些檔案發生衝突，再去 vsCode 裡面把衝突解掉就可以了！
+
 ### 🦀 git rebase 是什麼？
+
+`git rebase` 可以讓所在的分支，同步另外一個分支的最新 commit，比如說我現在在 feature 1 分支，並且 commit 了三次，此時這個分支落後 master 分支一個 commit。
+
+使用 `git rebase master` 之後，就可以讓 feature 1 分支的三次 commit 接在 master 分支最新的 commit 之後，如此一來就可以進行 Fast Forward Merge。
+
+:::caution
+要特別注意的是使用 `git rebase` 也有可能會造成衝突，如果有衝突的話需要將衝突解掉才能 rebase。另外使用了 rebase 之後，在該分支上面的 commit 會全部重新計算，因為這幾個 commit 的第一個有了新的 parent commit，所以 commit tree 便重新算了一次，也就是說在該分支所建立的 commit 的 id 會不一樣，雖然每個 commit 的修改內容仍和先前相同。
+:::
+
+## 🐳 參考資料
+- [Git/GitHub/GitLab 完全教程（包括Git底層原理）](https://www.udemy.com/course/git-basic/)
