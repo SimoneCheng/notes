@@ -71,10 +71,16 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
+            type: 'docSidebar',
+            sidebarId: 'notes',
             position: 'left',
             label: 'Notes',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'conf-collection',
+            position: 'left',
+            label: 'Conf Collection',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
