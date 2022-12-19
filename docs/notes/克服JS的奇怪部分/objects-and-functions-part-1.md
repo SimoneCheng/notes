@@ -1,5 +1,5 @@
 ---
-title: Objects and Functions
+title: Objects and Functions - Part 1
 date: 2022-06-02
 ---
 
