@@ -83,9 +83,9 @@ const config = {
           },
           {
             type: 'docSidebar',
-            sidebarId: 'conf-collection',
+            sidebarId: 'collection',
             position: 'left',
-            label: 'Conf Collection',
+            label: 'Collection',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
