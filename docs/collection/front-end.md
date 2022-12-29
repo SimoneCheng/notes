@@ -5,13 +5,15 @@ date: 2022-12-03
 ---
 
 ## 🐳 Conference
-- You Gotta Love Frontend：https://www.youtube.com/@YouGottaLoveFrontend/videos
-- JSConf：https://www.youtube.com/@jsconf_/videos
-- International JavaScript Conference：https://www.youtube.com/@internationaljavascriptcon784/videos
-- ReactConf：https://www.youtube.com/@reactconf8476/videos
-- React Conf 2021：https://www.youtube.com/@user-wm2fy4kq4u/videos
-- ReactNext：https://www.youtube.com/@ReactNext/videos
-- Ember Videos：https://www.youtube.com/@EmberMeetupVideos/videos
+| name | link |
+| --- | --- |
+| You Gotta Love Frontend | https://www.youtube.com/@YouGottaLoveFrontend/videos |
+| JSConf | https://www.youtube.com/@jsconf_/videos |
+| International JavaScript Conference | https://www.youtube.com/@internationaljavascriptcon784/videos |
+| ReactConf | https://www.youtube.com/@reactconf8476/videos |
+| React Conf 2021 | https://www.youtube.com/@user-wm2fy4kq4u/videos |
+| ReactNext | https://www.youtube.com/@ReactNext/videos |
+| Ember Videos | https://www.youtube.com/@EmberMeetupVideos/videos |
 
 ## :whale: Design Patterns
 - https://www.patterns.dev/posts/
@@ -19,11 +21,11 @@ date: 2022-12-03
 ## :whale: JavaScript
 - https://javascript.info/
 - [You Dont Know JS](https://github.com/getify/You-Dont-Know-JS)
+- [TC39](https://tc39.es/)
+- [2ality – JavaScript and more](https://2ality.com/)
 
 ## 🐳 TypeScript
 - https://www.totaltypescript.com/
-- [TC39](https://tc39.es/)
-- [2ality – JavaScript and more](https://2ality.com/)
 
 ## :whale: Functional Programming
 - [Functional Light JS](https://github.com/getify/Functional-Light-JS)
@@ -36,11 +38,11 @@ date: 2022-12-03
 
 ## :whale: People
 - [Kent C. Dodds](https://kentcdodds.com/)
-- [Lee Robinson -> VP of Developer Experience at Vercel](https://leerob.io/)
-- [Nadia Makarevich](https://www.developerway.com/)
-- [Ryan Carniato -> solidjs 作者](https://dev.to/ryansolid)
-- [Mark Erikson -> redux maintainer](https://blog.isquaredsoftware.com/)
-- [Addy Osmani](https://addyosmani.com/)
+- [Lee Robinson](https://leerob.io/)：VP of Developer Experience at Vercel
+- [Nadia Makarevich](https://www.developerway.com/)：之前在 Atlassian 工作過，Jira monorepo 貢獻者
+- [Ryan Carniato](https://dev.to/ryansolid)：solidjs 作者
+- [Mark Erikson](https://blog.isquaredsoftware.com/)：redux maintainer
+- [Addy Osmani](https://addyosmani.com/)：在 google 工作的大大，寫過很多跟設計模式有關的書
 
 ## :whale: NewsLetter
 - [前端早讀課](https://twitter.com/f2er)
@@ -50,8 +52,8 @@ date: 2022-12-03
 - [web.dev](https://web.dev/)
 
 ## 🐳 Twitter
-| who | link | remark
-|---|---|---|
+| who | link | notes
+| --- | --- | --- |
 | Evan You  | https://twitter.com/youyuxi | Vue, Vite 作者 |
 | Guillaume Chau | https://twitter.com/Akryum | Vue team, Vite 出現之前主要在做 Vue Cli, 現在主要在做 histoire |
 | Sarah Drasner | https://twitter.com/sarah_edo | Vue core team, CSS-Tricks writer. SVG Animations 作者, VSCode night owl 作者 |
