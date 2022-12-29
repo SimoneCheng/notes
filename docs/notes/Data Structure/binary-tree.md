@@ -32,6 +32,8 @@ graph TB
 
 ## 🐳 How to Traverse A Tree 遍歷二元樹
 
+與二元樹相關最常見的 leetcode 題就是如何遍歷二元樹了，遍歷指的是在不重複的情況下，存取樹的所有節點。目前有三種方式可以遍歷二元樹
+
 ### 🦀 Pre-order Traversal
 
 順序：
@@ -63,3 +65,4 @@ DFS 遞迴
 
 ## 🐳 學習資源
 - https://leetcode.com/explore/learn/card/data-structure-tree/
+- https://hackmd.io/@Aquamay/HyCgHXfid
