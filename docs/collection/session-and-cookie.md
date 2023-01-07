@@ -1,5 +1,5 @@
 ---
-title: Session & Cookie 相關資源
+title: Session & Cookie
 date: 2022-12-26
 ---
 

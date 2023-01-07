@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: 前端相關學習資源總整理
+title: Front-End
 date: 2022-12-03
 ---
 
