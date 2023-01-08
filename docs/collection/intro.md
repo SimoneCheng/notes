@@ -8,6 +8,7 @@ title: 首頁
 
 尚未分類 ⬇️
 ## 🐳 Conference
+- GOTO Conferences：https://www.youtube.com/@GOTO-/videos
 - Black Hat：https://www.youtube.com/@BlackHatOfficialYT/videos
 - CppCon：https://www.youtube.com/@CppCon/videos
 - PyData：https://www.youtube.com/@PyDataTV/videos
