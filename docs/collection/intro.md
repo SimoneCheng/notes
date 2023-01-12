@@ -16,10 +16,15 @@ title: 首頁
 ## 🐳 People
 - Lee Robinson(vercel)：https://www.youtube.com/@leerob/videos
 - Molly Rocket：https://www.youtube.com/@MollyRocket/videos
+- Philip Wadler：https://homepages.inf.ed.ac.uk/wadler/
 
 ## 🐳 Other
 - NeetCode：https://www.youtube.com/@NeetCode/videos
 - https://ost2.fyi/
+
+## 🐳 Paper
+- REST 原始文章：https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+- Why no one uses functional languages - by Philip Wadler：https://dl.acm.org/doi/10.1145/286385.286387
 
 ## :whale: 資安
 - https://owasp.org/
