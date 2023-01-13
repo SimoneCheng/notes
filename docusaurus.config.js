@@ -39,8 +39,6 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/SimoneCheng/notes/tree/main',
-          showLastUpdateTime: true,
-          showLastUpdateAuthor: true,
         },
         blog: {
           showReadingTime: true,
@@ -67,7 +65,7 @@ const config = {
       docs: {
         sidebar: {
           hideable: true,
-          autoCollapseCategories: true,
+          autoCollapseCategories: false,
         }
       },
       navbar: {

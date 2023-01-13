@@ -30,6 +30,8 @@ date: 2022-12-03
 ## :whale: Functional Programming
 - [Functional Light JS](https://github.com/getify/Functional-Light-JS)
 - [mostly adequate guide](https://github.com/MostlyAdequate/mostly-adequate-guide)
+- [fp-ts](https://github.com/gcanti/fp-ts)
+- [functional-programming: Introduction to Functional Programming using TypeScript and fp-ts.](https://github.com/enricopolanski/functional-programming)
 
 ## :whale: 訂閱平台
 - [Frontend Master](https://frontendmasters.com/)
