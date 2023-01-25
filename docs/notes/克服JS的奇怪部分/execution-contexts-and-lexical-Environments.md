@@ -1,4 +1,5 @@
 ---
+sidebar_position: 0
 title: Execution Contexts & Lexical Environments
 date: 2022-03-11
 ---

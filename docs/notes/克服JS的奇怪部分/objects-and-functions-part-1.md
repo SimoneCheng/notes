@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 title: Objects and Functions - Part 1
 date: 2022-06-02
 ---

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 title: Types and Operators
 date: 2022-03-15
 ---

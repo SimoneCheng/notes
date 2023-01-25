@@ -1,5 +1,6 @@
 ---
-title: Binary Tree 二元樹
+sidebar_position: 1
+title: Binary Tree Traversal 二元樹走訪
 date: 2022-12-04
 ---
 
@@ -32,7 +33,7 @@ graph TB
 
 ## 🐳 How to Traverse A Tree 遍歷二元樹
 
-與二元樹相關最常見的 leetcode 題就是如何遍歷二元樹了，遍歷指的是在不重複的情況下，存取樹的所有節點。目前有三種方式可以遍歷二元樹：
+與二元樹相關最常見的 leetcode 題就是如何遍歷二元樹了，遍歷指的是在不重複的情況下，存取樹的所有節點。目前有四種方式可以遍歷二元樹：
 
 ### 🦀 Pre-order Traversal
 
@@ -147,11 +148,83 @@ const helper = (treeNode, res) => {
 ```
 
 :::caution
-樹裡面的每一個 node 都要按照上面提到的順序來遍歷才算完成。
+樹（tree）裡面的每一個節點（node）都要按照上面提到的順序來遍歷才算完成。
 :::
 
-DFS 遞迴
+### 🦀 Level Order Traversal
+
+> Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+
+以下面的 Binary Tree 為例：
+
+```mermaid
+graph TB
+    A((3))-->B((9))
+    A-->C((20))
+    C-->D((15))
+    C-->E((7))
+```
+
+遍歷的順序會是：`3 > 9 > 20 > 15 > 7`。
+
+用 javascript 來實作 Level Order Traversal：
+
+```
+初步想法：
+1. 用一個 array 當作 waiting list，表示處理節點的順序，要記得節點和節點的階層。
+2. 用另外一個 array 來存處理好的節點。
+```
+
+```javascript
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+
+var levelOrder = function(root) {
+    if (root === null || root.length === 0) {
+        return [];
+    }
+
+    const result = [];
+    const waitingList = [ { level: 0, node: root } ];
+
+    while (waitingList.length > 0) {
+        // 處理 waiting list 當前的節點
+        const currentNode = waitingList.shift();
+        const { level, node } = currentNode;
+        if (!result[level]) {
+            result[level] = [node.val];
+        } else {
+            result[level].push(node.val);
+        }
+
+        // 將當前節點的子節點加入 waiting list
+        if (node.left) {
+            waitingList.push({ level: level + 1, node: node.left });
+        }       
+        if (node.right) {
+            waitingList.push({ level: level + 1, node: node.right });
+        }
+    }
+
+    return result;
+};
+```
+
+:::info
+除了使用**遞迴**來實作走訪二元樹之外，也可以使用 **DFS（深度優先搜尋演算法）**。但我還不會 DFS...
+:::
 
 ## 🐳 學習資源
 - https://leetcode.com/explore/learn/card/data-structure-tree/
-- https://hackmd.io/@Aquamay/HyCgHXfid
+- [二元樹(Binary Tree) by Aquamay](https://hackmd.io/@Aquamay/HyCgHXfid)
+- [Binary Tree: Traversal(尋訪) by Chiu CC](http://alrightchiu.github.io/SecondRound/binary-tree-traversalxun-fang.html)

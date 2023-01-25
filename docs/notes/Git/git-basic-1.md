@@ -1,5 +1,5 @@
 ---
-title: Git Basic - 分支與分支合併
+title: Git 基本原理、分支與分支合併
 date: 2022-06-10
 ---
 
