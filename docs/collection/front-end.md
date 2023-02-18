@@ -32,6 +32,7 @@ date: 2022-12-03
 - [mostly adequate guide](https://github.com/MostlyAdequate/mostly-adequate-guide)
 - [fp-ts](https://github.com/gcanti/fp-ts)
 - [functional-programming: Introduction to Functional Programming using TypeScript and fp-ts.](https://github.com/enricopolanski/functional-programming)
+- Why Functional Programming Matters, John Hughes, The University, Glasgow
 
 ## :whale: 訂閱平台
 - [Frontend Master](https://frontendmasters.com/)
@@ -40,7 +41,7 @@ date: 2022-12-03
 
 ## :whale: People
 - [Kent C. Dodds](https://kentcdodds.com/)
-- [Lee Robinson](https://leerob.io/)：VP of Developer Experience at Vercel
+- [Lee Robinson](https://leerob.io/), [他的 YouTube](https://www.youtube.com/@leerob/videos)：VP of Developer Experience at Vercel
 - [Nadia Makarevich](https://www.developerway.com/)：之前在 Atlassian 工作過，Jira monorepo 貢獻者
 - [Ryan Carniato](https://dev.to/ryansolid)：solidjs 作者
 - [Mark Erikson](https://blog.isquaredsoftware.com/)：redux maintainer

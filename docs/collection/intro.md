@@ -14,7 +14,6 @@ title: 首頁
 - PyData：https://www.youtube.com/@PyDataTV/videos
 
 ## 🐳 People
-- Lee Robinson(vercel)：https://www.youtube.com/@leerob/videos
 - Molly Rocket：https://www.youtube.com/@MollyRocket/videos
 - Philip Wadler：https://homepages.inf.ed.ac.uk/wadler/
 
