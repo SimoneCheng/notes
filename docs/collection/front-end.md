@@ -26,6 +26,7 @@ date: 2022-12-03
 
 ## 🐳 TypeScript
 - https://www.totaltypescript.com/
+- TypeScript Deep Dive：https://jkchao.github.io/typescript-book-chinese/
 
 ## :whale: Functional Programming
 - [Functional Light JS](https://github.com/getify/Functional-Light-JS)

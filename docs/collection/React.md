@@ -25,3 +25,7 @@ date: 2022-11-03
 
 - React Conf
   - Building a Custom React Renderer | Sophie Alpert：https://www.youtube.com/watch?v=CGpMlWVcHok&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=8
+
+---
+
+- React TypeScript Cheat Sheet：https://react-typescript-cheatsheet.netlify.app/docs/basic/setup
