@@ -58,17 +58,39 @@ commit 寫個好的話，reviewer 也可以更容易看懂該次 commit 做了�
 
 ### 🦀 Test
 
+1. 手動測試：在發出 pull request 之前，先自己手動測試修改的地方有沒有問題，例如新功能有沒有問題、用 edge case 來測試自己修改的地方有沒有問題。
+2. 自動化測試：如果是新功能的 pull request，且在時程上有時間的話，可以增加自動化測試，確保自己寫出來的 code 是安全的，有了自動化測試，對於未來的重構也會很有幫助。
+3. 視情況在 pull request 的 description 說明測試結果，或是有什麼 edge case 需要 reviewer 注意等等。
+
 ### 🦀 Make a Clear Description
+
+在 pull request 的 description 中，盡量對以下幾點做清楚的描述，讓 reviewer 更清楚地了解你寫的 pull request 在做什麼：
+
+1. 描述這個 pull request 解決了什麼問題，同時附上 issue 的連結
+2. 如果有決定採取什麼 design pattern 或是一些迫不得已的 walkaround 的話，也可以在 decription 說明
+3. 測試相關的說明，可以參考上述 Test 提到的第三點。
 
 ### 🦀 Add possible risks and highlight risky code
 
+如果在發 pull request 之後，有一些不太確定的地方，比如說不確定某段修改的 code 改得好不好，會不會有什麼問題（例如：效能、資安、edge case 等問題）。可以在 pull request 發出之後，特別在該段 code 留個言，請 reviewer 特別注意或是協助你改善 code。
+
 ### 🦀 Rebase Onto Fresh Master Before Creating a PR
 
-### 🦀 Don’t Amend Already Reviewed Commits — Send New Ones
+在正式 merge 之前，可以先將自己開發的分支 rebase 到 target branch，確保自己的分支一直有在跟 target branch 做同步和更新，這樣可以減少 merge 的衝突，如果 target branch 有什麼新的功能或是 function 也可以在自己的分支使用。
 
-### 🦀 Respond to Reviews Quickly
+### 🦀 不要修改已經 review 過的 commit
+
+如果某些 commits 已經被 review 過的話，就不要再去動它了，不要去修改 commit message 或是 squash 等等。如果有收到 review 需要修改的話，請直接寫一個新的 commit。
+
+因為如果把舊的改掉的話，reviewer 可能會不知道他已經 review 過舊的部分，又再多看一次，降低了雙方的效率。
+
+### 🦀 快速地回覆 review
+
+reviewer 看完你的 pull request 之後，可以快速地針對 reviewer 的回饋進行修改，一來自己寫 code 的邏輯和想法都還記得，二來 reviewer 也還對 review 的記憶比較深刻。不要過了太久才進行修改，不然雙方都很容易忘記。
 
 ### 🦀 發 pull request 前先跟同事溝通
+
+在開始實作之前，可以先將同事討論如何實作，用什麼樣的方法，如何拆分 pull request 等等，也許你的同事可以給你更多不一樣的實作想法。事先討論也可以避免下面的情況：也許你想實作的東西不一定需要修改，可以先和同事確認，避免改了之後，其實不需要改的做白工狀況發生。
 
 :::tip
 可以參考 google 的 [Google Engineering Practices Documentation](https://google.github.io/eng-practices/)，看看 google 是如何訂定 pull request author 和 pull request reviewer guide。
