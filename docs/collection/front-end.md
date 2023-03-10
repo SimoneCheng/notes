@@ -50,6 +50,7 @@ date: 2022-12-03
 - [Ryan Carniato](https://dev.to/ryansolid)：solidjs 作者
 - [Mark Erikson](https://blog.isquaredsoftware.com/)：redux maintainer
 - [Addy Osmani](https://addyosmani.com/)：在 google 工作的大大，寫過很多跟設計模式有關的書
+- [Daishi Kato's blog](https://blog.axlight.com/)：Jotai, valtio 的作者
 
 ## :whale: NewsLetter
 - [前端早讀課](https://twitter.com/f2er)
