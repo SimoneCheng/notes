@@ -16,6 +16,9 @@ title: 首頁
 ## 🐳 People
 - Molly Rocket：https://www.youtube.com/@MollyRocket/videos
 - Philip Wadler：https://homepages.inf.ed.ac.uk/wadler/
+- Uncle Bob Martin：
+  - http://cleancoder.com/products
+  - http://blog.cleancoder.com/
 
 ## 🐳 Other
 - NeetCode：https://www.youtube.com/@NeetCode/videos
