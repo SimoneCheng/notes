@@ -1,5 +1,4 @@
 ---
-sidebar_position: 1
 title: Binary Tree Traversal 二元樹走訪
 date: 2022-12-04
 ---
