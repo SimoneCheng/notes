@@ -40,7 +40,7 @@ flowchart LR
 ```
 
 :::note
-像上面那種 function 互相 call 來 call 去，互相高度依賴的狀況（高耦合），盡量不要在實際開發中出來，會很可怕。
+像上面那種 function 互相 call 來 call 去，互相高度依賴的狀況（高耦合），盡量不要在實際開發中寫出來，會很可怕。
 :::
 
 ### 🦀 Tail Recursion
@@ -79,3 +79,45 @@ graph BT
 ## 🐳 題目練習
 
 ### 🦀 Factorial N! 階乘
+
+#### 1. Write an Interative function Fac(N) or pseudo code for N!
+
+```javascript
+function fac(n) {
+  let result = 1;
+  for (let i = 1; i <= n; i++>) {
+    result = result * i;
+  }
+  return result;
+}
+```
+
+#### 2. Write a Recursive function Fac(N) or pseudo code for N!
+
+先把階乘的遞迴數學定義寫出來：
+
+$$
+n! =
+\begin{cases}
+1,\ if\ n \ne 0 \\
+(n-1)! * n,\ if\  n > 0
+\end{cases}
+$$
+
+然後再寫出遞迴的程式碼：
+
+```javascript
+function fac(n) {
+  if (n === 0) {
+    return 1;
+  } else {
+    return fac(n-1) * n;
+  }
+}
+```
+
+:::tip
+解遞迴相關問題的訣竅：先想出遞迴的數學定義，再把數學定義轉換成程式碼！
+:::
+
+### 🦀 Fibonacci Number

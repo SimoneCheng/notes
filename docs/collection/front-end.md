@@ -58,6 +58,7 @@ date: 2022-12-03
 
 ## :whale: Website
 - [web.dev](https://web.dev/)
+- [CUBE CSS](https://cube.fyi/)
 
 ## 🐳 Twitter
 | who | link | notes
