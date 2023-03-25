@@ -37,3 +37,7 @@ date: 2022-11-03
 ## 🐳 React Test 相關
 
 - Sentry’s Frontend Tests: Migrating from Enzyme to React Testing Library：https://blog.sentry.io/2023/02/23/sentrys-frontend-tests-migrating-from-enzyme-to-react-testing-library/
+
+## 🐳 memo
+
+- Preemptive Memoization In React Is Probably Not Evil (Yet)：https://www.zhenghao.io/posts/memo-or-not
