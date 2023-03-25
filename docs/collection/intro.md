@@ -19,14 +19,17 @@ title: 首頁
 - Uncle Bob Martin：
   - http://cleancoder.com/products
   - http://blog.cleancoder.com/
+- Jessica Kerr：https://jessitron.com/
 
 ## 🐳 Other
 - NeetCode：https://www.youtube.com/@NeetCode/videos
-- https://ost2.fyi/
+- x86 assembly：https://ost2.fyi/
+- 一家在做 graphQL 相關的公司：https://the-guild.dev/blog
 
 ## 🐳 Paper
 - REST 原始文章：https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 - Why no one uses functional languages - by Philip Wadler：https://dl.acm.org/doi/10.1145/286385.286387
+- Introducing LLaMA: A foundational, 65-billion-parameter large language model：https://ai.facebook.com/blog/large-language-model-llama-meta-ai/
 
 ## :whale: 資安
 - https://owasp.org/
