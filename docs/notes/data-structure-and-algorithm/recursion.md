@@ -121,3 +121,45 @@ function fac(n) {
 :::
 
 ### 🦀 Fibonacci Number
+
+#### Definition
+
+$$
+F_{0} = 0,\ F_{1} = 1,\ F_{n} = F_{n-1} + F_{n-2},\ for\ n \ge 2
+$$
+
+#### Question 1: Write a Recurisive function for Fib(N)
+
+```js
+function fib(n) {
+  if (n === 0) {
+    return 0;
+  }
+  if (n === 1) {
+    return 1;
+  }
+  return fib(n-1) + fib(n-2);
+}
+```
+
+#### Quesiton 2: Write a Interative function for Fib(N)
+
+```js
+function fib(n) {
+  if (n === 0) {
+    return 0;
+  } else if (n === 1) {
+    return 1;
+  } else {
+    let a = 0;
+    let b = 1;
+    let c;
+    for (let i = 2; i <= n; i++) {
+      c = a + b;
+      a = b;
+      b = c;
+    }
+    return c;
+  }
+}
+```
