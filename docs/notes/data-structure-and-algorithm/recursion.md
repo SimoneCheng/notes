@@ -80,7 +80,7 @@ graph BT
 
 ### 🦀 Factorial N! 階乘
 
-#### 1. Write an Interative function Fac(N) or pseudo code for N!
+#### Question 1: Write an Interative function Fac(N) or pseudo code for N!
 
 ```javascript
 function fac(n) {
@@ -92,7 +92,7 @@ function fac(n) {
 }
 ```
 
-#### 2. Write a Recursive function Fac(N) or pseudo code for N!
+#### Question 2: Write a Recursive function Fac(N) or pseudo code for N!
 
 先把階乘的遞迴數學定義寫出來：
 
@@ -163,3 +163,29 @@ function fib(n) {
   }
 }
 ```
+
+### 🦀 Greatest Common Divisor (GCD) 最大公因數
+
+#### Definition
+
+用輾轉相除法來計算兩個數字（A, B）的最大公因數，定義如下：
+
+$$
+\begin{cases}
+B,\ if\ (A \mod B) = 0 \\
+GCD(B, A \mod B),\ otherwise
+\end{cases}
+$$
+
+#### Write the recursive code for GCD(A, B)
+
+```js
+function gcd(a, b) {
+  if (a % b === 0) return b;
+  return gcd(b, a % b);
+}
+```
+
+### 🦀 Tower of Hanoi 河內塔
+
+非常經典的遞迴題目，但還沒唸（囧），唸完再回來補上筆記ＱＱ
