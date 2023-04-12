@@ -21,6 +21,9 @@ title: 首頁
   - http://blog.cleancoder.com/
 - Jessica Kerr：https://jessitron.com/
 
+## :whale: Podcast
+- CoRecursive：https://corecursive.com
+
 ## 🐳 Other
 - NeetCode：https://www.youtube.com/@NeetCode/videos
 - x86 assembly：https://ost2.fyi/
