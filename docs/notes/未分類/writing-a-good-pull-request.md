@@ -102,4 +102,3 @@ reviewer 看完你的 pull request 之後，可以快速地針對 reviewer 的�
 - [Writing a Good Pull Request, Blockly, developers Google](https://developers.google.com/blockly/guides/contribute/get-started/write_a_good_pr)
 - [How to Make a Perfect Pull Request, Anton Chuchkalov, Medium](https://betterprogramming.pub/how-to-make-a-perfect-pull-request-3578fb4c112)
 - [How To Write The PERFECT Pull Request, Software Surplus, Medium](https://levelup.gitconnected.com/how-to-write-the-perfect-pull-request-d044625ace98)
-- [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
