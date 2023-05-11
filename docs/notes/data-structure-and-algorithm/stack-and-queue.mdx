@@ -27,17 +27,17 @@ array 應該就不用特別解釋了，但如果第一個學習的程式語言�
 
 ```mermaid
 flowchart LR
-    A[[node 1]] --> B[[node 2]]
-    B --> C[[node 3]]
-    C --> D[[...]]
+  A[[node 1]] --> B[[node 2]]
+  B --> C[[node 3]]
+  C --> D[[...]]
 ```
 
 ### 🦀 Array 和 Linked List 的簡單比較
 
 || array | linked list |
 |--|--|--|
-| 優點 | <ul><li>random access：只要利用 index 即可在 O(1) 時間對 array 的資料做存取。</li><li>較節省記憶體空間，linked list 需要多一個 pointer 來記錄下一個 node 的記憶體位置。</li></ul> | <ul><li>新增或刪除資料較 array 簡單，只要對所有欲新增/刪除的 node 調整 pointer 即可（時間複雜度：O(1)），不需要如同 array 般搬動其餘元素。</li><li>linked list 的資料數量可以是動態的，不像 array 會有 resize 的問題。</li></ul> |
-| 缺點 | <ul><li>新增或刪除資料較麻煩，若要在第一個位置新增資料，就需要 O(n) 時間把 array 中所有元素往後移動。同理，若要刪除第一個位置的資料，也需要 O(n) 時間把 array 中剩餘的元素往前移動。</li><li>若資料數量時常在改變，要時常調整矩陣的大小，會花費O(n)的時間在搬動資料。</li></ul> | <ul><li>linked list 沒有 index，若要找到特定 node，需要從頭開始找起，搜尋的時間複雜度為O(n)。</li><li>需要額外的記憶體空間來儲存 pointer。</li></ul> |
+| 優點 | <ul><li>random access：只要利用 index 即可在 `O(1)` 時間對 array 的資料做存取。</li><li>較節省記憶體空間，linked list 需要多一個 pointer 來記錄下一個 node 的記憶體位置。</li></ul> | <ul><li>新增或刪除資料較 array 簡單，只要對所有欲新增/刪除的 node 調整 pointer 即可（時間複雜度：`O(1)`），不需要如同 array 般搬動其餘元素。</li><li>linked list 的資料數量可以是動態的，不像 array 會有 resize 的問題。</li></ul> |
+| 缺點 | <ul><li>新增或刪除資料較麻煩，若要在第一個位置新增資料，就需要 `O(n)` 時間把 array 中所有元素往後移動。同理，若要刪除第一個位置的資料，也需要 `O(n)` 時間把 array 中剩餘的元素往前移動。</li><li>若資料數量時常在改變，要時常調整矩陣的大小，會花費 `O(n)` 的時間在搬動資料。</li></ul> | <ul><li>linked list 沒有 index，若要找到特定 node，需要從頭開始找起，搜尋的時間複雜度為 `O(n)`。</li><li>需要額外的記憶體空間來儲存 pointer。</li></ul> |
 
 ## 🐳 Stack 堆疊
 
@@ -59,29 +59,68 @@ Stack ADT (abstract data type)：
 - `top()`: return the top element of the stack without removing it
 :::
 
-### 🦀 用 Array 來實作
+### 🦀 用 Array 來實作 Stack
 
-### 🦀 用 Linke List 來實作
+```javascript
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  get isEmpty() {
+    return this.items.length === 0;
+  }
+
+  get stackSize() {
+    return this.items.length;
+  }
+
+  push = (item) => {
+    this.items.push(item);
+  }
+
+  pop = () => {
+    if (this.isEmpty) {
+      return null;
+    }
+    return this.items.pop();
+  }
+
+  top = () => {
+    return this.items[this.stackSize - 1];
+  }
+
+  // isFull 省略
+  // 因為 JavaScript 的 array size 動態的，所以沒有特別設計的話就不會 full
+}
+```
+
+### 🦀 用 Linke List 來實作 Stack
 
 ## 🐳 Queue 佇列
 
-### 🦀 用 Array 來實作
+### 🦀 用 Array 來實作 Stack
 
-### 🦀 用 Linke List 來實作
+### 🦀 用 Linke List 來實作 Stack
 
-## 🐳 在前端的實際應用
+## 🐳 實際應用
 
-### 🦀 Stack
+### 🦀 前端
 
+#### Stack
 - error call stack
 - 瀏覽器的歷史紀錄
 - 文本或是圖片編輯器的操作紀錄（可以用來做複製復原等等）
 - javascript call stack（javascript 用來處理函數執行的方法）
 
-### 🦀 Queue
-
+#### Queue
 - 瀏覽器的非同步處理（event queue / task queue）
 - 通知功能
+
+### :crab: 其他我不會的
+- parsing context-free languages
+
+## :whale: 題目練習
 
 ## 🐳 Resource
 - [Linked List: Intro(簡介)](http://alrightchiu.github.io/SecondRound/linked-list-introjian-jie.html) by Chiu CC
