@@ -28,3 +28,13 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.menu__list .menu__list {
+  border-left: 0.5px solid var(--ifm-color-primary-dark);
+  padding-left: 0;
+  margin-left: var(--ifm-menu-link-padding-horizontal);
+}
+
+.menu__list .menu__list li {
+  margin-left: 4px;
+}
