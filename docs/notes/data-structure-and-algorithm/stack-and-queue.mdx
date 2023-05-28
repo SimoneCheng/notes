@@ -4,8 +4,10 @@ title: Stack and Queue
 date: 2023-01-25
 ---
 
-import Figure from '@site/src/components/Figure';
-import StackSvg from './images/stack.png';
+import Figure from "@site/src/components/Figure";
+import StackSvg from "./images/stack.png";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 ## 🐳 寫在前面
 
@@ -34,16 +36,16 @@ flowchart LR
 
 ### 🦀 Array 和 Linked List 的簡單比較
 
-|| array | linked list |
-|--|--|--|
-| 優點 | <ul><li>random access：只要利用 index 即可在 `O(1)` 時間對 array 的資料做存取。</li><li>較節省記憶體空間，linked list 需要多一個 pointer 來記錄下一個 node 的記憶體位置。</li></ul> | <ul><li>新增或刪除資料較 array 簡單，只要對所有欲新增/刪除的 node 調整 pointer 即可（時間複雜度：`O(1)`），不需要如同 array 般搬動其餘元素。</li><li>linked list 的資料數量可以是動態的，不像 array 會有 resize 的問題。</li></ul> |
-| 缺點 | <ul><li>新增或刪除資料較麻煩，若要在第一個位置新增資料，就需要 `O(n)` 時間把 array 中所有元素往後移動。同理，若要刪除第一個位置的資料，也需要 `O(n)` 時間把 array 中剩餘的元素往前移動。</li><li>若資料數量時常在改變，要時常調整矩陣的大小，會花費 `O(n)` 的時間在搬動資料。</li></ul> | <ul><li>linked list 沒有 index，若要找到特定 node，需要從頭開始找起，搜尋的時間複雜度為 `O(n)`。</li><li>需要額外的記憶體空間來儲存 pointer。</li></ul> |
+|      | array                                                                                                                                                                                                                                                                                   | linked list                                                                                                                                                                                                                        |
+| ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 優點 | <ul><li>random access：只要利用 index 即可在 `O(1)` 時間對 array 的資料做存取。</li><li>較節省記憶體空間，linked list 需要多一個 pointer 來記錄下一個 node 的記憶體位置。</li></ul>                                                                                                     | <ul><li>新增或刪除資料較 array 簡單，只要對所有欲新增/刪除的 node 調整 pointer 即可（時間複雜度：`O(1)`），不需要如同 array 般搬動其餘元素。</li><li>linked list 的資料數量可以是動態的，不像 array 會有 resize 的問題。</li></ul> |
+| 缺點 | <ul><li>新增或刪除資料較麻煩，若要在第一個位置新增資料，就需要 `O(n)` 時間把 array 中所有元素往後移動。同理，若要刪除第一個位置的資料，也需要 `O(n)` 時間把 array 中剩餘的元素往前移動。</li><li>若資料數量時常在改變，要時常調整矩陣的大小，會花費 `O(n)` 的時間在搬動資料。</li></ul> | <ul><li>linked list 沒有 index，若要找到特定 node，需要從頭開始找起，搜尋的時間複雜度為 `O(n)`。</li><li>需要額外的記憶體空間來儲存 pointer。</li></ul>                                                                            |
 
 ## 🐳 Stack 堆疊
 
 Stack 和 Queue 都是可以用來加入資料、取回資料的抽象資料結構，只是他們加入資料和取回資料的 order 不同。
 
-Stack 是採取 LIFO（last-in, first-out）的方式。最後加入 stack 的資料會最先被讀取。加入資料的方式稱為 `push`，取回資料的方式稱為 `pop`。如下面的示意圖：
+Stack 是採取 **LIFO（last-in, first-out）** 的方式。最後加入 stack 的資料會最先被讀取。加入資料的方式稱為 `push`，取回資料的方式稱為 `pop`。如下面的示意圖：
 
 <Figure src={StackSvg} caption="圖片來源：維基百科" />
 
@@ -51,15 +53,19 @@ stack 的介面描述大致如下：
 
 :::info
 Stack ADT (abstract data type)：
-- `create()`: create an empty stack
-- `isFull()`: return true if the stack is full, otherwise return false
-- `isEmpty()`: return true if the stack is empty, otherwise return false
-- `push(new-item)`: add a new item to the top of the stack
-- `pop()`: remove the top element from the stack and return it to the caller
-- `top()`: return the top element of the stack without removing it
+
+- **`create()`**: create an empty stack
+- **`isFull()`**: return true if the stack is full, otherwise return false
+- **`isEmpty()`**: return true if the stack is empty, otherwise return false
+- **`push(new-item)`**: add a new item to the top of the stack
+- **`pop()`**: remove the top element from the stack and return it to the caller
+- **`top()`**: return the top element of the stack without removing it
 :::
 
 ### 🦀 用 Array 來實作 Stack
+
+<Tabs groupId="programming-language">
+<TabItem value="javascript" label="JavaScript" default>
 
 ```javascript
 class Stack {
@@ -77,27 +83,95 @@ class Stack {
 
   push = (item) => {
     this.items.push(item);
-  }
+  };
 
   pop = () => {
     if (this.isEmpty) {
       return null;
     }
     return this.items.pop();
-  }
+  };
 
   top = () => {
     return this.items[this.stackSize - 1];
-  }
+  };
 
   // isFull 省略
   // 因為 JavaScript 的 array size 動態的，所以沒有特別設計的話就不會 full
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### 🦀 用 Linke List 來實作 Stack
 
+<Tabs groupId="programming-language">
+<TabItem value="javascript" label="JavaScript" default>
+
+```js
+// a linked list node
+class Node {
+  constructor(data, next) {
+    this.data = data;
+    this.next = next;
+  }
+}
+
+// a stack using linked list
+class Stack {
+  constructor() {
+    this.top = null;
+    this.size = 0;
+  }
+
+  get isEmpty() {
+    return this.size === 0;
+  }
+
+  push = (item) => {
+    const newNode = new Node(item, this.top);
+    this.top = newNode;
+    this.size++;
+  };
+
+  pop = () => {
+    if (this.isEmpty) {
+      return null;
+    }
+    const poppedNode = this.top;
+    const newTopNode = this.top.next;
+    poppedNode.next = null;
+    this.top = newTopNode;
+    this.size--;
+    return poppedNode.data;
+  };
+
+  getTop = () => {
+    if (this.isEmpty) {
+      return null;
+    }
+    return this.top.data;
+  };
+}
+```
+
+</TabItem>
+</Tabs>
+
 ## 🐳 Queue 佇列
+
+Queue 存取資料的順序是採取先進先出的方式，也就是 **first in first out(FIFO)**。將資料存入 Queue 裡面稱為 `enqueue`，將資料從 Queue 中取出稱為 `dequeue`。
+
+:::info
+Queue ADT:
+
+- **`enqueue()`**: adds an element to the rear of the queue
+- **`dequeue()`**: removes an element from the front of the queue
+- **`isEmpty()`**: determines whether the queue is empty
+- **`isFull()`**: determines whether the queue is full
+- **`first or front element`**: return the element at the front of the queue if it is not empty
+:::
 
 ### 🦀 用 Array 來實作 Stack
 
@@ -108,20 +182,24 @@ class Stack {
 ### 🦀 前端
 
 #### Stack
+
 - error call stack
 - 瀏覽器的歷史紀錄
 - 文本或是圖片編輯器的操作紀錄（可以用來做複製復原等等）
 - javascript call stack（javascript 用來處理函數執行的方法）
 
 #### Queue
+
 - 瀏覽器的非同步處理（event queue / task queue）
 - 通知功能
 
 ### :crab: 其他我不會的
+
 - parsing context-free languages
 
 ## :whale: 題目練習
 
 ## 🐳 Resource
+
 - [Linked List: Intro(簡介)](http://alrightchiu.github.io/SecondRound/linked-list-introjian-jie.html) by Chiu CC
 - [你所不知道的 C 語言: linked list 和非連續記憶體](https://hackmd.io/@sysprog/c-linked-list) by jserv 大大
