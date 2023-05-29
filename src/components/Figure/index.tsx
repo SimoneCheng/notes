@@ -16,7 +16,7 @@ function Figure(props: FigureProps) {
     } = props;
 
     return (
-      <figure>
+      <figure className={styles.figure}>
         <img src={useBaseUrl(src)} alt={alt ?? caption} />
         <figcaption className={styles.figcaption}>{`${caption}`}</figcaption>
       </figure>

@@ -1,5 +1,9 @@
-.figcaption {
+.figure {
     text-align: center;
+}
+
+
+.figcaption {
     font-style: italic;
     color: #828282;
 }

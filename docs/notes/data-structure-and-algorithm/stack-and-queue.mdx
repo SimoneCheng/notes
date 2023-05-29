@@ -5,7 +5,8 @@ date: 2023-01-25
 ---
 
 import Figure from "@site/src/components/Figure";
-import StackSvg from "./images/stack.png";
+import StackImg from "./images/stack.png";
+import QueueImg from "./images/queue.png";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
@@ -47,7 +48,7 @@ Stack 和 Queue 都是可以用來加入資料、取回資料的抽象資料結�
 
 Stack 是採取 **LIFO（last-in, first-out）** 的方式。最後加入 stack 的資料會最先被讀取。加入資料的方式稱為 `push`，取回資料的方式稱為 `pop`。如下面的示意圖：
 
-<Figure src={StackSvg} caption="圖片來源：維基百科" />
+<Figure src={StackImg} caption="圖片來源：維基百科" />
 
 stack 的介面描述大致如下：
 
@@ -104,7 +105,7 @@ class Stack {
 </TabItem>
 </Tabs>
 
-### 🦀 用 Linke List 來實作 Stack
+### 🦀 用 Linked List 來實作 Stack
 
 <Tabs groupId="programming-language">
 <TabItem value="javascript" label="JavaScript" default>
@@ -161,7 +162,9 @@ class Stack {
 
 ## 🐳 Queue 佇列
 
-Queue 存取資料的順序是採取先進先出的方式，也就是 **first in first out(FIFO)**。將資料存入 Queue 裡面稱為 `enqueue`，將資料從 Queue 中取出稱為 `dequeue`。
+Queue 存取資料的順序是採取先進先出的方式，也就是 **first in first out(FIFO)**。將資料存入 Queue 裡面稱為 `enqueue`，將資料從 Queue 中取出稱為 `dequeue`。概念如下圖所示：
+
+<Figure src={QueueImg} caption="圖片來源：維基百科" />
 
 :::info
 Queue ADT:
@@ -173,9 +176,147 @@ Queue ADT:
 - **`first or front element`**: return the element at the front of the queue if it is not empty
 :::
 
-### 🦀 用 Array 來實作 Stack
+### 🦀 用 Linear Array 來實作 Queue
 
-### 🦀 用 Linke List 來實作 Stack
+<Tabs groupId="programming-language">
+<TabItem value="javascript" label="JavaScript" default>
+
+```js
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  get isEmpty() {
+    return this.items.length === 0;
+  }
+
+  getFront = () => {
+    return this.items[0];
+  }
+
+  enqueue = (item) => {
+    this.items.push(item);
+  };
+
+  dequeue = () => {
+    this.items.shift();
+  };
+}
+```
+
+</TabItem>
+</Tabs>
+
+### 🦀 用 Circular Array 來實作 Queue
+
+<Tabs groupId="programming-language">
+<TabItem value="javascript" label="JavaScript" default>
+
+```js
+class circularQueue {
+  constructor(arraySize) {
+    this.items = new Array(arraySize);
+    this.rear = this.items.length - 1;
+    this.front = 0;
+    this.size = 0;
+  }
+
+  get isEmpty() {
+    return this.size === 0;
+  }
+
+  get isFull() {
+    return this.size === this.items.length;
+  }
+
+  enQueue = (item) => {
+    if (this.isFull) return null;
+    this.rear = (this.rear + 1) % this.items.length;
+    this.items[this.rear] = value;
+    this.size++;
+  }
+
+  deQueue = () => {
+    if (this.isEmpty) return null;
+    this.front = (this.front + 1) % this.items.length;
+    this.size--;
+  }
+
+  getFront = () => {
+    return this.isEmpty ? -1 : this.items[this.front];
+  }
+
+  getRear = () => {
+    return this.isEmpty ? -1 : this.items[this.rear];
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+### 🦀 用 Linked List 來實作 Queue
+
+<Tabs groupId="programming-language">
+<TabItem value="javascript" label="JavaScript" default>
+
+```js
+class Node {
+  constructor(data, next) {
+    this.data = data;
+    this.next = next;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.front = null;
+    this.rear = null;
+    this.size = 0;
+  }
+
+  get isEmpty() {
+    return this.front === null && this.rear === null;
+  }
+
+  enqueue = (item) => {
+    const newNode = new Node(item, null);
+    if (!this.front) {
+      this.front = newNode;
+      this.rear = newNode;
+      return;
+    }
+    this.rear.next = newNode;
+    this.rear = newNode;
+    this.size++;
+  }
+
+  dequeue = () => {
+    if (!this.front) {
+      return null;
+    }
+    const dequeuedItem = this.front;
+    const nextItem = this.front.next;
+    if (this.front.data === this.rear.data) {
+      this.last = null
+    }
+    this.front = nextItem;
+    return dequeuedItem.data;
+  }
+
+  getFront = () => {
+    return this.front.data;
+  }
+
+  getRear = () => {
+    return this.rear.data;
+  }
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## 🐳 實際應用
 
@@ -193,9 +334,24 @@ Queue ADT:
 - 瀏覽器的非同步處理（event queue / task queue）
 - 通知功能
 
-### :crab: 其他我不會的
+### :crab: 其他
 
-- parsing context-free languages
+#### Stack
+- parse context-free languages
+- evaluate arithmetic expressions(infix, postfix, prefix)
+- function call, recursive call management
+- reverse the input data
+- traverse trees(preorder, inorder, postorder)
+- DFS graph traversal
+- eight queen problem
+- maze problem
+
+#### Queue
+- OS 中的各種應用：ready queue、waiting queue、job queue、I/O Derive queue etc.
+- buffering
+- 基於佇列理論的計算機效能模擬
+- 圖形的 BFS
+- binary tree 的 level order traversal
 
 ## :whale: 題目練習
 
