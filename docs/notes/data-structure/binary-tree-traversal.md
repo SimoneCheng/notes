@@ -225,5 +225,5 @@ var levelOrder = function(root) {
 
 ## 🐳 學習資源
 - https://leetcode.com/explore/learn/card/data-structure-tree/
-- [二元樹(Binary Tree) by Aquamay](https://hackmd.io/@Aquamay/HyCgHXfid)
-- [Binary Tree: Traversal(尋訪) by Chiu CC](http://alrightchiu.github.io/SecondRound/binary-tree-traversalxun-fang.html)
+- [二元樹(Binary Tree)](https://hackmd.io/@Aquamay/HyCgHXfid) by Aquamay
+- [Binary Tree: Traversal(尋訪)](http://alrightchiu.github.io/SecondRound/binary-tree-traversalxun-fang.html) by Chiu CC

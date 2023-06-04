@@ -41,7 +41,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/SimoneCheng/notes/tree/main',
           remarkPlugins: [math],
-          rehypePlugins: [katex],
+          rehypePlugins: [katex, {strict: false}],
         },
         blog: {
           showReadingTime: true,
