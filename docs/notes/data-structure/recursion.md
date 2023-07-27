@@ -82,7 +82,7 @@ graph BT
 
 #### Question 1: Write an Interative function Fac(N) or pseudo code for N!
 
-```javascript
+```js
 function fac(n) {
   let result = 1;
   for (let i = 1; i <= n; i++>) {
@@ -106,7 +106,7 @@ $$
 
 然後再寫出遞迴的程式碼：
 
-```javascript
+```js
 function fac(n) {
   if (n === 0) {
     return 1;
@@ -188,4 +188,90 @@ function gcd(a, b) {
 
 ### 🦀 Tower of Hanoi 河內塔
 
-非常經典的遞迴題目，但還沒唸（囧），唸完再回來補上筆記ＱＱ
+#### 題目敘述
+
+有三個柱子，假設分別叫做 A、B、C，其中 A 柱子上有 n 個大小不同的盤子，這些盤子從上到下按照大小排放，最上面的盤子最小，最下面的盤子最大，現在要把這些盤子從 A 柱子移到 C 柱子，但必須遵守以下規則：
+
+1. 每次只能移動一個盤子
+2. 大的盤子不能放在小的盤子上面
+
+請把所有的移動步驟都 print 出來。
+
+#### 解題思路
+
+```
+       A            B           C
+
+       │            │           │
+       │            │           │
+       │            │           │
+1    ┌─┼─┐          │           │
+2   ┌┼┼┼┼┼┐         │           │
+3  ┌┼┼┼┼┼┼┼┐        │           │
+  ─┴───────┴─   ────┴────   ────┴────
+```
+
+先從例子開始想，假設目前有 A、B、C 三個柱子，然後有 3 個盤子在 A 柱子上面，則步驟如下：
+
+---
+1. move disk 1 from A to C
+2. move disk 2 from A to B
+3. move disk 1 from C to B
+---
+4. move disk 3 from A to C
+---
+5. move disk 1 from B to A
+6. move disk 2 from B to C
+7. move disk 1 from A to C
+---
+
+把步驟分成三個區塊來看：
+1. 第 1. ~ 3. 步驟是把 1 ~ 2 號的盤子都先從 A 柱子移到 B 柱子
+2. 第 4. 步驟是把最後一個第 3 號盤子直接從 A 柱子移到 C 柱子
+3. 接下來是把 B 柱子上的盤子都移到 C 柱子
+
+例外情況：如果只有一個盤子的話，就直接從 A 柱子搬到 C 柱子就可以了。
+
+```js
+function hanoi(n, from, to, via) {
+  if (n === 1) {
+    console.log(`move disk 1 from ${from} to ${to}`);
+  } else {
+    hanoi(n - 1, from, via, to); // 先把 n - 1 個盤子都移到中間的柱子
+    console.log(`move disk ${n} from ${from} to ${to}`); // 把最下面的盤子移到目標柱子
+    hanoi(n - 1, via, to, from); // 再把剩下的 n - 1 個盤子移到目標柱子
+  }
+}
+```
+
+#### 河內塔的遞迴定義
+
+把上面提到的步驟用數學式來表示，$T(n)$ 表示移動 n 個盤子時程式所需的執行次數，如果解出 $T(n)$ 就表示解出了這個 function 的時間複雜度：
+
+$$
+\begin{equation*}
+  \begin{split}
+    T(n) &= T(n - 1) + 1 + T(n - 1),\ 且\ T(1) = 1\\
+         &= 2T(n - 1) + 1
+  \end{split}
+\end{equation*}
+$$
+
+解 $T(n)$，用展開代入法：
+
+$$
+\begin{equation*}
+  \begin{split}
+    T(n) &= 2 * T(n - 1) + 1\\
+         &= 2 * [2 * T(n - 2) + 1] + 1\\
+         &= 4 * T(n - 2) + 3\\
+         &= 4 * [2 * T(n - 3) + 1] + 3\\
+         &= 8 * T(n - 3) + 7\\
+         &= 16 * T(n - 4) + 15\\
+         &= 2^{n-1} * T(n - (n - 1)) + (2^{n-1} - 1)\\
+         &= 2^{n-1} * T(1) + (2^{n-1} - 1)\\
+         &= 2^{n-1} + (2^{n-1} - 1)\\
+         &= 2^n - 1 \approx O(2^n)
+  \end{split}
+\end{equation*}
+$$
