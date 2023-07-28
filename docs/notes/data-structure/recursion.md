@@ -125,7 +125,11 @@ function fac(n) {
 #### Definition
 
 $$
-F_{0} = 0,\ F_{1} = 1,\ F_{n} = F_{n-1} + F_{n-2},\ for\ n \ge 2
+\begin{cases}
+F_{0} = 0 \\
+F_{1} = 1 \\
+F_{n} = F_{n-1} + F_{n-2},\ for\ n \ge 2
+\end{cases}
 $$
 
 #### Question 1: Write a Recurisive function for Fib(N)
