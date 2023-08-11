@@ -28,6 +28,7 @@ title: 首頁
 - NeetCode：https://www.youtube.com/@NeetCode/videos
 - x86 assembly：https://ost2.fyi/
 - 一家在做 graphQL 相關的公司：https://the-guild.dev/blog
+- 一家在做 embedded linux 的公司：https://bootlin.com/
 
 ## 🐳 Paper
 - REST 原始文章：https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm

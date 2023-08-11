@@ -152,17 +152,47 @@ flowchart TB
 
 ### 🦀 Binary Tree 的三個定理
 
-假設 root level = 1
+假設：root level = 1，【定理一】：
 
-【定理一】 $The\ i^{th}\ level\ in\ a\ binary\ tree\ has\ at\ most\ 2^{i-1}\ nodes$
+$$
+The\ i^{th}\ level\ in\ a\ binary\ tree\ has\ at\ most\ 2^{i-1}\ nodes
+$$
 
 證明：用數學歸納法
 
-【定理二】
+---
+
+假設：root level = 1，【定理二】：
+
+$$
+The\ binary\ tree\ with\ height\ H,\ has\ at\ most\ 2^{H}-1\ nodes,\ at\ least\ H\ nodes.
+$$
+
+證明：
+
+$$
+\begin{align*}
+&(1) 最多 nodes，也就是每個節點長好長滿：節點數 = 2^{0} + 2^{1} + ... + 2^{H-1} = \frac{1*(1-2^{H})}{1-2} = 2^{H} - 1\\
+&(2) 最少 nodes，也就是每個 level 只有一個節點，所以節點數 = H
+\end{align*}
+$$
+
+---
+
+
 
 ### 🦀 Binary Tree 的種類
 
-## 🐳 Tree and Binary Tree 簡單比較
+- Skewed Binary Tree
+- Full Binary Tree
+- Complete Binary Tree
+- Strict Binary Tree
+
+### 🦀 Binary Tree Representations
+
+有兩種表示二元樹的方法，分別是用 array 或是 linked list。下面表個是針對這兩種方式的優缺點比較：
+
+
 
 ## 🐳 Resource
 

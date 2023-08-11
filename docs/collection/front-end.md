@@ -23,6 +23,7 @@ date: 2022-12-03
 - [You Dont Know JS](https://github.com/getify/You-Dont-Know-JS)
 - [TC39](https://tc39.es/)
 - [2ality – JavaScript and more](https://2ality.com/)
+-  Brendan Eich（JavaScript 作者）：https://brendaneich.com/
 - [Mastering Modular JavaScript](https://github.com/mjavascript/mastering-modular-javascript)
 - [Practical Modern JavaScript](https://github.com/mjavascript/practical-modern-javascript)
 
