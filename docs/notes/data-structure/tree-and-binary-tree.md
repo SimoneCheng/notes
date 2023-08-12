@@ -179,20 +179,50 @@ $$
 
 ---
 
+假設：root level = 1，【定理三】：
 
+$$
+For\ a\ non-empty\ binary\ tree,\ if\ there\ are\ n_0\ leaves\ and\ n_2\ degree-2\ nodes,\ then\ n_0\ =\ n_2\ +\ 1
+$$
+
+證明：
+
+$$
+\begin{align*}
+&令\\
+&n: node 總數\\
+&n_0:\ degree-0\ 之\ node\ 數\（即 leaves 數）\\
+&n_1:\ degree-1\ 之\ node\ 數\\
+&n_2:\ degree-2\ 之\ node\ 數\\
+&B:\ branch(分支)總數\\
+\\
+&則\ 
+\begin{cases}
+n = n_0 + n_1 + n_2 = B + 1\ \ (1)\\
+B = 1 * n_1 + 2 * n_2\ \ (2)\\
+\end{cases}
+\\
+&將\ (2)\ 式代入\ (1)\ 式得：n_0 + n_1 + n_2 = 1n_1 + 2n_2 + 1 \iff n_0 = n_2 + 1
+\end{align*}
+$$
 
 ### 🦀 Binary Tree 的種類
 
-- Skewed Binary Tree
-- Full Binary Tree
-- Complete Binary Tree
-- Strict Binary Tree
+|種類|定義|
+|---|---|
+|Skewed Binary Tree|<ul><li>**Left-skewed Binary Tree**: each non-leaf node has left-child only, without right child.</li><li>**Right-skewed Binary Tree**: each non-leaf node has right-child only, without left child.</li><li>如果有 $n$ 個節點，則樹高為 $n$。(if root level = $1$)</li></ul>|
+|Full Binary Tree| <ul><li>具有最多節點的 Binary Tree</li><li>if the height is $h$, and root level is $1$, then Full Binary Tree has $2^{h-1}$ nodes.</li></ul>|
+|Complete Binary Tree|<ul><li>節點增長順序：由上而下，同一 level 由左而右。</li><li>如果高度為 $h$，則節點數大於 $2^{h-1} - 1$，小於等於 $2^{h} - 1$。</li></ul>|
+|Strict Binary Tree|<ul><li>Each non-leaf node will have two children. There is no degree-1 nodes exist.</li></ul>|
 
 ### 🦀 Binary Tree Representations
 
-有兩種表示二元樹的方法，分別是用 array 或是 linked list。下面表個是針對這兩種方式的優缺點比較：
+有兩種表示二元樹的方法，分別是用 array 或是 linked list。下面表格是針對這兩種方式的優缺點比較：
 
-
+||Array|Linked List|
+|---|---|---|
+|優點|<ol><li>容易存取左右子點與父點</li><li>對於 full/complete binary tree 可以充分利用記憶體空間，沒有浪費</li></ol>|<ol><li>容易增刪節點</li><li>如果是 skewed binary tree，用 linked list 會比用 array 節省記憶體空間</li></ol>|
+|缺點|<ol><li>不容易增刪節點</li><li>如果是 skewed binary tree，用 array 來表示非常浪費記憶體空間。若高度為 $H$，浪費的格數為 $2^{H} - 1 - H$</li></ol>|<ol><li>不容易存取父節點</li><li>可以參考 [這邊](#use-linked-list-to-represent-tree-directly)</li></ol>|
 
 ## 🐳 Resource
 
