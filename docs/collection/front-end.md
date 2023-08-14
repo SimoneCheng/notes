@@ -54,6 +54,8 @@ date: 2022-12-03
 - [Daishi Kato's blog](https://blog.axlight.com/)：Jotai, valtio 的作者
 - Vadim Makeev：https://pepelsbey.dev/
 - Alex Kondov：https://alexkondov.com/
+- Tali Garsiel：https://taligarsiel.com/ (how browser works)
+- Matt Brubeck：https://limpet.net/mbrubeck/ (Let's build a browser)
 
 ## :whale: NewsLetter
 - [前端早讀課](https://twitter.com/f2er)
@@ -62,6 +64,9 @@ date: 2022-12-03
 ## :whale: Website
 - [web.dev](https://web.dev/)
 - [CUBE CSS](https://cube.fyi/)
+
+## :whale: a11y
+- W3C Web Accessibility Initiative (WAI)：https://www.w3.org/WAI/
 
 ## 🐳 Twitter
 | who | link | notes
