@@ -20,6 +20,11 @@ title: 首頁
   - http://cleancoder.com/products
   - http://blog.cleancoder.com/
 - Jessica Kerr：https://jessitron.com/
+- Salvatore Sanfilippo aka antirez（redis 作者）：http://invece.org/
+- Dave Cheney（project member for the Go programming language）：https://dave.cheney.net/
+- Martin Fowler：https://martinfowler.com/
+- Josh W. Comeau：https://www.joshwcomeau.com/
+- https://www.ntietz.com/
 
 ## :whale: Podcast
 - CoRecursive：https://corecursive.com
@@ -29,6 +34,12 @@ title: 首頁
 - x86 assembly：https://ost2.fyi/
 - 一家在做 graphQL 相關的公司：https://the-guild.dev/blog
 - 一家在做 embedded linux 的公司：https://bootlin.com/
+- Microservices：https://microservices.io/
+- Refactoring Guru：https://refactoring.guru/
+- Smashing Magazine：https://www.smashingmagazine.com/
+- TechCrunch：https://techcrunch.com/
+- OSdev wiki：https://wiki.osdev.org/Main_Page
+- Netflix Tech Blog：https://netflixtechblog.com/
 
 ## 🐳 Paper
 - REST 原始文章：https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm

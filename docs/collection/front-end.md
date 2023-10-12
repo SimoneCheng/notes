@@ -56,6 +56,7 @@ date: 2022-12-03
 - Alex Kondov：https://alexkondov.com/
 - Tali Garsiel：https://taligarsiel.com/ (how browser works)
 - Matt Brubeck：https://limpet.net/mbrubeck/ (Let's build a browser)
+- Josh W. Comeau：https://www.joshwcomeau.com/
 
 ## :whale: NewsLetter
 - [前端早讀課](https://twitter.com/f2er)
