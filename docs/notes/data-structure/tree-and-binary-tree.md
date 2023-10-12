@@ -6,7 +6,7 @@ date: 2023-06-04
 
 ## 🐳 Tree 樹
 
-## 🦀 定義
+### 🦀 定義
 
 - 由至少一個 node 組成，不得為空。
 - 至少有一個特定 node 稱為 root。
@@ -55,9 +55,9 @@ flowchart TB
     end
 ```
 
-## 🦀 Representations 樹的表示方法
+### 🦀 Representations 樹的表示方法
 
-### use linked list to represent tree directly
+#### use linked list to represent tree directly
 
 用 linked list 來表示 tree，假設 $tree's\  degree = k$，node 的 structure 可以設計成：
 
@@ -94,7 +94,7 @@ $$
 $$
 :::
 
-### child-sibling
+#### child-sibling
 
 還是用 linked list 來表示 tree，但是換一個角度來重新設計 node structure，來解決前一個方法浪費記憶體空間的問題。
 
@@ -121,7 +121,7 @@ $tree's\ degree = 3$
 
 ![](./images/tree-representation-2.png)
 
-### 括號法
+#### 括號法
 
 用 `父點（子點...子點）` 表示父與子點之間的組成關係，可以巢狀表示。
 
