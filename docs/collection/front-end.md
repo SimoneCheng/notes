@@ -65,6 +65,8 @@ date: 2022-12-03
 ## :whale: Website
 - [web.dev](https://web.dev/)
 - [CUBE CSS](https://cube.fyi/)
+- [Vue Mastery](https://www.vuemastery.com/)
+- [GitNation](https://portal.gitnation.org/)
 
 ## :whale: a11y
 - W3C Web Accessibility Initiative (WAI)：https://www.w3.org/WAI/
