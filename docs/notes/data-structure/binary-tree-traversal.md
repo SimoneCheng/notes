@@ -146,7 +146,7 @@ const helper = (treeNode, res) => {
 };
 ```
 
-:::caution
+:::warning
 樹（tree）裡面的每一個節點（node）都要按照上面提到的順序來遍歷才算完成。
 :::
 

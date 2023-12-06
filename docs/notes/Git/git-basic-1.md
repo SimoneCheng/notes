@@ -162,7 +162,7 @@ cat .git/HEAD
 7. ```git branch -m [舊 branch 名稱] [新 branch 名稱]```：重新命名分支名稱。
 8. ```git checkout -b [branch 名稱]```：創建分支並且切換到該分支。
 
-:::caution
+:::warning
 注意：如果現在所在的分支是想要刪除的分支的話，就不能刪除分支。要先移動到別的分支，才能刪除。
 :::
 
@@ -177,7 +177,7 @@ cat .git/HEAD
 
 這個用法平常不太常用到，但在特殊情況下特別有用！
 
-:::caution
+:::warning
 **刪除分支到底刪除了什麼？** 刪除分支時，只會刪除分支這個指針，並不會刪除任何的 commit！
 :::
 
@@ -235,7 +235,7 @@ cat .git/HEAD
 
 使用 `git rebase master` 之後，就可以讓 feature 1 分支的三次 commit 接在 master 分支最新的 commit 之後，如此一來就可以進行 Fast Forward Merge。
 
-:::caution
+:::warning
 要特別注意的是使用 `git rebase` 也有可能會造成衝突，如果有衝突的話需要將衝突解掉才能 rebase。另外使用了 rebase 之後，在該分支上面的 commit 會全部重新計算，因為這幾個 commit 的第一個有了新的 parent commit，所以 commit tree 便重新算了一次，也就是說在該分支所建立的 commit 的 id 會不一樣，雖然每個 commit 的修改內容仍和先前相同。
 :::
 

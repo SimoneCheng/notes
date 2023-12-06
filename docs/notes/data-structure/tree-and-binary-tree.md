@@ -79,7 +79,7 @@ $tree's\ degree = 3$
 
 ![](./images/tree-representation-1.png)
 
-:::caution 缺點
+:::warning 缺點
 這個方法極度浪費記憶體空間。
 :::
 
