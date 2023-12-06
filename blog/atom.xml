@@ -13,7 +13,191 @@
         <link href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan"/>
         <updated>2023-01-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[想學的東西，記錄下來督促自己認真學習。]]></summary>
-        <content type="html"><![CDATA[<p>想學的東西，記錄下來督促自己認真學習。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="後端">後端<a href="#後端" class="hash-link" aria-label="Direct link to 後端" title="Direct link to 後端">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="udemy-課程">Udemy 課程<a href="#udemy-課程" class="hash-link" aria-label="Direct link to Udemy 課程" title="Direct link to Udemy 課程">​</a></h3><ul><li>NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)</li><li>Microservices with Node JS and React</li><li>有餘力的話，可以再看：Learn and Understand NodeJS</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="官方文件">官方文件<a href="#官方文件" class="hash-link" aria-label="Direct link to 官方文件" title="Direct link to 官方文件">​</a></h3><ul><li>nodejs：<a href="https://nodejs.org/en/docs/" target="_blank" rel="noopener noreferrer">https://nodejs.org/en/docs/</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="實作">實作<a href="#實作" class="hash-link" aria-label="Direct link to 實作" title="Direct link to 實作">​</a></h3><ul><li>實作一個 server</li><li>實作一個 database</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="方向">方向<a href="#方向" class="hash-link" aria-label="Direct link to 方向" title="Direct link to 方向">​</a></h3><ul><li>DB</li><li>SQL</li><li>Docker、k8s</li><li>GCP、AWS</li></ul><hr><h2 class="anchor anchorWithStickyNavbar_LWe7" id="前端">前端<a href="#前端" class="hash-link" aria-label="Direct link to 前端" title="Direct link to 前端">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="官方文件-1">官方文件<a href="#官方文件-1" class="hash-link" aria-label="Direct link to 官方文件" title="Direct link to 官方文件">​</a></h3><ul><li>MDN：<a href="https://developer.mozilla.org/en-US/" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/</a></li><li>React Beta Doc：<a href="https://beta.reactjs.org/" target="_blank" rel="noopener noreferrer">https://beta.reactjs.org/</a></li><li>typeScript：<a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">https://www.typescriptlang.org/</a></li><li>react query：<a href="https://react-query-v3.tanstack.com/overview" target="_blank" rel="noopener noreferrer">https://react-query-v3.tanstack.com/overview</a></li><li>SWR：<a href="https://swr.vercel.app/%5C" target="_blank" rel="noopener noreferrer">https://swr.vercel.app/\</a></li><li>xState：<a href="https://xstate.js.org/docs/" target="_blank" rel="noopener noreferrer">https://xstate.js.org/docs/</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="實作-1">實作<a href="#實作-1" class="hash-link" aria-label="Direct link to 實作" title="Direct link to 實作">​</a></h3><ul><li>實作一個前端框架<ul><li><a href="https://github.com/mfrachet/create-frontend-framework" target="_blank" rel="noopener noreferrer">https://github.com/mfrachet/create-frontend-framework</a></li><li><a href="https://the-guild.dev/blog/runtime-jsx" target="_blank" rel="noopener noreferrer">https://the-guild.dev/blog/runtime-jsx</a></li><li><a href="https://pomb.us/build-your-own-react/" target="_blank" rel="noopener noreferrer">https://pomb.us/build-your-own-react/</a></li></ul></li><li>實作瀏覽器<ul><li><a href="https://viethung.space/blog/2020/05/29/Browser-from-Scratch-Introduction/" target="_blank" rel="noopener noreferrer">https://viethung.space/blog/2020/05/29/Browser-from-Scratch-Introduction/</a></li><li><a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html" target="_blank" rel="noopener noreferrer">https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html</a></li><li><a href="https://browser.engineering/" target="_blank" rel="noopener noreferrer">https://browser.engineering/</a></li></ul></li><li>實作 state management tool</li><li>實作 bundle tool<ul><li><a href="https://github.com/ronami/minipack" target="_blank" rel="noopener noreferrer">https://github.com/ronami/minipack</a></li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="方向-1">方向<a href="#方向-1" class="hash-link" aria-label="Direct link to 方向" title="Direct link to 方向">​</a></h3><h4 class="anchor anchorWithStickyNavbar_LWe7" id="front-end-framework">front end framework<a href="#front-end-framework" class="hash-link" aria-label="Direct link to front end framework" title="Direct link to front end framework">​</a></h4><ul><li>React<ul><li>React fiber</li><li>Under the Hood</li></ul></li><li>Vue</li><li>Angular</li><li>Solid</li><li>Svelte</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="state-management">state management<a href="#state-management" class="hash-link" aria-label="Direct link to state management" title="Direct link to state management">​</a></h4><p>(client state)</p><ul><li>Redux<ul><li>Middleware<ul><li>redux-saga</li><li>redux-thunk</li><li>redux-observable</li><li>RxJS</li></ul></li><li>Under the Hood</li></ul></li><li>Zustand</li><li>Jotai</li><li>xState</li><li>...</li></ul><p>(server state)</p><ul><li>react query</li><li>SWR</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="bundle-tool">bundle tool<a href="#bundle-tool" class="hash-link" aria-label="Direct link to bundle tool" title="Direct link to bundle tool">​</a></h4><ul><li>Webpack</li><li>parcel</li><li>gulp</li><li>Vite</li><li>SWC</li><li>tsup</li><li>rspack</li><li>esbuild</li><li>rollup</li><li>turbopack</li><li>...</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="css-解決方案">CSS 解決方案<a href="#css-解決方案" class="hash-link" aria-label="Direct link to CSS 解決方案" title="Direct link to CSS 解決方案">​</a></h4><p>(CSS-in-JS)</p><ul><li>styled component</li><li>styled-jsx</li><li>...</li></ul><p>(static)</p><ul><li>SCSS、SASS</li><li>css module</li><li>....</li></ul><p>(css style)</p><ul><li>AVO css</li><li>CUBE css</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="other">other<a href="#other" class="hash-link" aria-label="Direct link to other" title="Direct link to other">​</a></h4><ul><li>JavaScript: Under the Hood</li><li>storybook</li><li>Next.js、Gastby.js</li><li>SEO</li><li>CI/CD</li><li>monorepo</li></ul><hr><h2 class="anchor anchorWithStickyNavbar_LWe7" id="訂閱平台">訂閱平台<a href="#訂閱平台" class="hash-link" aria-label="Direct link to 訂閱平台" title="Direct link to 訂閱平台">​</a></h2><ul><li>考慮訂閱 packt 或 egghead.io。</li></ul><hr><h2 class="anchor anchorWithStickyNavbar_LWe7" id="cs-和原理">CS 和原理<a href="#cs-和原理" class="hash-link" aria-label="Direct link to CS 和原理" title="Direct link to CS 和原理">​</a></h2><ul><li>線性代數</li><li>離散數學</li><li>演算法</li><li>資料結構</li><li>計算機結構與組織</li><li>作業系統</li><li>瀏覽器工作原理</li><li>網路概論</li><li>Design Pattern</li><li>SSR、CSR</li><li>PWA</li><li>打包工具的原理（tree-shaking）</li><li>如何製作 UI Library</li><li>如何設計前端架構</li><li>git 原理</li></ul><hr><h2 class="anchor anchorWithStickyNavbar_LWe7" id="其他">其他<a href="#其他" class="hash-link" aria-label="Direct link to 其他" title="Direct link to 其他">​</a></h2><ul><li>Leetcode</li><li>Vue</li><li>Vuex</li><li>Angular</li><li>Solid</li><li>Svelte</li><li>graphQL</li><li>Apollo</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="書">書<a href="#書" class="hash-link" aria-label="Direct link to 書" title="Direct link to 書">​</a></h3><ul><li>重構 JavaScript</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="實作-2">實作<a href="#實作-2" class="hash-link" aria-label="Direct link to 實作" title="Direct link to 實作">​</a></h3><ul><li><a href="https://github.com/codecrafters-io/build-your-own-x" target="_blank" rel="noopener noreferrer">https://github.com/codecrafters-io/build-your-own-x</a></li></ul><hr><p>之後有想到什麼的話再筆記起來。</p>]]></content>
+        <content type="html"><![CDATA[<p>想學的東西，記錄下來督促自己認真學習。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="後端">後端<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E5%BE%8C%E7%AB%AF" class="hash-link" aria-label="Direct link to 後端" title="Direct link to 後端">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="udemy-課程">Udemy 課程<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#udemy-%E8%AA%B2%E7%A8%8B" class="hash-link" aria-label="Direct link to Udemy 課程" title="Direct link to Udemy 課程">​</a></h3>
+<ul>
+<li>NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)</li>
+<li>Microservices with Node JS and React</li>
+<li>有餘力的話，可以再看：Learn and Understand NodeJS</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="官方文件">官方文件<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E5%AE%98%E6%96%B9%E6%96%87%E4%BB%B6" class="hash-link" aria-label="Direct link to 官方文件" title="Direct link to 官方文件">​</a></h3>
+<ul>
+<li>nodejs：<a href="https://nodejs.org/en/docs/" target="_blank" rel="noopener noreferrer">https://nodejs.org/en/docs/</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="實作">實作<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E5%AF%A6%E4%BD%9C" class="hash-link" aria-label="Direct link to 實作" title="Direct link to 實作">​</a></h3>
+<ul>
+<li>實作一個 server</li>
+<li>實作一個 database</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="方向">方向<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E6%96%B9%E5%90%91" class="hash-link" aria-label="Direct link to 方向" title="Direct link to 方向">​</a></h3>
+<ul>
+<li>DB</li>
+<li>SQL</li>
+<li>Docker、k8s</li>
+<li>GCP、AWS</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="前端">前端<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E5%89%8D%E7%AB%AF" class="hash-link" aria-label="Direct link to 前端" title="Direct link to 前端">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="官方文件-1">官方文件<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E5%AE%98%E6%96%B9%E6%96%87%E4%BB%B6-1" class="hash-link" aria-label="Direct link to 官方文件" title="Direct link to 官方文件">​</a></h3>
+<ul>
+<li>MDN：<a href="https://developer.mozilla.org/en-US/" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/</a></li>
+<li>React Beta Doc：<a href="https://beta.reactjs.org/" target="_blank" rel="noopener noreferrer">https://beta.reactjs.org/</a></li>
+<li>typeScript：<a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">https://www.typescriptlang.org/</a></li>
+<li>react query：<a href="https://react-query-v3.tanstack.com/overview" target="_blank" rel="noopener noreferrer">https://react-query-v3.tanstack.com/overview</a></li>
+<li>SWR：<a href="https://swr.vercel.app/%5C" target="_blank" rel="noopener noreferrer">https://swr.vercel.app/\</a></li>
+<li>xState：<a href="https://xstate.js.org/docs/" target="_blank" rel="noopener noreferrer">https://xstate.js.org/docs/</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="實作-1">實作<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E5%AF%A6%E4%BD%9C-1" class="hash-link" aria-label="Direct link to 實作" title="Direct link to 實作">​</a></h3>
+<ul>
+<li>實作一個前端框架<!-- -->
+<ul>
+<li><a href="https://github.com/mfrachet/create-frontend-framework" target="_blank" rel="noopener noreferrer">https://github.com/mfrachet/create-frontend-framework</a></li>
+<li><a href="https://the-guild.dev/blog/runtime-jsx" target="_blank" rel="noopener noreferrer">https://the-guild.dev/blog/runtime-jsx</a></li>
+<li><a href="https://pomb.us/build-your-own-react/" target="_blank" rel="noopener noreferrer">https://pomb.us/build-your-own-react/</a></li>
+</ul>
+</li>
+<li>實作瀏覽器<!-- -->
+<ul>
+<li><a href="https://viethung.space/blog/2020/05/29/Browser-from-Scratch-Introduction/" target="_blank" rel="noopener noreferrer">https://viethung.space/blog/2020/05/29/Browser-from-Scratch-Introduction/</a></li>
+<li><a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html" target="_blank" rel="noopener noreferrer">https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html</a></li>
+<li><a href="https://browser.engineering/" target="_blank" rel="noopener noreferrer">https://browser.engineering/</a></li>
+</ul>
+</li>
+<li>實作 state management tool</li>
+<li>實作 bundle tool<!-- -->
+<ul>
+<li><a href="https://github.com/ronami/minipack" target="_blank" rel="noopener noreferrer">https://github.com/ronami/minipack</a></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="方向-1">方向<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E6%96%B9%E5%90%91-1" class="hash-link" aria-label="Direct link to 方向" title="Direct link to 方向">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="front-end-framework">front end framework<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#front-end-framework" class="hash-link" aria-label="Direct link to front end framework" title="Direct link to front end framework">​</a></h4>
+<ul>
+<li>React<!-- -->
+<ul>
+<li>React fiber</li>
+<li>Under the Hood</li>
+</ul>
+</li>
+<li>Vue</li>
+<li>Angular</li>
+<li>Solid</li>
+<li>Svelte</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="state-management">state management<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#state-management" class="hash-link" aria-label="Direct link to state management" title="Direct link to state management">​</a></h4>
+<p>(client state)</p>
+<ul>
+<li>Redux<!-- -->
+<ul>
+<li>Middleware<!-- -->
+<ul>
+<li>redux-saga</li>
+<li>redux-thunk</li>
+<li>redux-observable</li>
+<li>RxJS</li>
+</ul>
+</li>
+<li>Under the Hood</li>
+</ul>
+</li>
+<li>Zustand</li>
+<li>Jotai</li>
+<li>xState</li>
+<li>...</li>
+</ul>
+<p>(server state)</p>
+<ul>
+<li>react query</li>
+<li>SWR</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="bundle-tool">bundle tool<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#bundle-tool" class="hash-link" aria-label="Direct link to bundle tool" title="Direct link to bundle tool">​</a></h4>
+<ul>
+<li>Webpack</li>
+<li>parcel</li>
+<li>gulp</li>
+<li>Vite</li>
+<li>SWC</li>
+<li>tsup</li>
+<li>rspack</li>
+<li>esbuild</li>
+<li>rollup</li>
+<li>turbopack</li>
+<li>...</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="css-解決方案">CSS 解決方案<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#css-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88" class="hash-link" aria-label="Direct link to CSS 解決方案" title="Direct link to CSS 解決方案">​</a></h4>
+<p>(CSS-in-JS)</p>
+<ul>
+<li>styled component</li>
+<li>styled-jsx</li>
+<li>...</li>
+</ul>
+<p>(static)</p>
+<ul>
+<li>SCSS、SASS</li>
+<li>css module</li>
+<li>....</li>
+</ul>
+<p>(css style)</p>
+<ul>
+<li>AVO css</li>
+<li>CUBE css</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="other">other<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#other" class="hash-link" aria-label="Direct link to other" title="Direct link to other">​</a></h4>
+<ul>
+<li>JavaScript: Under the Hood</li>
+<li>storybook</li>
+<li>Next.js、Gastby.js</li>
+<li>SEO</li>
+<li>CI/CD</li>
+<li>monorepo</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="訂閱平台">訂閱平台<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E8%A8%82%E9%96%B1%E5%B9%B3%E5%8F%B0" class="hash-link" aria-label="Direct link to 訂閱平台" title="Direct link to 訂閱平台">​</a></h2>
+<ul>
+<li>考慮訂閱 packt 或 egghead.io。</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cs-和原理">CS 和原理<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#cs-%E5%92%8C%E5%8E%9F%E7%90%86" class="hash-link" aria-label="Direct link to CS 和原理" title="Direct link to CS 和原理">​</a></h2>
+<ul>
+<li>線性代數</li>
+<li>離散數學</li>
+<li>演算法</li>
+<li>資料結構</li>
+<li>計算機結構與組織</li>
+<li>作業系統</li>
+<li>瀏覽器工作原理</li>
+<li>網路概論</li>
+<li>Design Pattern</li>
+<li>SSR、CSR</li>
+<li>PWA</li>
+<li>打包工具的原理（tree-shaking）</li>
+<li>如何製作 UI Library</li>
+<li>如何設計前端架構</li>
+<li>git 原理</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="其他">其他<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E5%85%B6%E4%BB%96" class="hash-link" aria-label="Direct link to 其他" title="Direct link to 其他">​</a></h2>
+<ul>
+<li>Leetcode</li>
+<li>Vue</li>
+<li>Vuex</li>
+<li>Angular</li>
+<li>Solid</li>
+<li>Svelte</li>
+<li>graphQL</li>
+<li>Apollo</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="書">書<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E6%9B%B8" class="hash-link" aria-label="Direct link to 書" title="Direct link to 書">​</a></h3>
+<ul>
+<li>重構 JavaScript</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="實作-2">實作<a href="https://simonecheng.github.io/notes/blog/2023/01/08/learning-plan#%E5%AF%A6%E4%BD%9C-2" class="hash-link" aria-label="Direct link to 實作" title="Direct link to 實作">​</a></h3>
+<ul>
+<li><a href="https://github.com/codecrafters-io/build-your-own-x" target="_blank" rel="noopener noreferrer">https://github.com/codecrafters-io/build-your-own-x</a></li>
+</ul>
+<hr>
+<p>之後有想到什麼的話再筆記起來。</p>]]></content>
         <author>
             <name>Simone</name>
             <uri>https://github.com/SimoneCheng</uri>
@@ -26,7 +210,34 @@
         <link href="https://simonecheng.github.io/notes/blog/2022/09/22/new-start"/>
         <updated>2022-09-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[紀錄把網站從 docsify 搬到 docusaurus的過程]]></summary>
-        <content type="html"><![CDATA[<p>這篇想紀錄一下把網站從 docsify 搬到 docusaurus的過程。</p><p>最早最早想做這個網站的時候，主要只是想找個地方放自己的學習筆記。所以目的很單純：</p><ul><li>不需要 SEO，因為只有自己需要看</li><li>有個地方可以存自己的筆記</li><li>有分類的功能</li><li>不管從哪台電腦都可以編輯自己的筆記</li><li>有很多備份，不會不見</li></ul><p>最一開始是選擇 HackMD 來當作存筆記的地方，剛好也符合上述的需求，但是隨著轉職中自學階段的筆記數量越來越多，到現在轉成功之後，覺得 HackMD 雖然可以一次匯出所有筆記，下載備份到電腦裡，但不會有資料夾的分類，會一次下載一包，這個部份是讓我比較困擾的地方。</p><p>為了解決上述的問題，所以之後選擇了用 GitHub + docsify，這個方式蠻好的符合了原本的需求，也解決了在 HackMD 上面遇到的問題，用了 git 簡直如魚得水。</p><p>但直到最近又有了新的想法，在公司用了 docusaurus 之後，發現與 docsify 相比， docusaurus 的客製化程度非常高：</p><ul><li>雖然目前沒有打算優化 SEO，但用了 docusaurus 之後，可以將優化 SEO 這件事放入未來優化的考量</li><li>分類功能較進階，比較符合日後筆記越來越多的分類需求</li><li>預設的模版就蠻好用了，要更進階也可以</li><li>除了 markdown，也可以寫 mdx、react，可以高度客製化自己的筆記</li><li>本來就是在 react 生態圈當中的我，用起來沒有任何困擾</li><li>docusaurus 官方文件寫得還不錯，遇到問題也不太會找不到解答</li></ul><p>基於以上幾個理由，於是就趕快先趁筆記還不多的時候，先把網站搬家到 docusaurus 了。</p><p>當然 docusaurus 還有我最喜歡的功能（雖然很普通啦XD)：</p><div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_S0QG"></div></div><div class="theme-admonition theme-admonition-info alert alert--info admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_S0QG"></div></div><div class="theme-admonition theme-admonition-tip alert alert--success admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_S0QG"></div></div><div class="theme-admonition theme-admonition-caution alert alert--warning admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>caution</div><div class="admonitionContent_S0QG"></div></div><div class="theme-admonition theme-admonition-danger alert alert--danger admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>danger</div><div class="admonitionContent_S0QG"></div></div><details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>Toggle me!</summary><div><div class="collapsibleContent_i85q"><div><div>This is the detailed content</div><br><details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>Nested toggle! Some surprise inside...</summary><div><div class="collapsibleContent_i85q"><div>😲😲😲😲😲</div></div></div></details></div></div></div></details>]]></content>
+        <content type="html"><![CDATA[<p>這篇想紀錄一下把網站從 docsify 搬到 docusaurus的過程。</p>
+<p>最早最早想做這個網站的時候，主要只是想找個地方放自己的學習筆記。所以目的很單純：</p>
+<ul>
+<li>不需要 SEO，因為只有自己需要看</li>
+<li>有個地方可以存自己的筆記</li>
+<li>有分類的功能</li>
+<li>不管從哪台電腦都可以編輯自己的筆記</li>
+<li>有很多備份，不會不見</li>
+</ul>
+<p>最一開始是選擇 HackMD 來當作存筆記的地方，剛好也符合上述的需求，但是隨著轉職中自學階段的筆記數量越來越多，到現在轉成功之後，覺得 HackMD 雖然可以一次匯出所有筆記，下載備份到電腦裡，但不會有資料夾的分類，會一次下載一包，這個部份是讓我比較困擾的地方。</p>
+<p>為了解決上述的問題，所以之後選擇了用 GitHub + docsify，這個方式蠻好的符合了原本的需求，也解決了在 HackMD 上面遇到的問題，用了 git 簡直如魚得水。</p>
+<p>但直到最近又有了新的想法，在公司用了 docusaurus 之後，發現與 docsify 相比， docusaurus 的客製化程度非常高：</p>
+<ul>
+<li>雖然目前沒有打算優化 SEO，但用了 docusaurus 之後，可以將優化 SEO 這件事放入未來優化的考量</li>
+<li>分類功能較進階，比較符合日後筆記越來越多的分類需求</li>
+<li>預設的模版就蠻好用了，要更進階也可以</li>
+<li>除了 markdown，也可以寫 mdx、react，可以高度客製化自己的筆記</li>
+<li>本來就是在 react 生態圈當中的我，用起來沒有任何困擾</li>
+<li>docusaurus 官方文件寫得還不錯，遇到問題也不太會找不到解答</li>
+</ul>
+<p>基於以上幾個理由，於是就趕快先趁筆記還不多的時候，先把網站搬家到 docusaurus 了。</p>
+<p>當然 docusaurus 還有我最喜歡的功能（雖然很普通啦XD)：</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div></div>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div></div>
+<div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>caution</div></div>
+<div class="theme-admonition theme-admonition-danger admonition_xJq3 alert alert--danger"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>danger</div></div>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>Toggle me!</summary><div><div class="collapsibleContent_i85q"><div><div>This is the detailed content</div><br><details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary><p>Nested toggle! Some surprise inside...</p></summary><div><div class="collapsibleContent_i85q"><div><p>😲😲😲😲😲</p></div></div></div></details></div></div></div></details>]]></content>
         <author>
             <name>Simone</name>
             <uri>https://github.com/SimoneCheng</uri>
