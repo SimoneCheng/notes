@@ -25,6 +25,7 @@ title: 首頁
 - Martin Fowler：https://martinfowler.com/
 - Josh W. Comeau：https://www.joshwcomeau.com/
 - https://www.ntietz.com/
+- Phil Eaton：https://eatonphil.com/
 
 ## :whale: Podcast
 - CoRecursive：https://corecursive.com
