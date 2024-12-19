@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[7738],{1345:e=>{e.exports=JSON.parse('{"authors":[{"name":"Simone","title":"Front-End Developer","url":"https://github.com/SimoneCheng","imageURL":"https://avatars.githubusercontent.com/u/58110624?s=400&u=5d006488de576d011c43c1d93fbcd92bf83580cf&v=4","key":"simone","page":null,"count":2}]}')}}]);
