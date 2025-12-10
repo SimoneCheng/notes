@@ -28,16 +28,20 @@ x/i $rip             # 看當前要執行的指令
 
 ### :crab: 查看資料
 ```bash
-print $rax           # 看暫存器的值（十進位）
-print/x $rax         # 看暫存器的值（十六進位）
-info registers       # 看所有暫存器
-x/d $rsp             # 看記憶體內容（十進位，預設 8 bytes）
-x/dw $rsp            # 看記憶體內容（十進位，4 bytes = int）
-x/6d $rsp            # 看 6 個數字
-x/x $rsp             # 看記憶體內容（十六進位）
-x/s 0x402400         # 看記憶體內容（字串）
-x/i $rip             # 看記憶體內容（指令）
-x/8a 0x402470        # 看 8 個位址（用於 jump table）
+print $rax               # 看暫存器的值（十進位）
+print/x $rax             # 看暫存器的值（十六進位）
+info registers           # 看所有暫存器
+info registers rdi rsi   # 只顯示特定暫存器
+x/d $rsp                 # 看記憶體內容（十進位，預設 8 bytes）
+x/dw $rsp                # 看記憶體內容（十進位，4 bytes = int）
+x/6d $rsp                # 看 6 個數字
+x/x $rsp                 # 看記憶體內容（十六進位）
+x/s 0x402400             # 看記憶體內容（字串）
+x/i $rip                 # 看記憶體內容（指令）
+x/8a 0x402470            # 看 8 個位址（用於 jump table）
+backtrace                # 顯示函數呼叫堆疊（call stack），看目前在哪個函數、是被誰呼叫的
+bt                       # 顯示函數呼叫堆疊（call stack），看目前在哪個函數、是被誰呼叫的
+where                    # 顯示函數呼叫堆疊（call stack），看目前在哪個函數、是被誰呼叫的
 ```
 
 ### :crab: 其他
