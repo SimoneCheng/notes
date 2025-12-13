@@ -453,7 +453,206 @@ Dump of assembler code for function phase_4:
    0x000000000040105d <+81>:	add    $0x18,%rsp
    0x0000000000401061 <+85>:	ret
 End of assembler dump.
+
+(gdb) disassemble
+Dump of assembler code for function func4:
+=> 0x0000000000400fce <+0>:	sub    $0x8,%rsp
+   0x0000000000400fd2 <+4>:	mov    %edx,%eax
+   0x0000000000400fd4 <+6>:	sub    %esi,%eax
+   0x0000000000400fd6 <+8>:	mov    %eax,%ecx
+   0x0000000000400fd8 <+10>:	shr    $0x1f,%ecx
+   0x0000000000400fdb <+13>:	add    %ecx,%eax
+   0x0000000000400fdd <+15>:	sar    $1,%eax
+   0x0000000000400fdf <+17>:	lea    (%rax,%rsi,1),%ecx
+   0x0000000000400fe2 <+20>:	cmp    %edi,%ecx
+   0x0000000000400fe4 <+22>:	jle    0x400ff2 <func4+36>
+   0x0000000000400fe6 <+24>:	lea    -0x1(%rcx),%edx
+   0x0000000000400fe9 <+27>:	call   0x400fce <func4>
+   0x0000000000400fee <+32>:	add    %eax,%eax
+   0x0000000000400ff0 <+34>:	jmp    0x401007 <func4+57>
+   0x0000000000400ff2 <+36>:	mov    $0x0,%eax
+   0x0000000000400ff7 <+41>:	cmp    %edi,%ecx
+   0x0000000000400ff9 <+43>:	jge    0x401007 <func4+57>
+   0x0000000000400ffb <+45>:	lea    0x1(%rcx),%esi
+   0x0000000000400ffe <+48>:	call   0x400fce <func4>
+   0x0000000000401003 <+53>:	lea    0x1(%rax,%rax,1),%eax
+   0x0000000000401007 <+57>:	add    $0x8,%rsp
+   0x000000000040100b <+61>:	ret
+End of assembler dump.
 ```
 
-## x86-64 assembly cheat sheet
+### :crab: 解題策略
+這個 phase 包含遞迴函數 `func4`，實作二分搜尋邏輯。需要理解遞迴呼叫和返回值的計算。
+
+### :crab: 解析步驟
+
+1. 理解輸入格式
+和 Phase 3 類似，使用 `sscanf` 讀取兩個整數。
+
+2. func4 的參數
+從 phase_4 呼叫 func4 時：
+```assembly
+mov    0x8(%rsp),%edi     # 第 1 參數 = 第一個輸入
+mov    $0x0,%esi          # 第 2 參數 = 0
+mov    $0xe,%edx          # 第 3 參數 = 14
+call   func4
+```
+
+3. func4 的邏輯結構
+**計算中點（Binary Search 的核心）：**
+```assembly
+mov    %edx,%eax          # %eax = high (14)
+sub    %esi,%eax          # %eax = high - low
+mov    %eax,%ecx          
+shr    $0x1f,%ecx         # 處理符號位（這裡是 0）
+add    %ecx,%eax          
+sar    $1,%eax            # 除以 2
+lea    (%rax,%rsi,1),%ecx # %ecx = mid = (low + high) / 2
+```
+
+這段計算：`mid = (low + high) / 2`
+
+**三路分支判斷：**
+分支 1：mid > target（搜尋左半邊）
+```assembly
+cmp    %edi,%ecx          # 比較 mid 和 target
+jle    0x400ff2           # 如果 mid <= target，跳到分支 2
+lea    -0x1(%rcx),%edx    # high = mid - 1
+call   func4              # 遞迴：func4(target, low, mid-1)
+add    %eax,%eax          # 返回值 *= 2
+jmp    0x401007           # 返回
+```
+
+分支 2：mid == target（找到目標）
+```assembly
+mov    $0x0,%eax          # 返回值 = 0
+cmp    %edi,%ecx          # 比較 mid 和 target
+jge    0x401007           # 如果 mid >= target，返回
+```
+
+分支 3：mid < target（搜尋右半邊）
+```assembly
+lea    0x1(%rcx),%esi     # low = mid + 1
+call   func4              # 遞迴：func4(target, mid+1, high)
+lea    0x1(%rax,%rax,1),%eax  # 返回值 = 返回值 * 2 + 1
+```
+
+4. 追蹤遞迴過程
+**使用 `si` 進入遞迴：**
+```bash
+(gdb) break func4
+(gdb) run
+# 輸入前面的答案...
+1 0    # 測試答案
+
+(gdb) si              # 用 si 而不是 ni！
+(gdb) backtrace       # 查看遞迴深度
+(gdb) info registers  # 查看參數變化
+```
+
+**自動追蹤遞迴呼叫：**
+```bash
+(gdb) break func4
+(gdb) commands
+> silent
+> printf "func4(%d, %d, %d), mid=%d\n", $edi, $esi, $edx, ($esi+$edx)/2
+> continue
+> end
+```
+
+5. 推導有效答案
+**關鍵觀察：** 只有當輸入等於某次計算的 mid 值時，才會走分支 2，返回 0。
+
+初始呼叫：`func4(target, 0, 14)`
+
+**可能的 mid 值：**
+```
+第 1 層：mid = (0 + 14) / 2 = 7
+第 2 層：mid = (0 + 6) / 2 = 3  或  mid = (8 + 14) / 2 = 11
+第 3 層：mid = (0 + 2) / 2 = 1  或  mid = (4 + 6) / 2 = 5
+第 4 層：mid = (0 + 0) / 2 = 0  或  mid = (2 + 2) / 2 = 2
+```
+
+**但只有在「自然分裂」路徑上的 mid 會返回 0：**
+
+從 14 開始不斷除以 2：
+```
+14 / 2 = 7
+7 / 2 = 3
+3 / 2 = 1
+1 / 2 = 0
+```
+
+→ **第一個輸入只能是：0, 1, 3, 7**
+
+6. 驗證答案
+
+**測試不同輸入：**
+```bash
+# 有效答案
+0 0  ✅
+1 0  ✅
+3 0  ✅
+7 0  ✅
+
+# 無效答案（會經過分支 3，返回值非 0）
+2 0  ❌
+5 0  ❌
+```
+
+**驗證過程（以輸入 1 為例）：**
+```
+第 1 次：func4(1, 0, 14) → mid=7, 7>1 → 分支 1 → func4(1, 0, 6)
+第 2 次：func4(1, 0, 6)  → mid=3, 3>1 → 分支 1 → func4(1, 0, 2)
+第 3 次：func4(1, 0, 2)  → mid=1, 1==1 → 分支 2 → 返回 0
+回到第 2 次：返回值 = 0 * 2 = 0
+回到第 1 次：返回值 = 0 * 2 = 0
+```
+
+**答案（4 選 1）**
+```
+0 0
+1 0  ← 我選這組
+3 0
+7 0
+```
+
+第二個數字必須是 0（phase_4 會檢查）。
+
+**學習重點**
+- **理解遞迴函數的分析方法**
+  - 找 base case（終止條件）
+  - 找 recursive case（遞迴呼叫）
+  - 追蹤參數如何改變
+  
+- **使用 gdb 追蹤遞迴**
+  - `si` 進入函數（vs `ni` 跳過函數）
+  - `backtrace` 查看呼叫堆疊
+  - 觀察每層遞迴的參數變化
+
+- **二分搜尋的組語實作**
+  - 計算中點：`(low + high) / 2`
+  - 三路分支：小於、等於、大於
+  - 遞迴縮小搜尋範圍
+
+- **返回值的計算規律**
+  - 分支 2（找到）：返回 0
+  - 分支 1（左半）：返回值 * 2
+  - 分支 3（右半）：返回值 * 2 + 1
+
+**重要 GDB 指令補充**
+```bash
+backtrace (bt)          # 顯示函數呼叫堆疊
+info registers          # 顯示所有暫存器值
+info registers rdi rsi  # 只顯示特定暫存器
+finish                  # 執行完當前函數返回上一層
+```
+
+**額外觀察**
+這個 phase 展示了：
+- 遞迴函數在組語中的樣子
+- 如何通過返回值編碼不同的路徑
+- 為什麼某些看似合理的輸入會失敗（不在二分搜尋的「自然路徑」上）
+
+## :whale: x86-64 assembly cheat sheet
 - https://web.stanford.edu/class/cs107/resources/x86-64-reference.pdf
