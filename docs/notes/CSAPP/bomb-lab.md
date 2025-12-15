@@ -654,5 +654,157 @@ finish                  # 執行完當前函數返回上一層
 - 如何通過返回值編碼不同的路徑
 - 為什麼某些看似合理的輸入會失敗（不在二分搜尋的「自然路徑」上）
 
+## :whale: Phase 5
+
+```bash
+(gdb) break phase_5
+Breakpoint 1 at 0x401062
+(gdb) run solution.txt 
+Starting program: /home/nvidia/Desktop/bomb/bomb solution.txt
+Welcome to my fiendish little bomb. You have 6 phases with
+which to blow yourself up. Have a nice day!
+Phase 1 defused. How about the next one?
+That's number 2.  Keep going!
+Halfway there!
+So you got that one.  Try this one.
+
+Breakpoint 1, 0x0000000000401062 in phase_5 ()
+(gdb) disassemble
+Dump of assembler code for function phase_5:
+=> 0x0000000000401062 <+0>:	push   %rbx
+   0x0000000000401063 <+1>:	sub    $0x20,%rsp
+   0x0000000000401067 <+5>:	mov    %rdi,%rbx
+   0x000000000040106a <+8>:	mov    %fs:0x28,%rax
+   0x0000000000401073 <+17>:	mov    %rax,0x18(%rsp)
+   0x0000000000401078 <+22>:	xor    %eax,%eax
+   0x000000000040107a <+24>:	callq  0x40131b <string_length>
+   0x000000000040107f <+29>:	cmp    $0x6,%eax
+   0x0000000000401082 <+32>:	je     0x4010d2 <phase_5+112>
+   0x0000000000401084 <+34>:	callq  0x40143a <explode_bomb>
+   0x0000000000401089 <+39>:	jmp    0x4010d2 <phase_5+112>
+   0x000000000040108b <+41>:	movzbl (%rbx,%rax,1),%ecx
+   0x000000000040108f <+45>:	mov    %cl,(%rsp)
+   0x0000000000401092 <+48>:	mov    (%rsp),%rdx
+   0x0000000000401096 <+52>:	and    $0xf,%edx
+   0x0000000000401099 <+55>:	movzbl 0x4024b0(%rdx),%edx
+   0x00000000004010a0 <+62>:	mov    %dl,0x10(%rsp,%rax,1)
+   0x00000000004010a4 <+66>:	add    $0x1,%rax
+   0x00000000004010a8 <+70>:	cmp    $0x6,%rax
+   0x00000000004010ac <+74>:	jne    0x40108b <phase_5+41>
+   0x00000000004010ae <+76>:	movb   $0x0,0x16(%rsp)
+   0x00000000004010b3 <+81>:	mov    $0x40245e,%esi
+   0x00000000004010b8 <+86>:	lea    0x10(%rsp),%rdi
+   0x00000000004010bd <+91>:	callq  0x401338 <strings_not_equal>
+   0x00000000004010c2 <+96>:	test   %eax,%eax
+   0x00000000004010c4 <+98>:	je     0x4010d9 <phase_5+119>
+   0x00000000004010c6 <+100>:	callq  0x40143a <explode_bomb>
+   0x00000000004010cb <+105>:	nopl   0x0(%rax,%rax,1)
+   0x00000000004010d0 <+110>:	jmp    0x4010d9 <phase_5+119>
+   0x00000000004010d2 <+112>:	mov    $0x0,%eax
+   0x00000000004010d7 <+117>:	jmp    0x40108b <phase_5+41>
+   0x00000000004010d9 <+119>:	mov    0x18(%rsp),%rax
+   0x00000000004010de <+124>:	xor    %fs:0x28,%rax
+   0x00000000004010e7 <+133>:	je     0x4010ee <phase_5+140>
+   0x00000000004010e9 <+135>:	callq  0x400b30 <__stack_chk_fail@plt>
+   0x00000000004010ee <+140>:	add    $0x20,%rsp
+   0x00000000004010f2 <+144>:	pop    %rbx
+   0x00000000004010f3 <+145>:	retq   
+End of assembler dump.
+```
+
+### :crab: 解題邏輯
+輸入 6 個字元 → 每個字元取低 4 bits 當索引 → 查表轉換 → 必須變成 "flyers"
+
+### :crab: 關鍵指令解析
+
+**1. 長度檢查 (+24 ~ +34)**
+```asm
+callq  0x40131b <string_length>
+cmp    $0x6,%eax
+je     0x4010d2 <phase_5+112>
+callq  0x40143a <explode_bomb>
+```
+- 輸入必須是 6 個字元
+
+**2. 初始化 loop counter (+112)**
+```asm
+mov    $0x0,%eax
+jmp    0x40108b <phase_5+41>
+```
+- `%eax` = 0（迴圈計數器）
+
+**3. 核心轉換迴圈 (+41 ~ +74)**
+```asm
+movzbl (%rbx,%rax,1),%ecx      # 讀取輸入字串第 i 個字元
+mov    %cl,(%rsp)              # 暫存到 stack
+mov    (%rsp),%rdx             # 讀回到 %rdx
+and    $0xf,%edx               # 取低 4 bits (0-15)
+movzbl 0x4024b0(%rdx),%edx     # 查表！key instruction
+mov    %dl,0x10(%rsp,%rax,1)   # 存結果到 stack offset 0x10
+add    $0x1,%rax               # i++
+cmp    $0x6,%rax               # 迴圈 6 次
+jne    0x40108b <phase_5+41>
+```
+
+**關鍵概念：**
+- `and $0xf, %edx`：只保留字元的低 4 bits
+- `0x4024b0(%rdx)`：base + index 定址，從查表陣列取字元
+- 轉換後的字串存在 `%rsp + 0x10`
+
+**4. 字串比較 (+76 ~ +100)**
+```asm
+movb   $0x0,0x16(%rsp)         # 加 null terminator
+mov    $0x40245e,%esi          # "flyers" 字串位址
+lea    0x10(%rsp),%rdi         # 轉換後的字串
+callq  0x401338 <strings_not_equal>
+test   %eax,%eax
+je     0x4010d9 <phase_5+119>  # 相等就通過
+callq  0x40143a <explode_bomb>
+```
+
+### :crab: 解題步驟
+
+**1. 查看查表陣列**
+```gdb
+(gdb) x/s 0x4024b0
+```
+找出索引 0-15 對應的字元
+
+**2. 反推輸入**
+- 目標：'f', 'l', 'y', 'e', 'r', 's'
+- 找出查表陣列中這些字母的索引位置
+- 找任意 ASCII 字元，其低 4 bits 等於這些索引
+
+**3. 驗證**
+```gdb
+(gdb) break *0x4010bd
+(gdb) x/s $rdi              # 檢查轉換結果
+(gdb) x/s 0x40245e          # 確認目標是 "flyers"
+```
+
+### :crab: 新學到的指令
+
+- **`movzbl src, dst`**：move zero-extend byte to long
+  - 讀 1 byte，放進 32-bit 暫存器，高位補 0
+  
+- **`and $0xf, %reg`**：bit masking
+  - 取最低 4 bits（範圍 0-15）
+  
+- **`addr(%base, %index, scale)`**：陣列定址
+  - 計算：base + index × scale
+  - 例：`0x4024b0(%rdx)` = 0x4024b0 + %rdx
+
+### :crab: Stack Canary (+8, +119 ~ +135)
+```asm
+mov    %fs:0x28,%rax           # 讀 canary
+mov    %rax,0x18(%rsp)         # 存到 stack
+...
+xor    %fs:0x28,%rax           # 檢查是否被改
+je     0x4010ee                # 沒變就 OK
+callq  0x400b30 <__stack_chk_fail@plt>
+```
+- 防止 buffer overflow 的保護機制
+- 解題時可忽略
+
 ## :whale: x86-64 assembly cheat sheet
 - https://web.stanford.edu/class/cs107/resources/x86-64-reference.pdf
