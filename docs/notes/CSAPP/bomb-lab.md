@@ -794,17 +794,542 @@ callq  0x40143a <explode_bomb>
   - 計算：base + index × scale
   - 例：`0x4024b0(%rdx)` = 0x4024b0 + %rdx
 
-### :crab: Stack Canary (+8, +119 ~ +135)
+## :whale: Phase 6
+
+```bash
+Breakpoint 1, 0x00000000004010f4 in phase_6 ()
+(gdb) disassemble
+Dump of assembler code for function phase_6:
+=> 0x00000000004010f4 <+0>:	push   %r14
+   0x00000000004010f6 <+2>:	push   %r13
+   0x00000000004010f8 <+4>:	push   %r12
+   0x00000000004010fa <+6>:	push   %rbp
+   0x00000000004010fb <+7>:	push   %rbx
+   0x00000000004010fc <+8>:	sub    $0x50,%rsp
+   0x0000000000401100 <+12>:	mov    %rsp,%r13
+   0x0000000000401103 <+15>:	mov    %rsp,%rsi
+   0x0000000000401106 <+18>:	call   0x40145c <read_six_numbers>
+   0x000000000040110b <+23>:	mov    %rsp,%r14
+   0x000000000040110e <+26>:	mov    $0x0,%r12d
+   0x0000000000401114 <+32>:	mov    %r13,%rbp
+   0x0000000000401117 <+35>:	mov    0x0(%r13),%eax
+   0x000000000040111b <+39>:	sub    $0x1,%eax
+   0x000000000040111e <+42>:	cmp    $0x5,%eax
+   0x0000000000401121 <+45>:	jbe    0x401128 <phase_6+52>
+   0x0000000000401123 <+47>:	call   0x40143a <explode_bomb>
+   0x0000000000401128 <+52>:	add    $0x1,%r12d
+   0x000000000040112c <+56>:	cmp    $0x6,%r12d
+   0x0000000000401130 <+60>:	je     0x401153 <phase_6+95>
+   0x0000000000401132 <+62>:	mov    %r12d,%ebx
+   0x0000000000401135 <+65>:	movslq %ebx,%rax
+   0x0000000000401138 <+68>:	mov    (%rsp,%rax,4),%eax
+   0x000000000040113b <+71>:	cmp    %eax,0x0(%rbp)
+   0x000000000040113e <+74>:	jne    0x401145 <phase_6+81>
+   0x0000000000401140 <+76>:	call   0x40143a <explode_bomb>
+   0x0000000000401145 <+81>:	add    $0x1,%ebx
+   0x0000000000401148 <+84>:	cmp    $0x5,%ebx
+   0x000000000040114b <+87>:	jle    0x401135 <phase_6+65>
+   0x000000000040114d <+89>:	add    $0x4,%r13
+   0x0000000000401151 <+93>:	jmp    0x401114 <phase_6+32>
+   0x0000000000401153 <+95>:	lea    0x18(%rsp),%rsi
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x0000000000401158 <+100>:	mov    %r14,%rax
+   0x000000000040115b <+103>:	mov    $0x7,%ecx
+   0x0000000000401160 <+108>:	mov    %ecx,%edx
+   0x0000000000401162 <+110>:	sub    (%rax),%edx
+   0x0000000000401164 <+112>:	mov    %edx,(%rax)
+   0x0000000000401166 <+114>:	add    $0x4,%rax
+   0x000000000040116a <+118>:	cmp    %rsi,%rax
+   0x000000000040116d <+121>:	jne    0x401160 <phase_6+108>
+
+   0x000000000040116f <+123>:	mov    $0x0,%esi
+   0x0000000000401174 <+128>:	jmp    0x401197 <phase_6+163>
+   0x0000000000401176 <+130>:	mov    0x8(%rdx),%rdx
+   0x000000000040117a <+134>:	add    $0x1,%eax
+   0x000000000040117d <+137>:	cmp    %ecx,%eax
+   0x000000000040117f <+139>:	jne    0x401176 <phase_6+130>
+   0x0000000000401181 <+141>:	jmp    0x401188 <phase_6+148>
+   0x0000000000401183 <+143>:	mov    $0x6032d0,%edx
+   0x0000000000401188 <+148>:	mov    %rdx,0x20(%rsp,%rsi,2)
+   0x000000000040118d <+153>:	add    $0x4,%rsi
+   0x0000000000401191 <+157>:	cmp    $0x18,%rsi
+   0x0000000000401195 <+161>:	je     0x4011ab <phase_6+183>
+   0x0000000000401197 <+163>:	mov    (%rsp,%rsi,1),%ecx
+   0x000000000040119a <+166>:	cmp    $0x1,%ecx
+   0x000000000040119d <+169>:	jle    0x401183 <phase_6+143>
+   0x000000000040119f <+171>:	mov    $0x1,%eax
+   0x00000000004011a4 <+176>:	mov    $0x6032d0,%edx
+   0x00000000004011a9 <+181>:	jmp    0x401176 <phase_6+130>
+
+   0x00000000004011ab <+183>:	mov    0x20(%rsp),%rbx
+   0x00000000004011b0 <+188>:	lea    0x28(%rsp),%rax
+   0x00000000004011b5 <+193>:	lea    0x50(%rsp),%rsi
+   0x00000000004011ba <+198>:	mov    %rbx,%rcx
+   0x00000000004011bd <+201>:	mov    (%rax),%rdx
+   0x00000000004011c0 <+204>:	mov    %rdx,0x8(%rcx)
+   0x00000000004011c4 <+208>:	add    $0x8,%rax
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x00000000004011c8 <+212>:	cmp    %rsi,%rax
+   0x00000000004011cb <+215>:	je     0x4011d2 <phase_6+222>
+   0x00000000004011cd <+217>:	mov    %rdx,%rcx
+   0x00000000004011d0 <+220>:	jmp    0x4011bd <phase_6+201>
+   0x00000000004011d2 <+222>:	movq   $0x0,0x8(%rdx)
+   0x00000000004011da <+230>:	mov    $0x5,%ebp
+   0x00000000004011df <+235>:	mov    0x8(%rbx),%rax
+   0x00000000004011e3 <+239>:	mov    (%rax),%eax
+   0x00000000004011e5 <+241>:	cmp    %eax,(%rbx)
+   0x00000000004011e7 <+243>:	jge    0x4011ee <phase_6+250>
+   0x00000000004011e9 <+245>:	call   0x40143a <explode_bomb>
+   0x00000000004011ee <+250>:	mov    0x8(%rbx),%rbx
+   0x00000000004011f2 <+254>:	sub    $0x1,%ebp
+   0x00000000004011f5 <+257>:	jne    0x4011df <phase_6+235>
+   0x00000000004011f7 <+259>:	add    $0x50,%rsp
+   0x00000000004011fb <+263>:	pop    %rbx
+   0x00000000004011fc <+264>:	pop    %rbp
+   0x00000000004011fd <+265>:	pop    %r12
+   0x00000000004011ff <+267>:	pop    %r13
+   0x0000000000401201 <+269>:	pop    %r14
+   0x0000000000401203 <+271>:	ret
+End of assembler dump.
+```
+
+### :crab: 解題邏輯
+輸入 6 個數字（1-6 且不重複）→ 轉換成 `7-x` → 根據轉換值選擇對應的 node(指標陣列) → 重排 linked list → 檢查 node 的值是否遞減
+
+### :crab: 完整 Assembly Code 分析
+
+#### 第一段：函數初始化 (+0 ~ +18)
+```asm
+push   %r14
+push   %r13
+push   %r12
+push   %rbp
+push   %rbx
+sub    $0x50,%rsp              # 分配 80 bytes stack 空間
+mov    %rsp,%r13               # r13 = stack 起始位址
+mov    %rsp,%rsi               # rsi = 第二個參數（輸出陣列位址）
+call   0x40145c <read_six_numbers>
+```
+
+關鍵概念：
+- 保存 callee-saved registers
+- `read_six_numbers(input_string, output_array)`
+  - 第一個參數 `%rdi`：輸入字串（在進入 phase_6 前已設定）
+  - 第二個參數 `%rsi`：目的地陣列位址（stack）
+  - 函數內部用 `sscanf` 解析，將 6 個整數寫入 `%rsi` 指向的位置
+
+#### 第二段：檢查數字範圍與唯一性 (+23 ~ +93)
+
+外層迴圈：檢查每個數字是否在 1-6 範圍內 (+32 ~ +60)
+```asm
+mov    %rsp,%r14               # r14 = 陣列起始位址（備份）
+mov    $0x0,%r12d              # r12d = 外層迴圈計數器 i = 0
+mov    %r13,%rbp               # rbp = 當前元素位址
+
+# Loop 1 開始:
+mov    0x0(%r13),%eax          # eax = array[i]
+sub    $0x1,%eax               # eax = array[i] - 1
+cmp    $0x5,%eax               # 檢查 (array[i] - 1) <= 5
+jbe    0x401128                # 通過（即 1 <= array[i] <= 6）
+call   explode_bomb            # 否則爆炸
+
+add    $0x1,%r12d              # i++
+cmp    $0x6,%r12d              # i == 6?
+je     0x401153                # 是，跳到下一段
+```
+
+內層迴圈：檢查數字不重複 (+62 ~ +93)
+```asm
+mov    %r12d,%ebx              # ebx = i + 1（從下一個開始比較）
+movslq %ebx,%rax               # rax = ebx（符號擴展到 64-bit）
+mov    (%rsp,%rax,4),%eax      # eax = array[j]（第 j 個元素）
+cmp    %eax,0x0(%rbp)          # 比較 array[i] == array[j]?
+jne    0x401145                # 不相等，繼續
+call   explode_bomb            # 相等，爆炸（重複了）
+
+add    $0x1,%ebx               # j++
+cmp    $0x5,%ebx               # j <= 5?
+jle    0x401135                # 繼續內層迴圈
+
+add    $0x4,%r13               # r13 += 4（移到下一個元素）
+jmp    0x401114                # 回到外層迴圈
+```
+
+等價 C 程式碼：
+```c
+// 外層迴圈：檢查範圍
+for (i = 0; i < 6; i++) {
+    if (array[i] < 1 || array[i] > 6) {
+        explode_bomb();
+    }
+    
+    // 內層迴圈：檢查不重複
+    for (j = i + 1; j <= 5; j++) {
+        if (array[i] == array[j]) {
+            explode_bomb();
+        }
+    }
+}
+```
+
+關鍵指令解析：
+- `(%rsp,%rax,4)`：陣列定址 = `rsp + rax × 4`（因為 int 是 4 bytes）
+- `0x0(%rbp)`：當前比較的基準元素
+- `movslq`：move with sign-extension long to quad（帶符號擴展）
+
+#### 第三段：轉換成 7-x (+95 ~ +121)
+```asm
+lea    0x18(%rsp),%rsi         # rsi = 陣列結尾位址（rsp + 24）
+mov    %r14,%rax               # rax = 陣列起始位址
+
+# Loop:
+mov    $0x7,%ecx               # ecx = 7
+mov    %ecx,%edx               # edx = 7
+sub    (%rax),%edx             # edx = 7 - array[i]
+mov    %edx,(%rax)             # array[i] = 7 - array[i]
+add    $0x4,%rax               # 移到下一個元素
+cmp    %rsi,%rax               # 處理完 6 個了嗎？
+jne    0x401160                # 繼續迴圈
+```
+
+為什麼是 `0x18`？
+- 6 個 int × 4 bytes = 24 (0x18) bytes
+- `%rsp + 0x18` 是陣列的結束位置（下一個位址）
+
+#### 第四段：根據轉換值找對應的 Node (+123 ~ +161)
+
+Stack 記憶體佈局：
+```
+%rsp + 0x00: [輸入陣列]  int[6]，每個 4 bytes，共 24 bytes
+%rsp + 0x20: [Node 指標陣列] ptr[6]，每個 8 bytes，共 48 bytes
+%rsp + 0x50: 指標陣列結尾
+```
+
+迴圈初始化 (+123):
+```asm
+mov    $0x0,%esi               # esi = 0（陣列索引）
+jmp    0x401197
+```
+
+主要邏輯 (+163 ~ +161):
+```asm
+# 讀取轉換後的數字
+mov    (%rsp,%rsi,1),%ecx      # ecx = array[i]（7-x 的值）
+cmp    $0x1,%ecx               # ecx <= 1?
+jle    0x401183                # 是，直接用 node1
+
+# ecx > 1，需要走 linked list
+mov    $0x1,%eax               # eax = 1（counter：目前在第幾個 node）
+mov    $0x6032d0,%edx          # edx = node1 位址
+jmp    0x401176
+
+# 走訪 linked list (+130 ~ +139)
+mov    0x8(%rdx),%rdx          # rdx = rdx->next
+add    $0x1,%eax               # counter++
+cmp    %ecx,%eax               # counter == ecx?
+jne    0x401176                # 否，繼續走
+jmp    0x401188                # 是，找到了
+
+# 如果 ecx <= 1，直接用 node1 (+143)
+mov    $0x6032d0,%edx          # edx = node1
+
+# 存 node 指標到新陣列 (+148)
+mov    %rdx,0x20(%rsp,%rsi,2)  # node_ptr_array[i] = rdx
+add    $0x4,%rsi               # i += 4（索引遞增）
+cmp    $0x18,%rsi              # i == 24?（處理完 6 個）
+je     0x4011ab                # 是，結束
+jmp    0x401197                # 繼續下一個
+```
+
+關鍵概念：
+
+1. Linked List 結構：
+   ```c
+   struct node {
+       int value;        // offset 0x0
+       struct node *next; // offset 0x8
+   };
+   ```
+
+2. 走訪 Linked List：
+   ```asm
+   mov 0x8(%rdx),%rdx    # rdx = rdx->next
+   ```
+   - 透過 offset `0x8` 讀取 next pointer
+   - 不是連續記憶體，是透過指標跳轉
+
+3. 為什麼 `0x20(%rsp,%rsi,2)` 但 `add $0x4,%rsi`？
+   - 讀輸入：`(%rsp,%rsi,1)` → `rsp + rsi × 1`
+   - 寫指標：`0x20(%rsp,%rsi,2)` → `rsp + 0x20 + rsi × 2`
+   - `%rsi` 每次 +4：
+     - 第 1 次：rsi=0 → 讀 `rsp[0]`，寫 `rsp+0x20[0]`
+     - 第 2 次：rsi=4 → 讀 `rsp[4]`，寫 `rsp+0x20[8]`
+     - 第 3 次：rsi=8 → 讀 `rsp[8]`，寫 `rsp+0x20[16]`
+   - 這樣同時遍歷兩個陣列（輸入陣列 vs 指標陣列）
+
+等價 C 程式碼：
+```c
+node* node_array[6];  // 在 stack offset 0x20
+
+for (i = 0; i < 6; i++) {
+    int steps = array[i];  // 7-x 的值
+    
+    if (steps <= 1) {
+        node_array[i] = node1;
+    } else {
+        node* current = node1;
+        for (j = 1; j < steps; j++) {
+            current = current->next;
+        }
+        node_array[i] = current;
+    }
+}
+```
+
+#### 第五段：重排 Linked List (+183 ~ +222)
+
+初始化 (+183 ~ +193):
+```asm
+mov    0x20(%rsp),%rbx         # rbx = node_array[0]（第一個 node）
+lea    0x28(%rsp),%rax         # rax = &node_array[1]（第二個指標位址）
+lea    0x50(%rsp),%rsi         # rsi = 陣列結尾位址（停止條件）
+```
+
+為什麼結尾是 `0x50`？
+```
+起點：0x20（32）
+6 個指標 × 8 bytes = 48 (0x30)
+結尾：0x20 + 0x30 = 0x50（80）
+
+16 進位加法（不是 10 進位）：
+0x20 → 0x28 → 0x30 → 0x38 → 0x40 → 0x48 → 0x50
+（每次 +8，因為指標是 8 bytes）
+```
+
+串連迴圈 (+198 ~ +220):
+```asm
+mov    %rbx,%rcx               # rcx = 當前 node
+mov    (%rax),%rdx             # rdx = 下一個 node（從陣列讀指標）
+mov    %rdx,0x8(%rcx)          # current->next = next（設定 next pointer）
+add    $0x8,%rax               # rax += 8（移到陣列下一個指標）
+cmp    %rsi,%rax               # 到結尾了嗎？
+je     0x4011d2                # 是，結束
+mov    %rdx,%rcx               # rcx = next（準備下次迴圈）
+jmp    0x4011bd                # 繼續
+```
+
+收尾 (+222):
+```asm
+movq   $0x0,0x8(%rdx)          # 最後一個 node->next = NULL
+```
+
+關鍵指令解析：
+- `mov (%rax),%rdx`：間接定址，讀取 `%rax` 指向的記憶體內容
+  - 等同於 C 語言的 `*rax`
+- `mov %rdx,0x8(%rcx)`：設定 next pointer
+  - 等同於 `current->next = next`
+
+#### 第六段：檢查遞減順序 (+230 ~ +257)
+
+```asm
+mov    $0x5,%ebp               # ebp = 5（迴圈 5 次，檢查 5 對相鄰節點）
+
+# Loop:
+mov    0x8(%rbx),%rax          # rax = 下一個 node（rbx->next）
+mov    (%rax),%eax             # eax = 下一個 node 的 value
+cmp    %eax,(%rbx)             # 當前 value >= 下一個 value?
+jge    0x4011ee                # 是，通過
+call   explode_bomb            # 否，爆炸（必須遞減！）
+
+mov    0x8(%rbx),%rbx          # rbx = rbx->next（移到下一個 node）
+sub    $0x1,%ebp               # 計數器--
+jne    0x4011df                # 繼續迴圈
+```
+
+### :crab: 解題步驟
+
+1. 查看 Linked List 的值
+```gdb
+(gdb) x/3xg 0x6032d0    # node1: value 和 next
+(gdb) x/3xg 0x6032e0    # node2
+(gdb) x/3xg 0x6032f0    # node3
+(gdb) x/3xg 0x603300    # node4
+(gdb) x/3xg 0x603310    # node5
+(gdb) x/3xg 0x603320    # node6
+```
+
+範例輸出：
+```
+node1: value = 332 (0x14c), next = 0x6032e0
+node2: value = 168 (0xa8),  next = 0x6032f0
+node3: value = 924 (0x39c), next = 0x603300
+node4: value = 691 (0x2b3), next = 0x603310
+node5: value = 477 (0x1dd), next = 0x603320
+node6: value = 443 (0x1bb), next = 0x000000
+```
+
+2. 找出遞減順序
+```
+值從大到小：924 > 691 > 477 > 443 > 332 > 168
+對應 node：  3     4     5     6     1     2
+```
+
+3. 反推輸入（考慮 7-x 轉換）
+```
+要得到 node3，輸入 7-3 = 4
+要得到 node4，輸入 7-4 = 3
+要得到 node5，輸入 7-5 = 2
+要得到 node6，輸入 7-6 = 1
+要得到 node1，輸入 7-1 = 6
+要得到 node2，輸入 7-2 = 5
+
+答案：4 3 2 1 6 5
+```
+
+4. 驗證
+```gdb
+(gdb) break *0x4011ab    # 重排前
+(gdb) break *0x4011df    # 檢查遞減迴圈
+(gdb) x/6xg 0x20($rsp)   # 檢查指標陣列順序
+(gdb) x/xw $rbx          # 檢查當前 node 的 value
+```
+
+### :crab: 重要概念整理
+
+#### 1. 陣列 vs Linked List 的辨識
+
+陣列特徵：
+```asm
+mov %rdx, 0x20(%rsp,%rsi,2)    # base + index × scale
+add $0x4, %rsi                 # 固定間隔遞增
+```
+- 連續定址：`base + offset`
+- 規律存取
+- 通常在 stack 上
+
+Linked List 特徵：
+```asm
+mov 0x8(%rdx),%rdx             # 透過 next pointer
+```
+- 透過 offset `0x8` 跳轉（next pointer）
+- 不規律位址
+- 通常在靜態記憶體（固定位址如 `0x6032d0`）
+
+#### 2. 間接定址 (Dereference)
+
+```asm
+mov (%rax),%eax
+```
+- 讀取 `%rax` **指向的記憶體內容**
+- 等同於 C 語言的 `*rax`
+
+範例：
+```
+假設 %rax = 0x6032d0
+記憶體 0x6032d0 存的值是 332
+
+mov (%rax),%eax  → %eax = 332
+```
+
+#### 3. 16 進位計算
+
+組語中所有 `0x` 開頭的數字都是 16 進位：
+
+```
+0x20 + 8 = 0x28  （不是 28）
+0x28 + 8 = 0x30  （不是 36）
+0x30 + 8 = 0x38
+...
+```
+
+GDB 小技巧：
+```gdb
+(gdb) p/x 0x28 + 8
+$1 = 0x30
+```
+
+#### 4. Stack Canary（可忽略）
+
 ```asm
 mov    %fs:0x28,%rax           # 讀 canary
 mov    %rax,0x18(%rsp)         # 存到 stack
 ...
-xor    %fs:0x28,%rax           # 檢查是否被改
-je     0x4010ee                # 沒變就 OK
-callq  0x400b30 <__stack_chk_fail@plt>
+xor    %fs:0x28,%rax           # 檢查
+je     正常返回
+call   __stack_chk_fail        # canary 被改 → 爆炸
 ```
-- 防止 buffer overflow 的保護機制
+- 防止 buffer overflow
 - 解題時可忽略
+
+### :crab: GDB 除錯技巧
+
+1. 設定多個 breakpoint 跳過已知段落
+```gdb
+(gdb) break *0x401153    # 轉換 7-x 前
+(gdb) break *0x4011ab    # 重排 linked list 前
+(gdb) break *0x4011df    # 檢查遞減前
+(gdb) continue           # 跳到下個 breakpoint
+```
+
+2. 查看記憶體內容
+```gdb
+(gdb) x/6wd $rsp         # 看輸入陣列（6 個 word，decimal）
+(gdb) x/6xg 0x20($rsp)   # 看指標陣列（6 個 8-byte，hex）
+(gdb) x/3xg 0x6032d0     # 看 node 結構
+```
+
+3. 儲存 breakpoints
+```gdb
+(gdb) save breakpoints phase6.bp
+(gdb) source phase6.bp   # 下次載入
+```
+
+4. 設定 convenience variable
+```gdb
+(gdb) set $node1 = 0x6032d0
+(gdb) x/3xg $node1
+```
+
+### :crab: 新學到的指令
+
+1. `movzbl src, dst`
+   - Move zero-extend byte to long
+   - 讀 1 byte，放進 32-bit 暫存器，高位補 0
+
+2. `movslq src, dst`
+   - Move sign-extend long to quad
+   - 帶符號擴展：32-bit → 64-bit
+
+3. `lea addr, dst`
+   - Load effective address
+   - 計算位址但不讀取記憶體
+   - 常用於指標運算
+
+4. 定址模式：`offset(%base, %index, scale)`
+   - 計算：`base + offset + index × scale`
+   - 範例：
+      - `0x20(%rsp,%rsi,2)` = `rsp + 0x20 + rsi × 2`
+      - `(%rsp,%rax,4)` = `rsp + rax × 4`
+
+### :crab: 小結
+
+Phase 6 的難點：
+1. 程式碼很長（~110 行）
+2. 多層迴圈嵌套
+3. 需要理解 linked list 資料結構
+4. 涉及指標操作和間接定址
+5. 需要逆向推理（從結果反推輸入）
+
+解題關鍵：
+1. 分段理解：不要一次看完，標記每段功能
+2. 追蹤暫存器：了解每個暫存器的用途
+3. 善用 GDB：實際執行比光看程式碼更清楚
+4. 畫圖輔助：畫出 linked list 結構和轉換過程
+5. 耐心除錯：慢慢追蹤，一步步驗證
 
 ## :whale: x86-64 assembly cheat sheet
 - https://web.stanford.edu/class/cs107/resources/x86-64-reference.pdf
+
+:::tip
+本筆記經與 Claude (Anthropic) 討論整理而成，包含組語指令解析、GDB 操作技巧與除錯思路。
+:::
