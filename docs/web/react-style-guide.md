@@ -1,5 +1,5 @@
 ---
-title: React
+title: React Style Guide
 date: 2023-05-06
 ---
 

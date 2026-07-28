@@ -1,5 +1,5 @@
 ---
-title: Bomb Lab 解題筆記
+title: ［CSAPP］Bomb Lab 解題筆記
 date: 2025-12-10
 ---
 

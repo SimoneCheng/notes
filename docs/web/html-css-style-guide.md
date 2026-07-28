@@ -1,5 +1,5 @@
 ---
-title: HTML and CSS
+title: HTML and CSS Style Guide
 date: 2023-05-29
 ---
 

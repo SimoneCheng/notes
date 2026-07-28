@@ -1,67 +1,56 @@
 import React from 'react';
-import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: JSX.Element;
+  description: string;
+  link: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
+    title: 'Web',
+    description: 'HTML、JavaScript、React、瀏覽器與 Web 平台相關筆記。',
+    link: '/docs/web/web-resources',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
+    title: 'Compiler & Runtime',
+    description: 'Compiler IR、JavaScript engine、bytecode 與 runtime。',
+    link: '/docs/compiler-runtime/sea-of-nodes',
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    title: 'Systems',
+    description: 'CSAPP、Linux、Container 與 Database 等系統主題。',
+    link: '/docs/systems/csapp-bomb-lab',
+  },
+  {
+    title: 'CS Fundamentals',
+    description: '資料結構、Git、協作方式與 Computer Science 學習資源。',
+    link: '/docs/fundamentals/learning-resources',
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, description, link}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
+    <div className="col col--6">
+      <Link className={styles.card} to={link}>
+        <Heading as="h2">{title}</Heading>
         <p>{description}</p>
-      </div>
+        <span className={styles.cardLink}>閱讀筆記 →</span>
+      </Link>
     </div>
   );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures(): React.ReactElement {
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {FeatureList.map((props) => (
+            <Feature key={props.title} {...props} />
           ))}
         </div>
       </div>

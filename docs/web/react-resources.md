@@ -1,5 +1,5 @@
 ---
-title: React
+title: React Resources
 date: 2022-11-03
 ---
 

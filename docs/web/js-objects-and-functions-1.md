@@ -39,13 +39,13 @@ console.log(spanish.greet);
 
 一個 object 裡面的所有 property 會被存在各個記憶體位址，然後 object 所在的記憶體位址則會記得指向其他 property 被保存的記憶體位址。如下圖所示：
 
-![](./images/object.png)
+![](./images/js-object.png)
 
 ## 🐳 Funtcions are Objects
 
 在 JavaScript 當中 function 就是 object 的一種，所以 function 擁有所有 object 的特性，但同時 function 也有一些自己的特點，例如： function 可以是匿名的，而且 function 有一段自己的 code（可以理解為 function 的其中一個 property 是 code），並且可以透過呼叫 `()` 來執行。如下圖所示：
 
-![](./images/function.png)
+![](./images/js-function.png)
 
 所以其實這樣寫也是行得通的，因為 function 就是 object：
 ```javascript
@@ -123,7 +123,7 @@ b = a;
 ```
 
 如果 a 這個變數的值是一個 primitive type（例如數字、字串、布林值等等）的話，當我們將 a 賦值給 b 的時候，其實是會將 a 的值複製出一個新的，然後將它儲存在另外一個新的記憶體區塊，再把新的記憶體區塊 reference 到 b，如下圖所示：
-![](images/byvalue.png)
+![](images/js-byvalue.png)
 
 ### 🦀 By Reference
 
@@ -141,7 +141,7 @@ console.log(a.firstName); // a.firstName 會印出什麼？
 
 為什麼會發生上述這件事呢？是因為當資料型態是 reference type (object, array...) 的時候，JavaScript 是透過 **by reference** 去傳遞參數的，也就是如下圖所示：
 
-![](images/byreference.png)
+![](images/js-byreference.png)
 
 其實 a 和 b 這兩個變數都指向同一個記憶體區塊（也就是 object 的所在位置），所以不管是透過 a 或 b 來修改 object，都是修改到同樣的東西。
 

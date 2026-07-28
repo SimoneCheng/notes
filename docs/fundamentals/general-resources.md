@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
 hide_table_of_contents: true
-title: 首頁
+title: General Resources
 ---
 
-希望可以整理一些目前所學的相關 conference 資源或是任何網路自學資源。
+整理目前所學的相關 conference 資源或是任何網路自學資源。
 
 尚未分類 ⬇️
 ## 🐳 Conference

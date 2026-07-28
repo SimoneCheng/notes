@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Front-End
+title: Front-End Resources
 date: 2022-12-03
 ---
 

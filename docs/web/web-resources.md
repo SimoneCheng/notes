@@ -1,5 +1,5 @@
 ---
-title: Web
+title: Web Resources
 date: 2023-07-28
 ---
 

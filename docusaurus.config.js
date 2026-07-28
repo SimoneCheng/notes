@@ -3,7 +3,9 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+// @ts-expect-error Docusaurus loads this ESM plugin correctly at build time.
 const math = require('remark-math');
+// @ts-expect-error Docusaurus loads this ESM plugin correctly at build time.
 const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
@@ -43,13 +45,7 @@ const config = {
           remarkPlugins: [math],
           rehypePlugins: [[katex, { strict: false }]],
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/SimoneCheng/notes/tree/main',
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -102,17 +98,28 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'notes',
+            sidebarId: 'web',
             position: 'left',
-            label: 'Notes',
+            label: 'Web',
           },
           {
             type: 'docSidebar',
-            sidebarId: 'collection',
+            sidebarId: 'compilerRuntime',
             position: 'left',
-            label: 'Collection',
+            label: 'Compiler & Runtime',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'docSidebar',
+            sidebarId: 'systems',
+            position: 'left',
+            label: 'Systems',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'fundamentals',
+            position: 'left',
+            label: 'CS Fundamentals',
+          },
           {
             href: 'https://github.com/SimoneCheng/notes',
             label: 'GitHub',

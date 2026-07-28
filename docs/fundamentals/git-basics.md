@@ -98,7 +98,7 @@ git cat-file -p 547fe9
 ### 🦀 Working Directory 和 Staging Area
 git 的工作區大致上可以分成三種不同的類型來理解，分別是 Working Directory、Staging Area、git repository。如下圖所示：
 
-![](images/gitWorkspace.png)
+![](images/git-workspace.png)
 
 在檔案尚未被 git 追蹤的時候，會停留在 Working Directory，任何需要被 git 控管的檔案都需要使用 `git add [file]` 這個指令，來將檔案加入到 Staging Area，最後透過撰寫 commit 存到 git repository 裡面。
 
@@ -117,7 +117,7 @@ git ls-files -s // 顯示檔名、該檔案的權限、文件內容
 
 生成一個 commit 之後，git 也會透過 SHA1 算法為每個 commit 算出一組編碼，這時候我們也可以運用上面提到的 `git cat-file` 指令去觀察 commit 的類型和內容。透過該指令我們可以知道 commit 的類型是 commit，而內容則是 tree 和作者資訊，如下圖範例：
 
-![](images/commitStructure.png)
+![](images/git-commit-structure.png)
 
 tree 當中會儲存前面提到的 blob object，也就是說，tree 裡面存的是目前這個 commit 有修改到的所有檔案。再者，如果這個 commit 是接在另一個 commit 後面的話，除了 tree 之外，則會額外再多看到一個 parent，這個 parent 標示著這個 commit 是接在某個特定的 commit 之後。
 
@@ -138,7 +138,7 @@ cat .git/HEAD
 
 這樣子不斷指向的過程便會形成一個 commit history tree（如下圖），而我們也可以知道，這樣的結構就是 git 的版本概念。
 
-![](images/commitHistoryTree.png)
+![](images/git-commit-history-tree.png)
 
 ## 🐳 Branch 和 HEAD
 
@@ -197,7 +197,7 @@ cat .git/HEAD
 
 假設目前有兩個分支，分別是 mater 和 bugfix。bugfix 是基於 master 最新的 commit 所創建的另外一個分支，我們在 bugfix 上新增了一個 commit。此時整個 branch 和 commit 的結構大致上如下圖所示：
 
-![](images/fastForwardMerge.png)
+![](images/git-fast-forward-merge.png)
 
 在這樣的結構之下進行 git merge 的話，master branch 的指針會向右移動，會與 bugfix 位於同一個 commit，稱之為 fast forward merge。
 
@@ -213,11 +213,11 @@ cat .git/HEAD
 
 如下圖所示（bugfix 分支落後 master 分支一次 commit）：
 
-![](images/3WayMerge-1.png)
+![](images/git-3-way-merge-1.png)
 
 這個情況下，如果進行 merge 而且沒有衝突的話，會自動生成一個新的 commit，這個新的 commit 會同時指向兩個分支的上一個 commit，如下圖：
 
-![](images/3WayMerge-2.png)
+![](images/git-3-way-merge-2.png)
 
 如果用一些 git GUI 工具的話，應該可以看到 branch 的分支圖。當如果一個 repo 很大的時候，有很多 3 way merge 的話，分支圖就會盤根錯節（很醜 👾），這種時候就是 `git rebase` 出場的時機了（稍後會寫到）！
 
