@@ -4,6 +4,8 @@ title: Objects and Functions - Part 2
 date: 2022-12-02
 ---
 
+此篇是記錄 Udemy 上面的課程 [JavaScript: Understanding the Weird Parts](https://www.udemy.com/course/understand-javascript) 的筆記。
+
 ## 🐳 Concept Asides 名詞解釋
 
 ### 🦀 Function Overloading

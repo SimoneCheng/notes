@@ -4,6 +4,8 @@ title: Execution Contexts & Lexical Environments
 date: 2022-03-11
 ---
 
+此篇是記錄 Udemy 上面的課程 [JavaScript: Understanding the Weird Parts](https://www.udemy.com/course/understand-javascript) 的筆記。
+
 ## 🐳 Concept Asides 名詞解釋
 
 ### 🦀 Syntax Parser 語意分析
