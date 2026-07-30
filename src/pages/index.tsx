@@ -15,10 +15,10 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+          TODO: - [ ] Fill all the holes
         </Heading>
         <p className="hero__subtitle">
-          整理 Web、Compiler、Systems 與 Computer Science 的學習軌跡
+          這裡收集的是我挖了還沒填的技術坑。
         </p>
         <div className={styles.buttons}>
           <Link
@@ -44,10 +44,11 @@ export default function Home(): React.ReactElement {
         <HomepageFeatures />
         <section className={styles.about}>
           <div className="container">
-            <Heading as="h2">關於這些筆記</Heading>
+            <Heading as="h3">關於這些筆記</Heading>
             <p>
-              這裡記錄目前正在學習的技術主題，也收集值得回頭閱讀的文章與資源。
-              內容會持續更新，有些篇章也可能仍在整理中。
+              這裡放著我最近正在挖的技術坑，也收集一路上遇到的文章、Talk 與其他值得回頭看的資源。<br></br>
+              有些內容還只是草稿，有些可能永遠填不完，但至少先記下來。<br></br>
+              如果剛好對你也有幫助，那就太好了。
             </p>
           </div>
         </section>
