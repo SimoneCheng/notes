@@ -1,12 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-// @ts-expect-error Docusaurus loads this ESM plugin correctly at build time.
-const math = require('remark-math');
-// @ts-expect-error Docusaurus loads this ESM plugin correctly at build time.
-const katex = require('rehype-katex');
+import math from 'remark-math';
+import katex from 'rehype-katex';
+
+const {themes} = require('prism-react-renderer');
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -16,7 +16,6 @@ const config = {
   baseUrl: '/notes/',
   trailingSlash: false,
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/dovefavicon.png',
 
   // GitHub pages deployment config.
@@ -76,6 +75,10 @@ const config = {
   ],
 
   markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownImages: 'warn',
+    },
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
