@@ -42,6 +42,7 @@ const sidebars = {
   compilerRuntime: [
     'compiler-runtime/sea-of-nodes',
     'compiler-runtime/v8-ignition',
+    'compiler-runtime/v8-turbofan',
   ],
   systems: [
     'systems/csapp-bomb-lab',
